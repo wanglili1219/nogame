@@ -4,6 +4,13 @@ package com.ease.nogame.gameserver;
 import java.net.InetSocketAddress;
 import java.nio.ByteOrder;
 
+
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -17,9 +24,7 @@ import io.netty.handler.codec.LengthFieldPrepender;
 import io.netty.handler.codec.protobuf.ProtobufDecoder;
 import io.netty.handler.codec.protobuf.ProtobufEncoder;
 
-import net.sf.json.JSONObject;
-import net.sf.json.JSONSerializer;
-
+import com.ease.nogame.domain.Customer;
 import com.ease.nogame.protobuf.PBApp;
 
 public class App 
@@ -61,12 +66,30 @@ public class App
 	
     public static void main( String[] args )
     {
-        try {
-        	MessageDispatcher.init(); 
-            GameServer es = new GameServer();
-            es.start();
-   	    } catch (InterruptedException e) {
+    	try {
+            SessionFactory sf = new Configuration().configure().buildSessionFactory();
+            Session session = sf.openSession();
+            Transaction tx = session.beginTransaction();
+           
+            Customer customer = new Customer();
+            customer.setAccountID(123);
+            customer.setAddress("beijing");
+            session.save(customer);
+
+            tx.commit();
+            session.close();
+
+        } catch (HibernateException e) {
             e.printStackTrace();
-   	    }
+        }
+
+    	return;
+//        try {
+//        	MessageDispatcher.init(); 
+//            GameServer es = new GameServer();
+//            es.start();
+//   	    } catch (InterruptedException e) {
+//            e.printStackTrace();
+//   	    }
     }
 }

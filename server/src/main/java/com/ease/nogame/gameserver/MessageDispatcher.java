@@ -12,7 +12,6 @@ import com.ease.nogame.protobuf.PBApp;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.Message;
-import com.google.protobuf.MessageLite;
 
 
 public class MessageDispatcher {
