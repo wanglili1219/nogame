@@ -1,6 +1,6 @@
 package netty;
 
-option java_package = "com.ease.protobuf";
+option java_package = "com.ease.nogame.protobuf";
 option java_outer_classname = "PBApp";
 
 message MsgDesc {
