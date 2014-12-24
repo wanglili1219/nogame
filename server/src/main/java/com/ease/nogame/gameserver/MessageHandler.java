@@ -1,6 +1,6 @@
-package com.ease.gameserver;
+package com.ease.nogame.gameserver;
 
-import com.ease.protobuf.PBApp;
+import com.ease.nogame.protobuf.PBApp;
 import com.google.protobuf.Message;
 
 import io.netty.channel.ChannelHandlerContext;

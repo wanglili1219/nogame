@@ -1,8 +1,8 @@
-package com.ease.gameserver;
+package com.ease.nogame.gameserver;
 
-import io.netty.channel.ChannelHandlerContext;
-
-import com.ease.protobuf.PBApp;
+import com.ease.nogame.protobuf.PBApp;
+import com.ease.nogame.util.IDGenerator;
+import com.ease.nogame.util.TokenGenerator;
 import com.google.protobuf.Message;
 
 public class LoginHandler extends MessageHandler {
@@ -14,8 +14,8 @@ public class LoginHandler extends MessageHandler {
 		System.out.println(req.getDeviceID());
 
 		PBApp.S2CLogin.Builder respb = PBApp.S2CLogin.newBuilder();
-		respb.setUserId("userid123456");
-		respb.setToken("token123456");
+		respb.setUserId(IDGenerator.generate());
+		respb.setToken(TokenGenerator.getToken());
 		send(respb.build());
 	}
 }

@@ -1,4 +1,4 @@
-package com.ease.gameserver;
+package com.ease.nogame.gameserver;
 
 
 import java.net.InetSocketAddress;
@@ -20,7 +20,7 @@ import io.netty.handler.codec.protobuf.ProtobufEncoder;
 import net.sf.json.JSONObject;
 import net.sf.json.JSONSerializer;
 
-import com.ease.protobuf.PBApp;
+import com.ease.nogame.protobuf.PBApp;
 
 public class App 
 {

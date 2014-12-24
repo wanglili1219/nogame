@@ -13,7 +13,7 @@ from google.protobuf import descriptor_pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='PBApp.proto',
   package='netty',
-  serialized_pb='\n\x0bPBApp.proto\x12\x05netty\",\n\x07MsgDesc\x12\x0f\n\x07msgName\x18\x01 \x02(\t\x12\x10\n\x08msgBytes\x18\x02 \x02(\x0c\"@\n\x08\x43\x32SLogin\x12\x10\n\x08userName\x18\x01 \x02(\t\x12\x10\n\x08password\x18\x02 \x02(\t\x12\x10\n\x08\x64\x65viceID\x18\x03 \x02(\t\")\n\x08S2CLogin\x12\x0e\n\x06userId\x18\x01 \x02(\t\x12\r\n\x05token\x18\x02 \x02(\tB\x1a\n\x11\x63om.ease.protobufB\x05PBApp')
+  serialized_pb='\n\x0bPBApp.proto\x12\x05netty\",\n\x07MsgDesc\x12\x0f\n\x07msgName\x18\x01 \x02(\t\x12\x10\n\x08msgBytes\x18\x02 \x02(\x0c\"@\n\x08\x43\x32SLogin\x12\x10\n\x08userName\x18\x01 \x02(\t\x12\x10\n\x08password\x18\x02 \x02(\t\x12\x10\n\x08\x64\x65viceID\x18\x03 \x02(\t\")\n\x08S2CLogin\x12\x0e\n\x06userId\x18\x01 \x02(\t\x12\r\n\x05token\x18\x02 \x02(\tB!\n\x18\x63om.ease.nogame.protobufB\x05PBApp')
 
 
 
@@ -153,5 +153,5 @@ class S2CLogin(_message.Message):
 
 
 DESCRIPTOR.has_options = True
-DESCRIPTOR._options = _descriptor._ParseOptions(descriptor_pb2.FileOptions(), '\n\021com.ease.protobufB\005PBApp')
+DESCRIPTOR._options = _descriptor._ParseOptions(descriptor_pb2.FileOptions(), '\n\030com.ease.nogame.protobufB\005PBApp')
 # @@protoc_insertion_point(module_scope)

@@ -1,4 +1,4 @@
-package com.ease.gameserver;
+package com.ease.nogame.gameserver;
 
 
 import io.netty.channel.ChannelHandlerContext;
@@ -8,7 +8,7 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.ease.protobuf.PBApp;
+import com.ease.nogame.protobuf.PBApp;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.Message;

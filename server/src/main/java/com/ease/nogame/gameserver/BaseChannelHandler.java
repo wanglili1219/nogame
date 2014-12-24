@@ -1,4 +1,4 @@
-package com.ease.gameserver;
+package com.ease.nogame.gameserver;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
