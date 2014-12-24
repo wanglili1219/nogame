@@ -28,7 +28,7 @@ public class MessageDispatcher {
 		
 		public void handle(ChannelHandlerContext ctx, ByteString bs) throws NoSuchMethodException, SecurityException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 			Method m = cMsg.getMethod("parseFrom", ByteString.class);
-			((MessageHandler)cHandler.newInstance()).handle(ctx, m.invoke(cMsg, bs));
+			((MessageHandler)cHandler.newInstance()).transit(ctx, (Message)m.invoke(cMsg, bs));
 		}
 	}
 	
