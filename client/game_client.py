@@ -4,8 +4,6 @@ import socket
 import string
 import time
 import struct
-import SubscribeReq_pb2
-import SubscribeResp_pb2
 import PBApp_pb2
 
 serverHost = '127.0.0.1'    #default serverHost 
