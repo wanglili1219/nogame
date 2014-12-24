@@ -1,0 +1,20 @@
+package netty;
+
+option java_package = "com.ease.protobuf";
+option java_outer_classname = "PBApp";
+
+message MsgDesc {
+    required string msgName = 1;
+    required bytes msgBytes = 2;
+}
+
+message C2SLogin {
+         required string userName = 1;
+         required string password = 2;
+         required string deviceID = 3;
+}
+
+message S2CLogin {
+        required string userId = 1;
+        required string token = 2;
+}
