@@ -30,7 +30,7 @@
             org.hibernate.dialect.MySQLInnoDBDialect
         </property>
         
-        <mapping resource="Customer.hbm.xml" /> 
+        <mapping resource="com/ease/nogame/domain/Customer.hbm.xml" /> 
         
     </session-factory>
     
