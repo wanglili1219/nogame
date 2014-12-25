@@ -7,30 +7,14 @@
 <hibernate-configuration>
     
     <session-factory>
-        
         <property name="show_sql">true</property>
-        
-        <property name="connection.driver_class">
-            com.mysql.jdbc.Driver
-        </property>
-        
-        <property name="connection.url">
-            jdbc:mysql://127.0.0.1/sss
-        </property>
-        
-        <property name="connection.username">
-            root
-        </property>
-        
-        <property name="connection.password">
-            root
-        </property>
-        
-        <property name="dialect">
-            org.hibernate.dialect.MySQLInnoDBDialect
-        </property>
-        
-        <mapping resource="com/ease/nogame/domain/Customer.hbm.xml" /> 
+        <property name="connection.driver_class"> com.mysql.jdbc.Driver </property>
+        <property name="connection.url"> jdbc:mysql://127.0.0.1/nogame </property>
+        <property name="connection.username"> root </property>
+        <property name="connection.password"> root </property>
+        <property name="dialect"> org.hibernate.dialect.MySQLInnoDBDialect </property>
+		
+        <mapping resource="com/ease/nogame/domain/Account.hbm.xml" /> 
         
     </session-factory>
     

@@ -1,5 +1,7 @@
 package com.ease.nogame.gameserver;
 
+import com.ease.nogame.util.HibernateUtil;
+
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 
@@ -14,6 +16,7 @@ public class BaseChannelHandler extends ChannelInboundHandlerAdapter{
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
         System.out.println("client break connector " + ctx.channel().remoteAddress());
         ctx.fireChannelInactive();
+        HibernateUtil.closeSession();
     }
 	
     @Override
@@ -25,6 +28,7 @@ public class BaseChannelHandler extends ChannelInboundHandlerAdapter{
 	@Override
 	public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
 		cause.printStackTrace();
+		HibernateUtil.closeSession();
 		ctx.close();
 	}
 }
