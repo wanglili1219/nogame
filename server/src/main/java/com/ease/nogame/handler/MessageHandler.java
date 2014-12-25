@@ -1,4 +1,4 @@
-package com.ease.nogame.gameserver;
+package com.ease.nogame.handler;
 
 import com.ease.nogame.protobuf.PBApp;
 import com.google.protobuf.Message;

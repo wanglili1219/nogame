@@ -36,7 +36,6 @@ public class HibernateUtil {
 		}
 		
 		threadSlot.set(null);
-		threadSlot = null;
 	}
 	
 
@@ -46,5 +45,4 @@ public class HibernateUtil {
 		s.save(obj);
 		s.getTransaction().commit();
 	}
-
 }

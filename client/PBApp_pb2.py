@@ -13,7 +13,7 @@ from google.protobuf import descriptor_pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='PBApp.proto',
   package='netty',
-  serialized_pb='\n\x0bPBApp.proto\x12\x05netty\",\n\x07MsgDesc\x12\x0f\n\x07msgName\x18\x01 \x02(\t\x12\x10\n\x08msgBytes\x18\x02 \x02(\x0c\"@\n\x08\x43\x32SLogin\x12\x10\n\x08userName\x18\x01 \x02(\t\x12\x10\n\x08password\x18\x02 \x02(\t\x12\x10\n\x08\x64\x65viceID\x18\x03 \x02(\t\")\n\x08S2CLogin\x12\x0e\n\x06userId\x18\x01 \x02(\t\x12\r\n\x05token\x18\x02 \x02(\tB!\n\x18\x63om.ease.nogame.protobufB\x05PBApp')
+  serialized_pb='\n\x0bPBApp.proto\x12\x05netty\",\n\x07MsgDesc\x12\x0f\n\x07msgName\x18\x01 \x02(\t\x12\x10\n\x08msgBytes\x18\x02 \x02(\x0c\"@\n\x08\x43\x32SLogin\x12\x10\n\x08userName\x18\x01 \x02(\t\x12\x10\n\x08password\x18\x02 \x02(\t\x12\x10\n\x08\x64\x65viceID\x18\x03 \x02(\t\")\n\x08S2CLogin\x12\x0e\n\x06userId\x18\x01 \x02(\t\x12\r\n\x05token\x18\x02 \x02(\t\"\x1d\n\x0b\x43\x32SUserInfo\x12\x0e\n\x06userId\x18\x01 \x02(\t\"/\n\x0bS2CUserInfo\x12\x0e\n\x06userId\x18\x01 \x02(\t\x12\x10\n\x08userName\x18\x02 \x02(\tB!\n\x18\x63om.ease.nogame.protobufB\x05PBApp')
 
 
 
@@ -129,9 +129,74 @@ _S2CLOGIN = _descriptor.Descriptor(
   serialized_end=175,
 )
 
+
+_C2SUSERINFO = _descriptor.Descriptor(
+  name='C2SUserInfo',
+  full_name='netty.C2SUserInfo',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='userId', full_name='netty.C2SUserInfo.userId', index=0,
+      number=1, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=unicode("", "utf-8"),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  serialized_start=177,
+  serialized_end=206,
+)
+
+
+_S2CUSERINFO = _descriptor.Descriptor(
+  name='S2CUserInfo',
+  full_name='netty.S2CUserInfo',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='userId', full_name='netty.S2CUserInfo.userId', index=0,
+      number=1, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=unicode("", "utf-8"),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='userName', full_name='netty.S2CUserInfo.userName', index=1,
+      number=2, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=unicode("", "utf-8"),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  serialized_start=208,
+  serialized_end=255,
+)
+
 DESCRIPTOR.message_types_by_name['MsgDesc'] = _MSGDESC
 DESCRIPTOR.message_types_by_name['C2SLogin'] = _C2SLOGIN
 DESCRIPTOR.message_types_by_name['S2CLogin'] = _S2CLOGIN
+DESCRIPTOR.message_types_by_name['C2SUserInfo'] = _C2SUSERINFO
+DESCRIPTOR.message_types_by_name['S2CUserInfo'] = _S2CUSERINFO
 
 class MsgDesc(_message.Message):
   __metaclass__ = _reflection.GeneratedProtocolMessageType
@@ -150,6 +215,18 @@ class S2CLogin(_message.Message):
   DESCRIPTOR = _S2CLOGIN
 
   # @@protoc_insertion_point(class_scope:netty.S2CLogin)
+
+class C2SUserInfo(_message.Message):
+  __metaclass__ = _reflection.GeneratedProtocolMessageType
+  DESCRIPTOR = _C2SUSERINFO
+
+  # @@protoc_insertion_point(class_scope:netty.C2SUserInfo)
+
+class S2CUserInfo(_message.Message):
+  __metaclass__ = _reflection.GeneratedProtocolMessageType
+  DESCRIPTOR = _S2CUSERINFO
+
+  # @@protoc_insertion_point(class_scope:netty.S2CUserInfo)
 
 
 DESCRIPTOR.has_options = True

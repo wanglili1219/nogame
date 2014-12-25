@@ -3,23 +3,17 @@ package com.ease.nogame.domain;
 import java.util.Date;
 
 public class Account {
-//	| id          | int(11) unsigned | NO   | PRI | NULL              | auto_increment              |
-//| create_time | datetime         | NO   |     | NULL              |                             |
-//| access_time | timestamp        | NO   |     | CURRENT_TIMESTAMP | on update CURRENT_TIMESTAMP |
-//| user_name   | varchar(128)     | NO   |     | NULL              |                             |
-//| password    | varchar(128)     | NO   |     | NULL              |                             |
-	
-	private int id;
+	private String id;
 	private String userName;
 	private String password;
 	private Date createTime;
 	private Date accessTime;
 	
-	public void setId(int id){
+	public void setId(String id){
 		this.id = id;
 	}
 	
-	public int getId(){
+	public String getId(){
 		return this.id;
 	}
 	

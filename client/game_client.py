@@ -34,6 +34,15 @@ def parse_login_response(respByte):
     print(msg.token)
     print("====================")
 
+def gen_userinfo_request():
+    md = PBApp_pb2.MsgDesc()
+    md.msgName = "C2SUserInfo"
+
+    msg = PBApp_pb2.C2SUserInfo()
+    msg.userId = "22015000201"
+    md.msgBytes = msg.SerializeToString()
+    return md.SerializeToString()
+
 try:
     clientSocket = socket .socket(socket.AF_INET, socket.SOCK_STREAM)
 except socket.error, msg:
@@ -44,11 +53,13 @@ clientSocket.connect((serverHost, serverPort))
 
 while True:
     time.sleep(2)
-    sd = gen_login_request()
+    #sd = gen_login_request()
+    sd = gen_userinfo_request()
     fmt = format
     data = struct.pack('>i{0}s'.format(len(sd)), len(sd), sd)
     clientSocket.sendall(data)  
     #clientSocket.sendall(sd)
+    continue
 
     headsize = 4
     headpacket = clientSocket.recv(headsize)

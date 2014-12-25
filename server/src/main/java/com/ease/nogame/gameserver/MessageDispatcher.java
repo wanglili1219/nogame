@@ -8,6 +8,9 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.ease.nogame.handler.LoginHandler;
+import com.ease.nogame.handler.MessageHandler;
+import com.ease.nogame.handler.UserInfoHandler;
 import com.ease.nogame.protobuf.PBApp;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.InvalidProtocolBufferException;
@@ -33,8 +36,9 @@ public class MessageDispatcher {
 	
 	static void init(){
 		handlerMap.put("C2SLogin", new HandlerEntry(PBApp.C2SLogin.class, LoginHandler.class));
+		handlerMap.put("C2SUserInfo", new HandlerEntry(PBApp.C2SUserInfo.class, UserInfoHandler.class));
+
 		//continue...
-		
 	}
 	
 	static void dispatch(ChannelHandlerContext ctx, Object msg) throws ReflectiveOperationException, InvalidProtocolBufferException {
