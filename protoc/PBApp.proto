@@ -15,15 +15,15 @@ message C2SLogin {
 }
 
 message S2CLogin {
-        required string userId = 1;
+        required int64 userId = 1;
         required string token = 2;
 }
 
 message C2SUserInfo {
-        required string userId = 1;
+        required int64 userId = 1;
 }
 
 message S2CUserInfo {
-        required string userId = 1;
+        required int64 userId = 1;
         required string userName = 2;
 }

@@ -14,9 +14,12 @@ public class UserInfoHandler extends MessageHandler {
 		PBApp.C2SUserInfo req = (PBApp.C2SUserInfo)msg;
 		
 		Session s = HibernateUtil.currentSession();
-		Account acc = (Account)s.load(Account.class, req.getUserId());
+		Account acc = (Account)s.get(Account.class, req.getUserId());
 
 		PBApp.S2CUserInfo.Builder resp = PBApp.S2CUserInfo.newBuilder();
+		System.out.println(acc.getId());
+		System.out.println(acc.getUserName());
+		
 		resp.setUserId(acc.getId());
 		resp.setUserName(acc.getUserName());
 

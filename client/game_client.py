@@ -11,6 +11,10 @@ serverPort = 8084           #default serverPort
 filename = 'hello.html'     #default filename
 clientSocket = None
 
+handlerDict = {}
+
+
+
 def gen_login_request():
     md = PBApp_pb2.MsgDesc()
     md.msgName = "C2SLogin"
@@ -23,16 +27,18 @@ def gen_login_request():
     md.msgBytes = msg.SerializeToString()
     return md.SerializeToString()
 
-def parse_login_response(respByte):
+def dispatch_message(respByte):
     md = PBApp_pb2.MsgDesc()
     md.ParseFromString(respByte)
-    print(md.msgName)
 
-    msg = PBApp_pb2.S2CLogin()
-    msg.ParseFromString(md.msgBytes)
-    print(msg.userId)
-    print(msg.token)
-    print("====================")
+    print(md.msgName)
+    handlerDict[md.msgName](md.msgBytes)
+
+    # msg = PBApp_pb2.S2CLogin()
+    # msg.ParseFromString(md.msgBytes)
+    # print(msg.userId)
+    # print(msg.token)
+    # print("====================")
 
 def gen_userinfo_request():
     md = PBApp_pb2.MsgDesc()
@@ -42,6 +48,21 @@ def gen_userinfo_request():
     msg.userId = "22015000201"
     md.msgBytes = msg.SerializeToString()
     return md.SerializeToString()
+
+def handle_login(respByte):
+    msg = PBApp_pb2.S2CLogin()
+    msg.ParseFromString(respByte)
+    print(msg.userId)
+    print(msg.token)
+
+def handle_user_info(respByte):
+    msg = PBApp_pb2.S2CUserInfo()
+    msg.ParseFromString(respByte)
+    print(msg.userId)
+    print(msg.userName)
+
+handlerDict["S2CLogin"] = handle_login
+handlerDict["S2CUserInfo"] = handle_user_info
 
 try:
     clientSocket = socket .socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -53,13 +74,13 @@ clientSocket.connect((serverHost, serverPort))
 
 while True:
     time.sleep(2)
-    #sd = gen_login_request()
-    sd = gen_userinfo_request()
+    sd = gen_login_request()
+    #sd = gen_userinfo_request()
+
     fmt = format
     data = struct.pack('>i{0}s'.format(len(sd)), len(sd), sd)
     clientSocket.sendall(data)  
     #clientSocket.sendall(sd)
-    continue
 
     headsize = 4
     headpacket = clientSocket.recv(headsize)
@@ -69,7 +90,7 @@ while True:
         bodypacket = clientSocket.recv(bodysize[0])
         body = struct.unpack_from("%ds"%(bodysize), bodypacket, 0)
         print  "recv data:"
-        parse_login_response(body[0])
+        dispatch_message(body[0])
  
 #close socket to send eof to server
 clientSocket.close()

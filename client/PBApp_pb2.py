@@ -13,7 +13,7 @@ from google.protobuf import descriptor_pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='PBApp.proto',
   package='netty',
-  serialized_pb='\n\x0bPBApp.proto\x12\x05netty\",\n\x07MsgDesc\x12\x0f\n\x07msgName\x18\x01 \x02(\t\x12\x10\n\x08msgBytes\x18\x02 \x02(\x0c\"@\n\x08\x43\x32SLogin\x12\x10\n\x08userName\x18\x01 \x02(\t\x12\x10\n\x08password\x18\x02 \x02(\t\x12\x10\n\x08\x64\x65viceID\x18\x03 \x02(\t\")\n\x08S2CLogin\x12\x0e\n\x06userId\x18\x01 \x02(\t\x12\r\n\x05token\x18\x02 \x02(\t\"\x1d\n\x0b\x43\x32SUserInfo\x12\x0e\n\x06userId\x18\x01 \x02(\t\"/\n\x0bS2CUserInfo\x12\x0e\n\x06userId\x18\x01 \x02(\t\x12\x10\n\x08userName\x18\x02 \x02(\tB!\n\x18\x63om.ease.nogame.protobufB\x05PBApp')
+  serialized_pb='\n\x0bPBApp.proto\x12\x05netty\",\n\x07MsgDesc\x12\x0f\n\x07msgName\x18\x01 \x02(\t\x12\x10\n\x08msgBytes\x18\x02 \x02(\x0c\"@\n\x08\x43\x32SLogin\x12\x10\n\x08userName\x18\x01 \x02(\t\x12\x10\n\x08password\x18\x02 \x02(\t\x12\x10\n\x08\x64\x65viceID\x18\x03 \x02(\t\")\n\x08S2CLogin\x12\x0e\n\x06userId\x18\x01 \x02(\x03\x12\r\n\x05token\x18\x02 \x02(\t\"\x1d\n\x0b\x43\x32SUserInfo\x12\x0e\n\x06userId\x18\x01 \x02(\x03\"/\n\x0bS2CUserInfo\x12\x0e\n\x06userId\x18\x01 \x02(\x03\x12\x10\n\x08userName\x18\x02 \x02(\tB!\n\x18\x63om.ease.nogame.protobufB\x05PBApp')
 
 
 
@@ -104,8 +104,8 @@ _S2CLOGIN = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='userId', full_name='netty.S2CLogin.userId', index=0,
-      number=1, type=9, cpp_type=9, label=2,
-      has_default_value=False, default_value=unicode("", "utf-8"),
+      number=1, type=3, cpp_type=2, label=2,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -139,8 +139,8 @@ _C2SUSERINFO = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='userId', full_name='netty.C2SUserInfo.userId', index=0,
-      number=1, type=9, cpp_type=9, label=2,
-      has_default_value=False, default_value=unicode("", "utf-8"),
+      number=1, type=3, cpp_type=2, label=2,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -167,8 +167,8 @@ _S2CUSERINFO = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='userId', full_name='netty.S2CUserInfo.userId', index=0,
-      number=1, type=9, cpp_type=9, label=2,
-      has_default_value=False, default_value=unicode("", "utf-8"),
+      number=1, type=3, cpp_type=2, label=2,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),

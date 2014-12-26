@@ -1,27 +1,35 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<!DOCTYPE hibernate-mapping PUBLIC
-    "-//Hibernate/Hibernate Mapping DTD//EN"
-    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-12-26 19:14:10 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping package="com.ease.nogame.domain">
-    <class name="Account" table="account">
-    	<id name="id" column="id">
-			<generator class="assigned"/>
-		</id>
+ <class catalog="nogame" name="Account" table="account">
+  <id name="id" type="long">
+	<column name="id" />
+	<generator class="hilo">
+		<param name="table">hibernate_id_high</param>
+		<param name="column">next_value</param>
+		<param name="max_lo">9999</param>
+	</generator>
+</id>
   
-        <property name="userName" column="userName" />
-        <property name="password" column="password" />
-        <property name="createTime" column="createTime" />
-        <property name="accessTime" column="accessTime" />
-    </class> 
-     
-      <sql-query name="queryAccountByName">
-        <![CDATA[select * from account where userName=:userName]]>  
-      </sql-query>
-      
-       <sql-query name="queryAccountByID">  
-        	<![CDATA[select * from account where id=:id]]>  
-   		</sql-query>  
-            
+  <property generated="never" lazy="false" name="createTime" type="timestamp">
+   <column length="19" name="createTime" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="accessTime" type="timestamp">
+   <column length="19" name="accessTime" />
+  </property>
+  <property generated="never" lazy="false" name="userName" type="string">
+   <column length="128" name="userName" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="password" type="string">
+   <column length="256" name="password" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="token" type="string">
+   <column length="128" name="token"/>
+  </property>
+  <property generated="never" lazy="false" name="loginTimes" type="java.lang.Integer">
+   <column name="login_times"/>
+  </property>
+ </class>
 </hibernate-mapping>
