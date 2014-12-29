@@ -27,9 +27,7 @@
   <property generated="never" lazy="false" name="token" type="string">
    <column length="128" name="token"/>
   </property>
-  <property generated="never" lazy="false" name="loginTimes" type="java.lang.Integer">
-   <column name="login_times"/>
-  </property>
+
  </class>
  
  <resultset name="account_resultset">  

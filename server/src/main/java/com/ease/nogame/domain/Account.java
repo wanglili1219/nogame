@@ -1,6 +1,6 @@
 package com.ease.nogame.domain;
 
-// Generated 2014-12-27 12:10:44 by Hibernate Tools 4.3.1
+// Generated 2014-12-29 15:31:25 by Hibernate Tools 4.3.1
 
 import java.util.Date;
 
@@ -15,7 +15,6 @@ public class Account implements java.io.Serializable {
 	private String userName;
 	private String password;
 	private String token;
-	private Integer loginTimes;
 
 	public Account() {
 	}
@@ -30,14 +29,13 @@ public class Account implements java.io.Serializable {
 	}
 
 	public Account(long id, Date createTime, Date accessTime, String userName,
-			String password, String token, Integer loginTimes) {
+			String password, String token) {
 		this.id = id;
 		this.createTime = createTime;
 		this.accessTime = accessTime;
 		this.userName = userName;
 		this.password = password;
 		this.token = token;
-		this.loginTimes = loginTimes;
 	}
 
 	public long getId() {
@@ -86,14 +84,6 @@ public class Account implements java.io.Serializable {
 
 	public void setToken(String token) {
 		this.token = token;
-	}
-
-	public Integer getLoginTimes() {
-		return this.loginTimes;
-	}
-
-	public void setLoginTimes(Integer loginTimes) {
-		this.loginTimes = loginTimes;
 	}
 
 }

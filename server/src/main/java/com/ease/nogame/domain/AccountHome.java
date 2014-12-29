@@ -1,6 +1,6 @@
 package com.ease.nogame.domain;
 
-// Generated 2014-12-27 12:10:44 by Hibernate Tools 4.3.1
+// Generated 2014-12-29 15:31:25 by Hibernate Tools 4.3.1
 
 import java.util.List;
 import javax.naming.InitialContext;
