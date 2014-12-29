@@ -21,8 +21,7 @@ public class BaseChannelHandler extends ChannelInboundHandlerAdapter {
 	}
 
 	@Override
-	public void channelRead(ChannelHandlerContext ctx, Object msg)
-			throws Exception {
+	public void channelRead(ChannelHandlerContext ctx, Object msg) {
 		MessageDispatcher.dispatch(ctx, msg);
 		ctx.fireChannelRead(msg);
 	}

@@ -1,5 +1,6 @@
 package com.ease.nogame.domain;
-// Generated 2014-12-26 19:14:10 by Hibernate Tools 3.4.0.CR1
+
+// Generated 2014-12-27 12:10:44 by Hibernate Tools 4.3.1
 
 import java.util.Date;
 

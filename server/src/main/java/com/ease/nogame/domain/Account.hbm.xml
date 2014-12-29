@@ -5,19 +5,18 @@
 <hibernate-mapping package="com.ease.nogame.domain">
  <class catalog="nogame" name="Account" table="account">
   <id name="id" type="long">
-	<column name="id" />
-	<generator class="hilo">
-		<param name="table">hibernate_id_high</param>
-		<param name="column">next_value</param>
-		<param name="max_lo">9999</param>
-	</generator>
-</id>
-  
+   <column name="id"/>
+   <generator class="hilo">
+    <param name="table">hibernate_id_high</param>
+    <param name="column">next_value</param>
+    <param name="max_lo">9999</param>
+   </generator>
+  </id>
   <property generated="never" lazy="false" name="createTime" type="timestamp">
    <column length="19" name="createTime" not-null="true"/>
   </property>
   <property generated="never" lazy="false" name="accessTime" type="timestamp">
-   <column length="19" name="accessTime" />
+   <column length="19" name="accessTime"/>
   </property>
   <property generated="never" lazy="false" name="userName" type="string">
    <column length="128" name="userName" not-null="true"/>
@@ -32,4 +31,17 @@
    <column name="login_times"/>
   </property>
  </class>
+ 
+ <resultset name="account_resultset">  
+    <return class="Account" />  
+</resultset> 
+ 
+ <sql-query name="queryAccountByUserName" resultset-ref="account_resultset">
+ 	select * from account where userName=:userName
+ </sql-query>
+ 
+ <sql-query name="queryAccountByToken" resultset-ref="account_resultset">
+ 	select * from account where token=:token
+ </sql-query>
+ 
 </hibernate-mapping>

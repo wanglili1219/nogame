@@ -26,15 +26,65 @@ public final class PBApp {
     com.google.protobuf.ByteString
         getMsgNameBytes();
 
-    // required bytes msgBytes = 2;
+    // optional bytes msgBytes = 2;
     /**
-     * <code>required bytes msgBytes = 2;</code>
+     * <code>optional bytes msgBytes = 2;</code>
      */
     boolean hasMsgBytes();
     /**
-     * <code>required bytes msgBytes = 2;</code>
+     * <code>optional bytes msgBytes = 2;</code>
      */
     com.google.protobuf.ByteString getMsgBytes();
+
+    // optional int64 userId = 3;
+    /**
+     * <code>optional int64 userId = 3;</code>
+     */
+    boolean hasUserId();
+    /**
+     * <code>optional int64 userId = 3;</code>
+     */
+    long getUserId();
+
+    // optional string token = 4;
+    /**
+     * <code>optional string token = 4;</code>
+     */
+    boolean hasToken();
+    /**
+     * <code>optional string token = 4;</code>
+     */
+    java.lang.String getToken();
+    /**
+     * <code>optional string token = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getTokenBytes();
+
+    // optional int32 errorCode = 5;
+    /**
+     * <code>optional int32 errorCode = 5;</code>
+     */
+    boolean hasErrorCode();
+    /**
+     * <code>optional int32 errorCode = 5;</code>
+     */
+    int getErrorCode();
+
+    // optional string errorDesc = 6;
+    /**
+     * <code>optional string errorDesc = 6;</code>
+     */
+    boolean hasErrorDesc();
+    /**
+     * <code>optional string errorDesc = 6;</code>
+     */
+    java.lang.String getErrorDesc();
+    /**
+     * <code>optional string errorDesc = 6;</code>
+     */
+    com.google.protobuf.ByteString
+        getErrorDescBytes();
   }
   /**
    * Protobuf type {@code netty.MsgDesc}
@@ -95,6 +145,26 @@ public final class PBApp {
             case 18: {
               bitField0_ |= 0x00000002;
               msgBytes_ = input.readBytes();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              userId_ = input.readInt64();
+              break;
+            }
+            case 34: {
+              bitField0_ |= 0x00000008;
+              token_ = input.readBytes();
+              break;
+            }
+            case 40: {
+              bitField0_ |= 0x00000010;
+              errorCode_ = input.readInt32();
+              break;
+            }
+            case 50: {
+              bitField0_ |= 0x00000020;
+              errorDesc_ = input.readBytes();
               break;
             }
           }
@@ -180,25 +250,147 @@ public final class PBApp {
       }
     }
 
-    // required bytes msgBytes = 2;
+    // optional bytes msgBytes = 2;
     public static final int MSGBYTES_FIELD_NUMBER = 2;
     private com.google.protobuf.ByteString msgBytes_;
     /**
-     * <code>required bytes msgBytes = 2;</code>
+     * <code>optional bytes msgBytes = 2;</code>
      */
     public boolean hasMsgBytes() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>required bytes msgBytes = 2;</code>
+     * <code>optional bytes msgBytes = 2;</code>
      */
     public com.google.protobuf.ByteString getMsgBytes() {
       return msgBytes_;
     }
 
+    // optional int64 userId = 3;
+    public static final int USERID_FIELD_NUMBER = 3;
+    private long userId_;
+    /**
+     * <code>optional int64 userId = 3;</code>
+     */
+    public boolean hasUserId() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional int64 userId = 3;</code>
+     */
+    public long getUserId() {
+      return userId_;
+    }
+
+    // optional string token = 4;
+    public static final int TOKEN_FIELD_NUMBER = 4;
+    private java.lang.Object token_;
+    /**
+     * <code>optional string token = 4;</code>
+     */
+    public boolean hasToken() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>optional string token = 4;</code>
+     */
+    public java.lang.String getToken() {
+      java.lang.Object ref = token_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          token_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string token = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getTokenBytes() {
+      java.lang.Object ref = token_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        token_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // optional int32 errorCode = 5;
+    public static final int ERRORCODE_FIELD_NUMBER = 5;
+    private int errorCode_;
+    /**
+     * <code>optional int32 errorCode = 5;</code>
+     */
+    public boolean hasErrorCode() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <code>optional int32 errorCode = 5;</code>
+     */
+    public int getErrorCode() {
+      return errorCode_;
+    }
+
+    // optional string errorDesc = 6;
+    public static final int ERRORDESC_FIELD_NUMBER = 6;
+    private java.lang.Object errorDesc_;
+    /**
+     * <code>optional string errorDesc = 6;</code>
+     */
+    public boolean hasErrorDesc() {
+      return ((bitField0_ & 0x00000020) == 0x00000020);
+    }
+    /**
+     * <code>optional string errorDesc = 6;</code>
+     */
+    public java.lang.String getErrorDesc() {
+      java.lang.Object ref = errorDesc_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          errorDesc_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string errorDesc = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getErrorDescBytes() {
+      java.lang.Object ref = errorDesc_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        errorDesc_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private void initFields() {
       msgName_ = "";
       msgBytes_ = com.google.protobuf.ByteString.EMPTY;
+      userId_ = 0L;
+      token_ = "";
+      errorCode_ = 0;
+      errorDesc_ = "";
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -206,10 +398,6 @@ public final class PBApp {
       if (isInitialized != -1) return isInitialized == 1;
 
       if (!hasMsgName()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasMsgBytes()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -225,6 +413,18 @@ public final class PBApp {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeBytes(2, msgBytes_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeInt64(3, userId_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeBytes(4, getTokenBytes());
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeInt32(5, errorCode_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        output.writeBytes(6, getErrorDescBytes());
       }
       getUnknownFields().writeTo(output);
     }
@@ -242,6 +442,22 @@ public final class PBApp {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(2, msgBytes_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(3, userId_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(4, getTokenBytes());
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(5, errorCode_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(6, getErrorDescBytes());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -363,6 +579,14 @@ public final class PBApp {
         bitField0_ = (bitField0_ & ~0x00000001);
         msgBytes_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000002);
+        userId_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        token_ = "";
+        bitField0_ = (bitField0_ & ~0x00000008);
+        errorCode_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        errorDesc_ = "";
+        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
 
@@ -399,6 +623,22 @@ public final class PBApp {
           to_bitField0_ |= 0x00000002;
         }
         result.msgBytes_ = msgBytes_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.userId_ = userId_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.token_ = token_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        result.errorCode_ = errorCode_;
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000020;
+        }
+        result.errorDesc_ = errorDesc_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -423,16 +663,28 @@ public final class PBApp {
         if (other.hasMsgBytes()) {
           setMsgBytes(other.getMsgBytes());
         }
+        if (other.hasUserId()) {
+          setUserId(other.getUserId());
+        }
+        if (other.hasToken()) {
+          bitField0_ |= 0x00000008;
+          token_ = other.token_;
+          onChanged();
+        }
+        if (other.hasErrorCode()) {
+          setErrorCode(other.getErrorCode());
+        }
+        if (other.hasErrorDesc()) {
+          bitField0_ |= 0x00000020;
+          errorDesc_ = other.errorDesc_;
+          onChanged();
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
 
       public final boolean isInitialized() {
         if (!hasMsgName()) {
-          
-          return false;
-        }
-        if (!hasMsgBytes()) {
           
           return false;
         }
@@ -532,22 +784,22 @@ public final class PBApp {
         return this;
       }
 
-      // required bytes msgBytes = 2;
+      // optional bytes msgBytes = 2;
       private com.google.protobuf.ByteString msgBytes_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>required bytes msgBytes = 2;</code>
+       * <code>optional bytes msgBytes = 2;</code>
        */
       public boolean hasMsgBytes() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>required bytes msgBytes = 2;</code>
+       * <code>optional bytes msgBytes = 2;</code>
        */
       public com.google.protobuf.ByteString getMsgBytes() {
         return msgBytes_;
       }
       /**
-       * <code>required bytes msgBytes = 2;</code>
+       * <code>optional bytes msgBytes = 2;</code>
        */
       public Builder setMsgBytes(com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -559,11 +811,225 @@ public final class PBApp {
         return this;
       }
       /**
-       * <code>required bytes msgBytes = 2;</code>
+       * <code>optional bytes msgBytes = 2;</code>
        */
       public Builder clearMsgBytes() {
         bitField0_ = (bitField0_ & ~0x00000002);
         msgBytes_ = getDefaultInstance().getMsgBytes();
+        onChanged();
+        return this;
+      }
+
+      // optional int64 userId = 3;
+      private long userId_ ;
+      /**
+       * <code>optional int64 userId = 3;</code>
+       */
+      public boolean hasUserId() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional int64 userId = 3;</code>
+       */
+      public long getUserId() {
+        return userId_;
+      }
+      /**
+       * <code>optional int64 userId = 3;</code>
+       */
+      public Builder setUserId(long value) {
+        bitField0_ |= 0x00000004;
+        userId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 userId = 3;</code>
+       */
+      public Builder clearUserId() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        userId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // optional string token = 4;
+      private java.lang.Object token_ = "";
+      /**
+       * <code>optional string token = 4;</code>
+       */
+      public boolean hasToken() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>optional string token = 4;</code>
+       */
+      public java.lang.String getToken() {
+        java.lang.Object ref = token_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          token_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string token = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getTokenBytes() {
+        java.lang.Object ref = token_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          token_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string token = 4;</code>
+       */
+      public Builder setToken(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        token_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string token = 4;</code>
+       */
+      public Builder clearToken() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        token_ = getDefaultInstance().getToken();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string token = 4;</code>
+       */
+      public Builder setTokenBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        token_ = value;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 errorCode = 5;
+      private int errorCode_ ;
+      /**
+       * <code>optional int32 errorCode = 5;</code>
+       */
+      public boolean hasErrorCode() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <code>optional int32 errorCode = 5;</code>
+       */
+      public int getErrorCode() {
+        return errorCode_;
+      }
+      /**
+       * <code>optional int32 errorCode = 5;</code>
+       */
+      public Builder setErrorCode(int value) {
+        bitField0_ |= 0x00000010;
+        errorCode_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 errorCode = 5;</code>
+       */
+      public Builder clearErrorCode() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        errorCode_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional string errorDesc = 6;
+      private java.lang.Object errorDesc_ = "";
+      /**
+       * <code>optional string errorDesc = 6;</code>
+       */
+      public boolean hasErrorDesc() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       * <code>optional string errorDesc = 6;</code>
+       */
+      public java.lang.String getErrorDesc() {
+        java.lang.Object ref = errorDesc_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          errorDesc_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string errorDesc = 6;</code>
+       */
+      public com.google.protobuf.ByteString
+          getErrorDescBytes() {
+        java.lang.Object ref = errorDesc_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          errorDesc_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string errorDesc = 6;</code>
+       */
+      public Builder setErrorDesc(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000020;
+        errorDesc_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string errorDesc = 6;</code>
+       */
+      public Builder clearErrorDesc() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        errorDesc_ = getDefaultInstance().getErrorDesc();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string errorDesc = 6;</code>
+       */
+      public Builder setErrorDescBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000020;
+        errorDesc_ = value;
         onChanged();
         return this;
       }
@@ -2960,14 +3426,15 @@ public final class PBApp {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\013PBApp.proto\022\005netty\",\n\007MsgDesc\022\017\n\007msgNa" +
-      "me\030\001 \002(\t\022\020\n\010msgBytes\030\002 \002(\014\"@\n\010C2SLogin\022\020" +
-      "\n\010userName\030\001 \002(\t\022\020\n\010password\030\002 \002(\t\022\020\n\010de" +
-      "viceID\030\003 \002(\t\")\n\010S2CLogin\022\016\n\006userId\030\001 \002(\003" +
-      "\022\r\n\005token\030\002 \002(\t\"\035\n\013C2SUserInfo\022\016\n\006userId" +
-      "\030\001 \002(\003\"/\n\013S2CUserInfo\022\016\n\006userId\030\001 \002(\003\022\020\n" +
-      "\010userName\030\002 \002(\tB!\n\030com.ease.nogame.proto" +
-      "bufB\005PBApp"
+      "\n\013PBApp.proto\022\005netty\"q\n\007MsgDesc\022\017\n\007msgNa" +
+      "me\030\001 \002(\t\022\020\n\010msgBytes\030\002 \001(\014\022\016\n\006userId\030\003 \001" +
+      "(\003\022\r\n\005token\030\004 \001(\t\022\021\n\terrorCode\030\005 \001(\005\022\021\n\t" +
+      "errorDesc\030\006 \001(\t\"@\n\010C2SLogin\022\020\n\010userName\030" +
+      "\001 \002(\t\022\020\n\010password\030\002 \002(\t\022\020\n\010deviceID\030\003 \002(" +
+      "\t\")\n\010S2CLogin\022\016\n\006userId\030\001 \002(\003\022\r\n\005token\030\002" +
+      " \002(\t\"\035\n\013C2SUserInfo\022\016\n\006userId\030\001 \002(\003\"/\n\013S" +
+      "2CUserInfo\022\016\n\006userId\030\001 \002(\003\022\020\n\010userName\030\002" +
+      " \002(\tB!\n\030com.ease.nogame.protobufB\005PBApp"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -2979,7 +3446,7 @@ public final class PBApp {
           internal_static_netty_MsgDesc_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_netty_MsgDesc_descriptor,
-              new java.lang.String[] { "MsgName", "MsgBytes", });
+              new java.lang.String[] { "MsgName", "MsgBytes", "UserId", "Token", "ErrorCode", "ErrorDesc", });
           internal_static_netty_C2SLogin_descriptor =
             getDescriptor().getMessageTypes().get(1);
           internal_static_netty_C2SLogin_fieldAccessorTable = new

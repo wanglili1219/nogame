@@ -24,10 +24,11 @@ public abstract class MessageHandler {
 	}
 
 	public void send(Message msg){
-		System.out.println();
 		PBApp.MsgDesc.Builder mb = PBApp.MsgDesc.newBuilder();
 		mb.setMsgName(msg.getClass().getSimpleName());
 		mb.setMsgBytes(msg.toByteString());
+		mb.setErrorCode(0);
+		mb.setErrorDesc("OK");
 		context.writeAndFlush(mb.build());
 	}
 }

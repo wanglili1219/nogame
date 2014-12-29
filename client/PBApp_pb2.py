@@ -13,7 +13,7 @@ from google.protobuf import descriptor_pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='PBApp.proto',
   package='netty',
-  serialized_pb='\n\x0bPBApp.proto\x12\x05netty\",\n\x07MsgDesc\x12\x0f\n\x07msgName\x18\x01 \x02(\t\x12\x10\n\x08msgBytes\x18\x02 \x02(\x0c\"@\n\x08\x43\x32SLogin\x12\x10\n\x08userName\x18\x01 \x02(\t\x12\x10\n\x08password\x18\x02 \x02(\t\x12\x10\n\x08\x64\x65viceID\x18\x03 \x02(\t\")\n\x08S2CLogin\x12\x0e\n\x06userId\x18\x01 \x02(\x03\x12\r\n\x05token\x18\x02 \x02(\t\"\x1d\n\x0b\x43\x32SUserInfo\x12\x0e\n\x06userId\x18\x01 \x02(\x03\"/\n\x0bS2CUserInfo\x12\x0e\n\x06userId\x18\x01 \x02(\x03\x12\x10\n\x08userName\x18\x02 \x02(\tB!\n\x18\x63om.ease.nogame.protobufB\x05PBApp')
+  serialized_pb='\n\x0bPBApp.proto\x12\x05netty\"q\n\x07MsgDesc\x12\x0f\n\x07msgName\x18\x01 \x02(\t\x12\x10\n\x08msgBytes\x18\x02 \x01(\x0c\x12\x0e\n\x06userId\x18\x03 \x01(\x03\x12\r\n\x05token\x18\x04 \x01(\t\x12\x11\n\terrorCode\x18\x05 \x01(\x05\x12\x11\n\terrorDesc\x18\x06 \x01(\t\"@\n\x08\x43\x32SLogin\x12\x10\n\x08userName\x18\x01 \x02(\t\x12\x10\n\x08password\x18\x02 \x02(\t\x12\x10\n\x08\x64\x65viceID\x18\x03 \x02(\t\")\n\x08S2CLogin\x12\x0e\n\x06userId\x18\x01 \x02(\x03\x12\r\n\x05token\x18\x02 \x02(\t\"\x1d\n\x0b\x43\x32SUserInfo\x12\x0e\n\x06userId\x18\x01 \x02(\x03\"/\n\x0bS2CUserInfo\x12\x0e\n\x06userId\x18\x01 \x02(\x03\x12\x10\n\x08userName\x18\x02 \x02(\tB!\n\x18\x63om.ease.nogame.protobufB\x05PBApp')
 
 
 
@@ -34,8 +34,36 @@ _MSGDESC = _descriptor.Descriptor(
       options=None),
     _descriptor.FieldDescriptor(
       name='msgBytes', full_name='netty.MsgDesc.msgBytes', index=1,
-      number=2, type=12, cpp_type=9, label=2,
+      number=2, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value="",
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='userId', full_name='netty.MsgDesc.userId', index=2,
+      number=3, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='token', full_name='netty.MsgDesc.token', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=unicode("", "utf-8"),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='errorCode', full_name='netty.MsgDesc.errorCode', index=4,
+      number=5, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='errorDesc', full_name='netty.MsgDesc.errorDesc', index=5,
+      number=6, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=unicode("", "utf-8"),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -49,7 +77,7 @@ _MSGDESC = _descriptor.Descriptor(
   is_extendable=False,
   extension_ranges=[],
   serialized_start=22,
-  serialized_end=66,
+  serialized_end=135,
 )
 
 
@@ -90,8 +118,8 @@ _C2SLOGIN = _descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=68,
-  serialized_end=132,
+  serialized_start=137,
+  serialized_end=201,
 )
 
 
@@ -125,8 +153,8 @@ _S2CLOGIN = _descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=134,
-  serialized_end=175,
+  serialized_start=203,
+  serialized_end=244,
 )
 
 
@@ -153,8 +181,8 @@ _C2SUSERINFO = _descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=177,
-  serialized_end=206,
+  serialized_start=246,
+  serialized_end=275,
 )
 
 
@@ -188,8 +216,8 @@ _S2CUSERINFO = _descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=208,
-  serialized_end=255,
+  serialized_start=277,
+  serialized_end=324,
 )
 
 DESCRIPTOR.message_types_by_name['MsgDesc'] = _MSGDESC
