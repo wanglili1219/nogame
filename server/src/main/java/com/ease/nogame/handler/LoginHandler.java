@@ -1,6 +1,8 @@
 package com.ease.nogame.handler;
 
+
 import java.util.Date;
+import java.io.UnsupportedEncodingException;
 
 import org.hibernate.Session;
 
@@ -13,7 +15,7 @@ import com.google.protobuf.Message;
 
 public class LoginHandler extends MessageHandler {
 	@Override
-	public void handle(Message msg){
+	public void handle(Message msg) {
 		PBApp.C2SLogin req = (PBApp.C2SLogin)msg;
 
 		Account acc = new Account();
@@ -27,6 +29,7 @@ public class LoginHandler extends MessageHandler {
 		PBApp.S2CLogin.Builder resp = PBApp.S2CLogin.newBuilder();
 		resp.setUserId(acc.getId());
 		resp.setToken(acc.getToken());
+
 		send(resp.build());
 	}
 }
