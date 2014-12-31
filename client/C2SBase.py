@@ -8,9 +8,9 @@ class C2SBase:
     def __init__(self):
         pass
 
-    def wrapMsgDesc(self, msgName, msg):
+    def wrapMsgDesc(self, msg):
         md = PBApp_pb2.MsgDesc()
-        md.msgName = msgName
+        md.msgName = msg.__class__.__name__
         md.userId = UserInfo.getId()
         md.token = UserInfo.getToken()
         md.msgBytes = msg.SerializeToString()

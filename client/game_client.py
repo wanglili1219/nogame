@@ -11,12 +11,13 @@ import PBApp_pb2
 import threading
 import thread
 
+from C2SUserInfo import *
+from S2CUserInfo import *
 from Logger import *
 from  CommandInput import *
 from C2SLogin import *
 from S2CLogin import *
-
-
+from UserInfo import *
 
 serverHost = '127.0.0.1'    #default serverHost 
 serverPort = 8084           #default serverPort
@@ -56,7 +57,7 @@ def handle_user_info(respByte):
     Logger.i(msg.userName)
 
 handlerDict["S2CLogin"] = globals()["S2CLogin"]
-#handlerDict["S2CUserInfo"] = globals()[""]
+handlerDict["S2CUserInfo"] = globals()["S2CUserInfo"]
 
 try:
     clientSocket = socket .socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -67,6 +68,15 @@ except socket.error, msg:
 
 Logger.init()
 CommandInput.init()
+#UserInfo.load()
+UserInfo.setId(123)
+Logger.i(str(UserInfo.getId()))
+Logger.i(UserInfo.getToken())
+
+if UserInfo.token == "":
+    Logger.i("welcome for your first login.")
+else:
+    Logger.i("token " + UserInfo.token)
 
 while True:
     what = CommandInput.pop()
@@ -76,7 +86,8 @@ while True:
         l = C2SLogin()
         sd = package_request(l.build())
     elif what == "userinfo":
-        sd = package_request(gen_userinfo_request())
+        l = C2SUserInfo()
+        sd = package_request(l.build())
     elif what == "quit":
         break
 

@@ -11,7 +11,9 @@ class S2CLogin:
         msg.ParseFromString(respByte)
         UserInfo.setId(msg.userId)
         UserInfo.setToken(msg.token)
-        Logger.i(str(msg.userId))
-        Logger.i(msg.token.encode("GBK"))
+        Logger.i(str(UserInfo.getId()))
+        Logger.i(UserInfo.getToken())
+
+        UserInfo.dump()
 
         

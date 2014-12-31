@@ -1,32 +1,60 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-  
 
+import pickle
+from Logger import *
+
 class UserInfo:
-    id = 0
-    name = ""
-    token = ""
-    gold = ""
+    data = {
+        "id":"0",
+        "name":"",
+        "token":"",
+        "gold":"",
+    }
 
     @classmethod
     def setId(cls, id):
-        cls.id = id
+        UserInfo.data["id"] = id
         
     @classmethod
     def getId(cls):
-        return cls.id
+        return UserInfo.data["id"]
     
     @classmethod
-    def setName(cls, name):
-        cls.name = name
+    def setName(cls, n):
+        cls.data["name"] = n
     
     @classmethod
     def getName(cls):
-        return cls.name
+        return cls.data["name"]
     
     @classmethod
     def setToken(cls, t):
-        cls.token = t
+        cls.data["token"] = t
     
     @classmethod
     def getToken(cls):
-        return cls.token
+        return cls.data["token"]
+
+    @classmethod
+    def dump(cls):
+        path = "data.pkl"
+        try:
+            fp = open(path, "wb")
+            if fp:
+                Logger.i("dump userinfo")
+                pickle.dump(cls.data, fp)
+                fp.close()
+        except Exception, e:
+            print e
+
+    @classmethod
+    def load(cls):
+        path = "data.pkl"
+        try:
+            fp = open(path, "rb")
+            if fp:
+                cls.data = pickle.load(fp)
+                fp.close()
+        except Exception, e:
+            print e
