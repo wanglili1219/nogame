@@ -10,6 +10,7 @@ import select
 import PBApp_pb2
 import threading
 import thread
+import re
 
 from C2SUserInfo import *
 from S2CUserInfo import *
@@ -18,6 +19,9 @@ from  CommandInput import *
 from C2SLogin import *
 from S2CLogin import *
 from UserInfo import *
+
+import DispatchMessage
+import NGParamPaser
 
 serverHost = '127.0.0.1'    #default serverHost 
 serverPort = 8084           #default serverPort
@@ -31,34 +35,6 @@ outputs_set = []
 def package_request(buf):
     return struct.pack('>i{0}s'.format(len(buf)), len(buf), buf)
 
-def dispatch_message(respByte):
-    md = PBApp_pb2.MsgDesc()
-    md.ParseFromString(respByte)
-    if md.errorCode != 0:
-        Logger.e("respone error code " + str(md.errorCode) + "," + md.errorDesc)
-        return
-
-    inst = handlerDict[md.msgName]()
-    inst.handle(md.msgBytes)
-
-def gen_userinfo_request():
-    global userId
-    md = build_msgdes("C2SUserInfo")
-    msg = PBApp_pb2.C2SUserInfo()
-    msg.userId = userId
-    md.msgBytes = msg.SerializeToString()
-    
-    return md.SerializeToString()
-    
-def handle_user_info(respByte):
-    msg = PBApp_pb2.S2CUserInfo()
-    msg.ParseFromString(respByte)
-    Logger.i(msg.userId)
-    Logger.i(msg.userName)
-
-handlerDict["S2CLogin"] = globals()["S2CLogin"]
-handlerDict["S2CUserInfo"] = globals()["S2CUserInfo"]
-
 try:
     clientSocket = socket .socket(socket.AF_INET, socket.SOCK_STREAM)
     clientSocket.connect((serverHost, serverPort))
@@ -66,30 +42,40 @@ except socket.error, msg:
     print 'Failed to create socket. Error code: ' + str(msg[0]) + ' , Error message : ' + msg[1]
     sys.exit();
 
+#
+#init
+#
 Logger.init()
 CommandInput.init()
-#UserInfo.load()
-UserInfo.setId(123)
-Logger.i(str(UserInfo.getId()))
-Logger.i(UserInfo.getToken())
+UserInfo.load()
 
-if UserInfo.token == "":
-    Logger.i("welcome for your first login.")
+if UserInfo.getToken() == "":
+    Logger.i("Welcome for your first login.")
 else:
-    Logger.i("token " + UserInfo.token)
+    Logger.i("Welcome come back.")
+    Logger.i("userId: " + str(UserInfo.getId()))
+    Logger.i("userName: " + UserInfo.getName())
+    Logger.i("userToken: " + UserInfo.getToken())
 
 while True:
+    paraList = {}
+    what = ""
     what = CommandInput.pop()
-    
+    if what != "":
+        paraList = NGParamPaser.parse(re.split("\s*", what))
+
     sd = None
-    if what == "login":
-        l = C2SLogin()
-        sd = package_request(l.build())
-    elif what == "userinfo":
-        l = C2SUserInfo()
-        sd = package_request(l.build())
-    elif what == "quit":
-        break
+    try:
+        if paraList["login"]:
+            l = C2SLogin()
+            sd = package_request(l.build())
+        elif paraList["userinfo"]:
+            l = C2SUserInfo()
+            sd = package_request(l.build())
+        elif paraList["quit"]:
+            break
+    except KeyError, e:
+        pass
 
     if sd != None:
         outputs_set.append(clientSocket)
@@ -113,7 +99,7 @@ while True:
                     bodysize = struct.unpack_from(">i", headpacket, 0)
                     bodypacket = r.recv(bodysize[0])
                     body = struct.unpack_from("%ds"%(bodysize), bodypacket, 0)
-                    dispatch_message(body[0])
+                    DispatchMessage.dispatch(body[0])
                 
         for w in writable:
             w.send(sd)
@@ -132,6 +118,8 @@ if clientSocket != None:
     clientSocket.close()
 
 Logger.quit()
+CommandInput.quit()
+
 print("")
 print("Bye Bye")
 

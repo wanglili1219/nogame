@@ -4,6 +4,7 @@
 import threading
 import thread
 import time
+import sys
 
 class Logger(threading.Thread):
     mutx = threading.Lock()
@@ -43,7 +44,7 @@ class Logger(threading.Thread):
             if Logger.mutx.acquire(1):
                 for l in Logger.queue:
                     print(l)
-                    
+                
                 Logger.queue = []
                 Logger.mutx.release()
             time.sleep(0.1)

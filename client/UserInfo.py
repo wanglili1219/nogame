@@ -6,7 +6,7 @@ from Logger import *
 
 class UserInfo:
     data = {
-        "id":"0",
+        "id":0,
         "name":"",
         "token":"",
         "gold":"",

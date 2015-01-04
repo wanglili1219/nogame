@@ -3,7 +3,10 @@
 
 import threading
 import thread
-import time
+import sys
+import select
+from time import sleep
+
 
 class CommandInput(threading.Thread):
     mutx = threading.Lock()
@@ -29,16 +32,26 @@ class CommandInput(threading.Thread):
             cls.mutx.release()
             return ""
 
+    @classmethod
+    def quit(cls):
+         cls.is_quit = True
+
     def run(self):
-        while CommandInput.is_quit == False:
-            what = ""
-            what = raw_input("what:")
-            CommandInput.mutx.acquire()
-            CommandInput.queue.append(what)
-            CommandInput.mutx.release()
-            time.sleep(0.1)
-            if what == "quit":
-                break
+            sys.stdout.write("what:"+"\n")
+            sys.stdout.flush()
+            while CommandInput.is_quit == False:
+                sleep(.001)
+                if select.select([sys.stdin], [], [], 0) == ([sys.stdin], [], []):
+                    what = sys.stdin.readline()
+                    what = what.replace('\n', '')
+                    if what != "":
+                        CommandInput.mutx.acquire()
+                        CommandInput.queue.append(what)
+                        CommandInput.mutx.release()
+
+                    sys.stdout.write("what:"+"\n")
+                    sys.stdout.flush()
+
 
 
         
