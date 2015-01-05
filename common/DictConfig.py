@@ -21,23 +21,27 @@ def load_table(file):
     table = data.sheets()[0]
     colname = table.row_values(1)
     coltype = table.row_values(2)
-    row_map = {}
+    table_map = {}
     for i in range(3, table.nrows - 1):
         row = table.row_values(i)
-        row_map[row[0]] = {}
+        table_map[row[0]] = {}
         for j in range(0, len(row) - 1):
             if colname[j] != "":
-                row_map[row[0]][colname[j]] = row[j]
+                table_map[row[0]][colname[j]] = row[j]
 
-    return row_map
+    return table_map
 
 def init():
-    for parent, dirnames, filenames in os.walk("./dict"): 
+    dictpath = os.path.abspath('.') + "/../dict/"
+    for parent, dirnames, filenames in os.walk(dictpath): 
         for filename in filenames:
             ext = os.path.splitext(filename)[1][1:]
             basename = os.path.splitext(filename)[0]
             if ext == "xls":
-                print "load", basename
+                print("load excel file: " + filename)
                 t = load_table(os.path.join(parent,filename))
                 Data[basename] = t
+    
+    return Data
+
 

@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-  
 
+
+
 import sys
 import socket
 import string
@@ -11,6 +13,8 @@ import PBApp_pb2
 import threading
 import thread
 import re
+
+sys.path.append("../common/")
 
 from C2SUserInfo import *
 from S2CUserInfo import *
@@ -26,7 +30,6 @@ import NGParamPaser
 
 serverHost = '127.0.0.1'    #default serverHost 
 serverPort = 8084           #default serverPort
-filename = 'hello.html'     #default filename
 clientSocket = None
 
 handlerDict = {}

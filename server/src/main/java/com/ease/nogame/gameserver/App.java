@@ -4,7 +4,9 @@ package com.ease.nogame.gameserver;
 import java.net.InetSocketAddress;
 import java.nio.ByteOrder;
 import java.util.List;
+import java.util.Map.Entry;
 
+import javassist.bytecode.Descriptor.Iterator;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
@@ -68,12 +70,13 @@ public class App
 	
     public static void main( String[] args )
     {
-        try {
-        	MessageDispatcher.init(); 
-            GameServer es = new GameServer();
-            es.start();
-   	    } catch (InterruptedException e) {
-            e.printStackTrace();
-   	    }
+    	try{
+			DictData.init();
+			MessageDispatcher.init();
+			GameServer es = new GameServer();
+			es.start();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
     }
 }
