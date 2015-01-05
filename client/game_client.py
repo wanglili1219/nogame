@@ -19,6 +19,7 @@ from  CommandInput import *
 from C2SLogin import *
 from S2CLogin import *
 from UserInfo import *
+import DictConfig
 
 import DispatchMessage
 import NGParamPaser
@@ -45,6 +46,7 @@ except socket.error, msg:
 #
 #init
 #
+DictConfig.init()
 Logger.init()
 CommandInput.init()
 UserInfo.load()
