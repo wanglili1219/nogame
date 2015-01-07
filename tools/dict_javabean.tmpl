@@ -18,10 +18,20 @@ import java.util.Map;
         "float":"float"
     }
 
+#def getMethodName($name)
+    #set $name = string.capwords($name, sep="_").replace("_", "")
+    #return $name
+#end def
+
+#def getFieldName($name)
+              #set $name = string.capwords($name, sep="_").replace("_", "")
+              #set $name = $name[0].lower() + $name[1:]
+              #return $name
+#end def
+
 public class DT$className.capitalize() implements IDict {
     #for $desc, $name, $type in $fieldList:
-       #set $field_name = string.capwords($name, sep="_").replace("_", "")
-       #set $field_name = $field_name[0].lower() + $field_name[1:]
+       #set $field_name = $getFieldName($name)
        //$desc
        private $type_table[str($type)] $field_name;
     #end for
@@ -29,15 +39,13 @@ public class DT$className.capitalize() implements IDict {
        @Override
        public Object getId() {
           #set $desc, $name, $type = $fieldList[0]
-          #set $field_id_name = string.capwords($name, sep="_").replace("_", "")
-          #set $field_id_name = $field_id_name[0].lower() + $field_id_name[1:]
+          #set $field_id_name = $getFieldName($name)
           return this.$field_id_name;
        }
 
     #for $desc, $name, $type in $fieldList
-       #set $method_name = string.capwords($name, sep="_").replace("_", "")
-       #set $field_name = string.capwords($name, sep="_").replace("_", "")
-       #set $field_name = $field_name[0].lower() + $field_name[1:]
+       #set $method_name = $getMethodName($name)
+       #set $field_name = $getFieldName($name)
        public $type_table[str($type)] get${method_name}(){
             return this.$field_name;
        }
