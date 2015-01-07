@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from Cheetah.Template import Template
-import dict_java_class
+import dict_javabean
 import re
 import string
 import os
@@ -43,7 +43,7 @@ def init():
         for filename in filenames:
             ext = os.path.splitext(filename)[1][1:]
             basename = os.path.splitext(filename)[0]
-            tmpl = dict_java_class.dict_java_class()
+            tmpl = dict_javabean.dict_javabean()
             tmpl.className = basename
             if ext == "xls":
                 path = os.path.join(parent,filename)
@@ -51,7 +51,7 @@ def init():
                 t = load_table(path)
                 tmpl.fieldList = t
                 try:
-                     fp = open(outpath + basename.capitalize() + ".java", "w+")
+                     fp = open(outpath + "DT" + basename.capitalize() + ".java", "w+")
                      fp.write(str(tmpl))
                      fp.close()
                 except Exception, e:
