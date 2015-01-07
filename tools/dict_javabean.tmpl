@@ -1,5 +1,6 @@
 package com.ease.nogame.dict;
 
+import com.ease.nogame.gameserver.IDict;
 import com.ease.nogame.util.Item;
 import java.util.List;
 import java.util.Map;
@@ -11,19 +12,28 @@ import java.util.Map;
         "string":"String",
         "list<int>":"List<Integer>",
         "list<item>":"List<Item>",
+        "list<string>":"List<String>",
         "map":"Map<Integer, Integer>",
         "double":"double",
         "float":"float"
     }
 
-public class DT$className.capitalize() {
+public class DT$className.capitalize() implements IDict {
     #for $desc, $name, $type in $fieldList:
        #set $field_name = string.capwords($name, sep="_").replace("_", "")
        #set $field_name = $field_name[0].lower() + $field_name[1:]
        //$desc
        private $type_table[str($type)] $field_name;
     #end for
-    
+       
+       @Override
+       public Object getId() {
+          #set $desc, $name, $type = $fieldList[0]
+          #set $field_id_name = string.capwords($name, sep="_").replace("_", "")
+          #set $field_id_name = $field_id_name[0].lower() + $field_id_name[1:]
+          return this.$field_id_name;
+       }
+
     #for $desc, $name, $type in $fieldList
        #set $method_name = string.capwords($name, sep="_").replace("_", "")
        #set $field_name = string.capwords($name, sep="_").replace("_", "")

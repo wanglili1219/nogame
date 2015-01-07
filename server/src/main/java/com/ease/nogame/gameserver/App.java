@@ -29,6 +29,8 @@ import io.netty.handler.codec.LengthFieldPrepender;
 import io.netty.handler.codec.protobuf.ProtobufDecoder;
 import io.netty.handler.codec.protobuf.ProtobufEncoder;
 
+import com.ease.nogame.dict.DTHero;
+import com.ease.nogame.dict.DTManager;
 import com.ease.nogame.protobuf.PBApp;
 
 public class App 
@@ -70,13 +72,16 @@ public class App
 	
     public static void main( String[] args )
     {
-    	try{
-			DictData.init();
-			MessageDispatcher.init();
-			GameServer es = new GameServer();
-			es.start();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+    	DTHero dth = DTManager.HERO.getByID(10101);
+    	System.out.println(String.valueOf(dth.getHeroBelong()));
+    	    	
+//    	try{
+//			DictData.init();
+//			MessageDispatcher.init();
+//			GameServer es = new GameServer();
+//			es.start();
+//		} catch (InterruptedException e) {
+//			e.printStackTrace();
+//		}
     }
 }

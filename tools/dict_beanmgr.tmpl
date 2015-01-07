@@ -1,0 +1,42 @@
+package com.ease.nogame.dict;
+
+import java.io.File;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import com.ease.nogame.gameserver.IDict;
+import com.ease.nogame.util.ExcelUtils;
+
+#import string
+public enum DTManager {
+    #for $name in $fileNameList
+        #set $enum_name = $name.upper()
+        #set $class_name = string.capwords($name, sep="_").replace("_", "")
+        ${enum_name}(DT${class_name}.class),
+    #end for
+         ;
+
+	DTManager(Class<? extends IDict> cls) {
+        init(cls);
+    }
+	
+	private <T> void init(Class<T> cls){
+		String path = DTManager.class.getClassLoader().getResource("dict").getPath();
+		File f = new File(path + "/" + this.name().toLowerCase() + ".xls");
+        try {
+            List<T> list = ExcelUtils.parseExcel(cls, f.getPath());
+            for (T h : list){
+				map.put(((IDict) h).getId(), h);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+	}
+
+	public <T> T getByID(Object id) {
+        return (T) map.get(id);
+    }
+
+	private Map<Object, Object> map = new HashMap<Object, Object>();
+}

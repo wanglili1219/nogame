@@ -5,7 +5,7 @@ PROJ_DIR=${cur_dir}../server/src/main/java/com/ease/nogame/dict/
 PROJ_DICT_DIR=${cur_dir}../server/src/main/resources/dict/
 JAVA_DIR=${cur_dir}java/
 DICT_DIR=${cur_dir}../dict/
-TMPL_LIST=(dict_javabean.tmpl)
+TMPL_LIST=(dict_javabean.tmpl dict_beanmgr.tmpl)
 
 which cheetah > /dev/null
 if [ $? != 0 ]; then

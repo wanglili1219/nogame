@@ -3,6 +3,7 @@
 
 from Cheetah.Template import Template
 import dict_javabean
+import dict_beanmgr
 import re
 import string
 import os
@@ -27,7 +28,7 @@ def load_table(file):
     colname = table.row_values(1)
     coltype = table.row_values(2)
     table_map = []
-    for i in range(0, len(colname) - 1):
+    for i in range(0, len(colname)):
         if colname[i] != "":
             table_map.append([str(coldesc[i]), str(colname[i]), str(coltype[i])])
     
@@ -39,12 +40,14 @@ def init():
     if not os.path.exists(outpath):
         os.mkdir(outpath)
 
+    fileNameList = []
     for parent, dirnames, filenames in os.walk(dictpath): 
         for filename in filenames:
             ext = os.path.splitext(filename)[1][1:]
             basename = os.path.splitext(filename)[0]
             tmpl = dict_javabean.dict_javabean()
             tmpl.className = basename
+            fileNameList.append(basename)
             if ext == "xls":
                 path = os.path.join(parent,filename)
                 print("load excel: " + path)
@@ -56,7 +59,16 @@ def init():
                      fp.close()
                 except Exception, e:
                     print "exception: ", e
-                    
+                
+    if len(fileNameList) > 0:
+          tmplmgr = dict_beanmgr.dict_beanmgr()
+          tmplmgr.fileNameList = fileNameList
+          try:
+              fp = open(outpath + "DTManager.java", "w+")
+              fp.write(str(tmplmgr))
+              fp.close()
+          except Exception, e:
+              print "exception: ", e
 
 if __name__ == "__main__":
     init()
