@@ -72,16 +72,12 @@ public class App
 	
     public static void main( String[] args )
     {
-    	DTHero dth = DTManager.HERO.getByID(10101);
-    	System.out.println(String.valueOf(dth.getHeroBelong()));
-    	    	
-//    	try{
-//			DictData.init();
-//			MessageDispatcher.init();
-//			GameServer es = new GameServer();
-//			es.start();
-//		} catch (InterruptedException e) {
-//			e.printStackTrace();
-//		}
+    	try{
+			MessageDispatcher.init();
+			GameServer es = new GameServer();
+			es.start();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
     }
 }
