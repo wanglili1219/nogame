@@ -20,12 +20,12 @@ class Logger(threading.Thread):
 
     @classmethod
     def i(cls, m):
-        mm = "[INFO] " + m
+        mm = "[INFO] " + str(m)
         cls.push(mm)
     
     @classmethod
     def e(cls, m):
-        mm = "[ERRO] " + m
+        mm = "[ERRO] " + str(m)
         cls.push(mm)
         
     @classmethod
