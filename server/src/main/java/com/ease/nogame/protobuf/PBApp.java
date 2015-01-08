@@ -1045,6 +1045,677 @@ public final class PBApp {
     // @@protoc_insertion_point(class_scope:netty.MsgDesc)
   }
 
+  public interface PBHeroOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // required int64 heroId = 1;
+    /**
+     * <code>required int64 heroId = 1;</code>
+     */
+    boolean hasHeroId();
+    /**
+     * <code>required int64 heroId = 1;</code>
+     */
+    long getHeroId();
+
+    // required int64 dictId = 2;
+    /**
+     * <code>required int64 dictId = 2;</code>
+     */
+    boolean hasDictId();
+    /**
+     * <code>required int64 dictId = 2;</code>
+     */
+    long getDictId();
+
+    // required int32 level = 3;
+    /**
+     * <code>required int32 level = 3;</code>
+     */
+    boolean hasLevel();
+    /**
+     * <code>required int32 level = 3;</code>
+     */
+    int getLevel();
+
+    // required int32 exp = 4;
+    /**
+     * <code>required int32 exp = 4;</code>
+     */
+    boolean hasExp();
+    /**
+     * <code>required int32 exp = 4;</code>
+     */
+    int getExp();
+  }
+  /**
+   * Protobuf type {@code netty.PBHero}
+   */
+  public static final class PBHero extends
+      com.google.protobuf.GeneratedMessage
+      implements PBHeroOrBuilder {
+    // Use PBHero.newBuilder() to construct.
+    private PBHero(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private PBHero(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final PBHero defaultInstance;
+    public static PBHero getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public PBHero getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private PBHero(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              heroId_ = input.readInt64();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              dictId_ = input.readInt64();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              level_ = input.readInt32();
+              break;
+            }
+            case 32: {
+              bitField0_ |= 0x00000008;
+              exp_ = input.readInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.ease.nogame.protobuf.PBApp.internal_static_netty_PBHero_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.ease.nogame.protobuf.PBApp.internal_static_netty_PBHero_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.ease.nogame.protobuf.PBApp.PBHero.class, com.ease.nogame.protobuf.PBApp.PBHero.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<PBHero> PARSER =
+        new com.google.protobuf.AbstractParser<PBHero>() {
+      public PBHero parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new PBHero(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<PBHero> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // required int64 heroId = 1;
+    public static final int HEROID_FIELD_NUMBER = 1;
+    private long heroId_;
+    /**
+     * <code>required int64 heroId = 1;</code>
+     */
+    public boolean hasHeroId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required int64 heroId = 1;</code>
+     */
+    public long getHeroId() {
+      return heroId_;
+    }
+
+    // required int64 dictId = 2;
+    public static final int DICTID_FIELD_NUMBER = 2;
+    private long dictId_;
+    /**
+     * <code>required int64 dictId = 2;</code>
+     */
+    public boolean hasDictId() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required int64 dictId = 2;</code>
+     */
+    public long getDictId() {
+      return dictId_;
+    }
+
+    // required int32 level = 3;
+    public static final int LEVEL_FIELD_NUMBER = 3;
+    private int level_;
+    /**
+     * <code>required int32 level = 3;</code>
+     */
+    public boolean hasLevel() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required int32 level = 3;</code>
+     */
+    public int getLevel() {
+      return level_;
+    }
+
+    // required int32 exp = 4;
+    public static final int EXP_FIELD_NUMBER = 4;
+    private int exp_;
+    /**
+     * <code>required int32 exp = 4;</code>
+     */
+    public boolean hasExp() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>required int32 exp = 4;</code>
+     */
+    public int getExp() {
+      return exp_;
+    }
+
+    private void initFields() {
+      heroId_ = 0L;
+      dictId_ = 0L;
+      level_ = 0;
+      exp_ = 0;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      if (!hasHeroId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasDictId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasLevel()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasExp()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt64(1, heroId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt64(2, dictId_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeInt32(3, level_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeInt32(4, exp_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, heroId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, dictId_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, level_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(4, exp_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.ease.nogame.protobuf.PBApp.PBHero parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.ease.nogame.protobuf.PBApp.PBHero parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.ease.nogame.protobuf.PBApp.PBHero parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.ease.nogame.protobuf.PBApp.PBHero parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.ease.nogame.protobuf.PBApp.PBHero parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.ease.nogame.protobuf.PBApp.PBHero parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.ease.nogame.protobuf.PBApp.PBHero parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.ease.nogame.protobuf.PBApp.PBHero parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.ease.nogame.protobuf.PBApp.PBHero parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.ease.nogame.protobuf.PBApp.PBHero parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.ease.nogame.protobuf.PBApp.PBHero prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code netty.PBHero}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.ease.nogame.protobuf.PBApp.PBHeroOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.ease.nogame.protobuf.PBApp.internal_static_netty_PBHero_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.ease.nogame.protobuf.PBApp.internal_static_netty_PBHero_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.ease.nogame.protobuf.PBApp.PBHero.class, com.ease.nogame.protobuf.PBApp.PBHero.Builder.class);
+      }
+
+      // Construct using com.ease.nogame.protobuf.PBApp.PBHero.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        heroId_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        dictId_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        level_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        exp_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.ease.nogame.protobuf.PBApp.internal_static_netty_PBHero_descriptor;
+      }
+
+      public com.ease.nogame.protobuf.PBApp.PBHero getDefaultInstanceForType() {
+        return com.ease.nogame.protobuf.PBApp.PBHero.getDefaultInstance();
+      }
+
+      public com.ease.nogame.protobuf.PBApp.PBHero build() {
+        com.ease.nogame.protobuf.PBApp.PBHero result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.ease.nogame.protobuf.PBApp.PBHero buildPartial() {
+        com.ease.nogame.protobuf.PBApp.PBHero result = new com.ease.nogame.protobuf.PBApp.PBHero(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.heroId_ = heroId_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.dictId_ = dictId_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.level_ = level_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.exp_ = exp_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.ease.nogame.protobuf.PBApp.PBHero) {
+          return mergeFrom((com.ease.nogame.protobuf.PBApp.PBHero)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.ease.nogame.protobuf.PBApp.PBHero other) {
+        if (other == com.ease.nogame.protobuf.PBApp.PBHero.getDefaultInstance()) return this;
+        if (other.hasHeroId()) {
+          setHeroId(other.getHeroId());
+        }
+        if (other.hasDictId()) {
+          setDictId(other.getDictId());
+        }
+        if (other.hasLevel()) {
+          setLevel(other.getLevel());
+        }
+        if (other.hasExp()) {
+          setExp(other.getExp());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasHeroId()) {
+          
+          return false;
+        }
+        if (!hasDictId()) {
+          
+          return false;
+        }
+        if (!hasLevel()) {
+          
+          return false;
+        }
+        if (!hasExp()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.ease.nogame.protobuf.PBApp.PBHero parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.ease.nogame.protobuf.PBApp.PBHero) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // required int64 heroId = 1;
+      private long heroId_ ;
+      /**
+       * <code>required int64 heroId = 1;</code>
+       */
+      public boolean hasHeroId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int64 heroId = 1;</code>
+       */
+      public long getHeroId() {
+        return heroId_;
+      }
+      /**
+       * <code>required int64 heroId = 1;</code>
+       */
+      public Builder setHeroId(long value) {
+        bitField0_ |= 0x00000001;
+        heroId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int64 heroId = 1;</code>
+       */
+      public Builder clearHeroId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        heroId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // required int64 dictId = 2;
+      private long dictId_ ;
+      /**
+       * <code>required int64 dictId = 2;</code>
+       */
+      public boolean hasDictId() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required int64 dictId = 2;</code>
+       */
+      public long getDictId() {
+        return dictId_;
+      }
+      /**
+       * <code>required int64 dictId = 2;</code>
+       */
+      public Builder setDictId(long value) {
+        bitField0_ |= 0x00000002;
+        dictId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int64 dictId = 2;</code>
+       */
+      public Builder clearDictId() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        dictId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // required int32 level = 3;
+      private int level_ ;
+      /**
+       * <code>required int32 level = 3;</code>
+       */
+      public boolean hasLevel() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required int32 level = 3;</code>
+       */
+      public int getLevel() {
+        return level_;
+      }
+      /**
+       * <code>required int32 level = 3;</code>
+       */
+      public Builder setLevel(int value) {
+        bitField0_ |= 0x00000004;
+        level_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 level = 3;</code>
+       */
+      public Builder clearLevel() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        level_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // required int32 exp = 4;
+      private int exp_ ;
+      /**
+       * <code>required int32 exp = 4;</code>
+       */
+      public boolean hasExp() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>required int32 exp = 4;</code>
+       */
+      public int getExp() {
+        return exp_;
+      }
+      /**
+       * <code>required int32 exp = 4;</code>
+       */
+      public Builder setExp(int value) {
+        bitField0_ |= 0x00000008;
+        exp_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 exp = 4;</code>
+       */
+      public Builder clearExp() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        exp_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:netty.PBHero)
+    }
+
+    static {
+      defaultInstance = new PBHero(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:netty.PBHero)
+  }
+
   public interface C2SLoginOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
@@ -3392,11 +4063,1011 @@ public final class PBApp {
     // @@protoc_insertion_point(class_scope:netty.S2CUserInfo)
   }
 
+  public interface C2SHeroInfoOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+  }
+  /**
+   * Protobuf type {@code netty.C2SHeroInfo}
+   */
+  public static final class C2SHeroInfo extends
+      com.google.protobuf.GeneratedMessage
+      implements C2SHeroInfoOrBuilder {
+    // Use C2SHeroInfo.newBuilder() to construct.
+    private C2SHeroInfo(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private C2SHeroInfo(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final C2SHeroInfo defaultInstance;
+    public static C2SHeroInfo getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public C2SHeroInfo getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private C2SHeroInfo(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.ease.nogame.protobuf.PBApp.internal_static_netty_C2SHeroInfo_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.ease.nogame.protobuf.PBApp.internal_static_netty_C2SHeroInfo_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.ease.nogame.protobuf.PBApp.C2SHeroInfo.class, com.ease.nogame.protobuf.PBApp.C2SHeroInfo.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<C2SHeroInfo> PARSER =
+        new com.google.protobuf.AbstractParser<C2SHeroInfo>() {
+      public C2SHeroInfo parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new C2SHeroInfo(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<C2SHeroInfo> getParserForType() {
+      return PARSER;
+    }
+
+    private void initFields() {
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.ease.nogame.protobuf.PBApp.C2SHeroInfo parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.ease.nogame.protobuf.PBApp.C2SHeroInfo parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.ease.nogame.protobuf.PBApp.C2SHeroInfo parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.ease.nogame.protobuf.PBApp.C2SHeroInfo parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.ease.nogame.protobuf.PBApp.C2SHeroInfo parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.ease.nogame.protobuf.PBApp.C2SHeroInfo parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.ease.nogame.protobuf.PBApp.C2SHeroInfo parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.ease.nogame.protobuf.PBApp.C2SHeroInfo parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.ease.nogame.protobuf.PBApp.C2SHeroInfo parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.ease.nogame.protobuf.PBApp.C2SHeroInfo parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.ease.nogame.protobuf.PBApp.C2SHeroInfo prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code netty.C2SHeroInfo}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.ease.nogame.protobuf.PBApp.C2SHeroInfoOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.ease.nogame.protobuf.PBApp.internal_static_netty_C2SHeroInfo_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.ease.nogame.protobuf.PBApp.internal_static_netty_C2SHeroInfo_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.ease.nogame.protobuf.PBApp.C2SHeroInfo.class, com.ease.nogame.protobuf.PBApp.C2SHeroInfo.Builder.class);
+      }
+
+      // Construct using com.ease.nogame.protobuf.PBApp.C2SHeroInfo.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.ease.nogame.protobuf.PBApp.internal_static_netty_C2SHeroInfo_descriptor;
+      }
+
+      public com.ease.nogame.protobuf.PBApp.C2SHeroInfo getDefaultInstanceForType() {
+        return com.ease.nogame.protobuf.PBApp.C2SHeroInfo.getDefaultInstance();
+      }
+
+      public com.ease.nogame.protobuf.PBApp.C2SHeroInfo build() {
+        com.ease.nogame.protobuf.PBApp.C2SHeroInfo result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.ease.nogame.protobuf.PBApp.C2SHeroInfo buildPartial() {
+        com.ease.nogame.protobuf.PBApp.C2SHeroInfo result = new com.ease.nogame.protobuf.PBApp.C2SHeroInfo(this);
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.ease.nogame.protobuf.PBApp.C2SHeroInfo) {
+          return mergeFrom((com.ease.nogame.protobuf.PBApp.C2SHeroInfo)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.ease.nogame.protobuf.PBApp.C2SHeroInfo other) {
+        if (other == com.ease.nogame.protobuf.PBApp.C2SHeroInfo.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.ease.nogame.protobuf.PBApp.C2SHeroInfo parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.ease.nogame.protobuf.PBApp.C2SHeroInfo) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:netty.C2SHeroInfo)
+    }
+
+    static {
+      defaultInstance = new C2SHeroInfo(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:netty.C2SHeroInfo)
+  }
+
+  public interface S2CHeroInfoOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // repeated .netty.PBHero heroList = 1;
+    /**
+     * <code>repeated .netty.PBHero heroList = 1;</code>
+     */
+    java.util.List<com.ease.nogame.protobuf.PBApp.PBHero> 
+        getHeroListList();
+    /**
+     * <code>repeated .netty.PBHero heroList = 1;</code>
+     */
+    com.ease.nogame.protobuf.PBApp.PBHero getHeroList(int index);
+    /**
+     * <code>repeated .netty.PBHero heroList = 1;</code>
+     */
+    int getHeroListCount();
+    /**
+     * <code>repeated .netty.PBHero heroList = 1;</code>
+     */
+    java.util.List<? extends com.ease.nogame.protobuf.PBApp.PBHeroOrBuilder> 
+        getHeroListOrBuilderList();
+    /**
+     * <code>repeated .netty.PBHero heroList = 1;</code>
+     */
+    com.ease.nogame.protobuf.PBApp.PBHeroOrBuilder getHeroListOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code netty.S2CHeroInfo}
+   */
+  public static final class S2CHeroInfo extends
+      com.google.protobuf.GeneratedMessage
+      implements S2CHeroInfoOrBuilder {
+    // Use S2CHeroInfo.newBuilder() to construct.
+    private S2CHeroInfo(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private S2CHeroInfo(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final S2CHeroInfo defaultInstance;
+    public static S2CHeroInfo getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public S2CHeroInfo getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private S2CHeroInfo(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                heroList_ = new java.util.ArrayList<com.ease.nogame.protobuf.PBApp.PBHero>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              heroList_.add(input.readMessage(com.ease.nogame.protobuf.PBApp.PBHero.PARSER, extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          heroList_ = java.util.Collections.unmodifiableList(heroList_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.ease.nogame.protobuf.PBApp.internal_static_netty_S2CHeroInfo_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.ease.nogame.protobuf.PBApp.internal_static_netty_S2CHeroInfo_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.ease.nogame.protobuf.PBApp.S2CHeroInfo.class, com.ease.nogame.protobuf.PBApp.S2CHeroInfo.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<S2CHeroInfo> PARSER =
+        new com.google.protobuf.AbstractParser<S2CHeroInfo>() {
+      public S2CHeroInfo parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new S2CHeroInfo(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<S2CHeroInfo> getParserForType() {
+      return PARSER;
+    }
+
+    // repeated .netty.PBHero heroList = 1;
+    public static final int HEROLIST_FIELD_NUMBER = 1;
+    private java.util.List<com.ease.nogame.protobuf.PBApp.PBHero> heroList_;
+    /**
+     * <code>repeated .netty.PBHero heroList = 1;</code>
+     */
+    public java.util.List<com.ease.nogame.protobuf.PBApp.PBHero> getHeroListList() {
+      return heroList_;
+    }
+    /**
+     * <code>repeated .netty.PBHero heroList = 1;</code>
+     */
+    public java.util.List<? extends com.ease.nogame.protobuf.PBApp.PBHeroOrBuilder> 
+        getHeroListOrBuilderList() {
+      return heroList_;
+    }
+    /**
+     * <code>repeated .netty.PBHero heroList = 1;</code>
+     */
+    public int getHeroListCount() {
+      return heroList_.size();
+    }
+    /**
+     * <code>repeated .netty.PBHero heroList = 1;</code>
+     */
+    public com.ease.nogame.protobuf.PBApp.PBHero getHeroList(int index) {
+      return heroList_.get(index);
+    }
+    /**
+     * <code>repeated .netty.PBHero heroList = 1;</code>
+     */
+    public com.ease.nogame.protobuf.PBApp.PBHeroOrBuilder getHeroListOrBuilder(
+        int index) {
+      return heroList_.get(index);
+    }
+
+    private void initFields() {
+      heroList_ = java.util.Collections.emptyList();
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      for (int i = 0; i < getHeroListCount(); i++) {
+        if (!getHeroList(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      for (int i = 0; i < heroList_.size(); i++) {
+        output.writeMessage(1, heroList_.get(i));
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < heroList_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, heroList_.get(i));
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.ease.nogame.protobuf.PBApp.S2CHeroInfo parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.ease.nogame.protobuf.PBApp.S2CHeroInfo parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.ease.nogame.protobuf.PBApp.S2CHeroInfo parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.ease.nogame.protobuf.PBApp.S2CHeroInfo parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.ease.nogame.protobuf.PBApp.S2CHeroInfo parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.ease.nogame.protobuf.PBApp.S2CHeroInfo parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.ease.nogame.protobuf.PBApp.S2CHeroInfo parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.ease.nogame.protobuf.PBApp.S2CHeroInfo parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.ease.nogame.protobuf.PBApp.S2CHeroInfo parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.ease.nogame.protobuf.PBApp.S2CHeroInfo parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.ease.nogame.protobuf.PBApp.S2CHeroInfo prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code netty.S2CHeroInfo}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.ease.nogame.protobuf.PBApp.S2CHeroInfoOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.ease.nogame.protobuf.PBApp.internal_static_netty_S2CHeroInfo_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.ease.nogame.protobuf.PBApp.internal_static_netty_S2CHeroInfo_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.ease.nogame.protobuf.PBApp.S2CHeroInfo.class, com.ease.nogame.protobuf.PBApp.S2CHeroInfo.Builder.class);
+      }
+
+      // Construct using com.ease.nogame.protobuf.PBApp.S2CHeroInfo.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getHeroListFieldBuilder();
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        if (heroListBuilder_ == null) {
+          heroList_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          heroListBuilder_.clear();
+        }
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.ease.nogame.protobuf.PBApp.internal_static_netty_S2CHeroInfo_descriptor;
+      }
+
+      public com.ease.nogame.protobuf.PBApp.S2CHeroInfo getDefaultInstanceForType() {
+        return com.ease.nogame.protobuf.PBApp.S2CHeroInfo.getDefaultInstance();
+      }
+
+      public com.ease.nogame.protobuf.PBApp.S2CHeroInfo build() {
+        com.ease.nogame.protobuf.PBApp.S2CHeroInfo result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.ease.nogame.protobuf.PBApp.S2CHeroInfo buildPartial() {
+        com.ease.nogame.protobuf.PBApp.S2CHeroInfo result = new com.ease.nogame.protobuf.PBApp.S2CHeroInfo(this);
+        int from_bitField0_ = bitField0_;
+        if (heroListBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            heroList_ = java.util.Collections.unmodifiableList(heroList_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.heroList_ = heroList_;
+        } else {
+          result.heroList_ = heroListBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.ease.nogame.protobuf.PBApp.S2CHeroInfo) {
+          return mergeFrom((com.ease.nogame.protobuf.PBApp.S2CHeroInfo)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.ease.nogame.protobuf.PBApp.S2CHeroInfo other) {
+        if (other == com.ease.nogame.protobuf.PBApp.S2CHeroInfo.getDefaultInstance()) return this;
+        if (heroListBuilder_ == null) {
+          if (!other.heroList_.isEmpty()) {
+            if (heroList_.isEmpty()) {
+              heroList_ = other.heroList_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureHeroListIsMutable();
+              heroList_.addAll(other.heroList_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.heroList_.isEmpty()) {
+            if (heroListBuilder_.isEmpty()) {
+              heroListBuilder_.dispose();
+              heroListBuilder_ = null;
+              heroList_ = other.heroList_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              heroListBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getHeroListFieldBuilder() : null;
+            } else {
+              heroListBuilder_.addAllMessages(other.heroList_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        for (int i = 0; i < getHeroListCount(); i++) {
+          if (!getHeroList(i).isInitialized()) {
+            
+            return false;
+          }
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.ease.nogame.protobuf.PBApp.S2CHeroInfo parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.ease.nogame.protobuf.PBApp.S2CHeroInfo) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // repeated .netty.PBHero heroList = 1;
+      private java.util.List<com.ease.nogame.protobuf.PBApp.PBHero> heroList_ =
+        java.util.Collections.emptyList();
+      private void ensureHeroListIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          heroList_ = new java.util.ArrayList<com.ease.nogame.protobuf.PBApp.PBHero>(heroList_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          com.ease.nogame.protobuf.PBApp.PBHero, com.ease.nogame.protobuf.PBApp.PBHero.Builder, com.ease.nogame.protobuf.PBApp.PBHeroOrBuilder> heroListBuilder_;
+
+      /**
+       * <code>repeated .netty.PBHero heroList = 1;</code>
+       */
+      public java.util.List<com.ease.nogame.protobuf.PBApp.PBHero> getHeroListList() {
+        if (heroListBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(heroList_);
+        } else {
+          return heroListBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .netty.PBHero heroList = 1;</code>
+       */
+      public int getHeroListCount() {
+        if (heroListBuilder_ == null) {
+          return heroList_.size();
+        } else {
+          return heroListBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .netty.PBHero heroList = 1;</code>
+       */
+      public com.ease.nogame.protobuf.PBApp.PBHero getHeroList(int index) {
+        if (heroListBuilder_ == null) {
+          return heroList_.get(index);
+        } else {
+          return heroListBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .netty.PBHero heroList = 1;</code>
+       */
+      public Builder setHeroList(
+          int index, com.ease.nogame.protobuf.PBApp.PBHero value) {
+        if (heroListBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureHeroListIsMutable();
+          heroList_.set(index, value);
+          onChanged();
+        } else {
+          heroListBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .netty.PBHero heroList = 1;</code>
+       */
+      public Builder setHeroList(
+          int index, com.ease.nogame.protobuf.PBApp.PBHero.Builder builderForValue) {
+        if (heroListBuilder_ == null) {
+          ensureHeroListIsMutable();
+          heroList_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          heroListBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .netty.PBHero heroList = 1;</code>
+       */
+      public Builder addHeroList(com.ease.nogame.protobuf.PBApp.PBHero value) {
+        if (heroListBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureHeroListIsMutable();
+          heroList_.add(value);
+          onChanged();
+        } else {
+          heroListBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .netty.PBHero heroList = 1;</code>
+       */
+      public Builder addHeroList(
+          int index, com.ease.nogame.protobuf.PBApp.PBHero value) {
+        if (heroListBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureHeroListIsMutable();
+          heroList_.add(index, value);
+          onChanged();
+        } else {
+          heroListBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .netty.PBHero heroList = 1;</code>
+       */
+      public Builder addHeroList(
+          com.ease.nogame.protobuf.PBApp.PBHero.Builder builderForValue) {
+        if (heroListBuilder_ == null) {
+          ensureHeroListIsMutable();
+          heroList_.add(builderForValue.build());
+          onChanged();
+        } else {
+          heroListBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .netty.PBHero heroList = 1;</code>
+       */
+      public Builder addHeroList(
+          int index, com.ease.nogame.protobuf.PBApp.PBHero.Builder builderForValue) {
+        if (heroListBuilder_ == null) {
+          ensureHeroListIsMutable();
+          heroList_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          heroListBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .netty.PBHero heroList = 1;</code>
+       */
+      public Builder addAllHeroList(
+          java.lang.Iterable<? extends com.ease.nogame.protobuf.PBApp.PBHero> values) {
+        if (heroListBuilder_ == null) {
+          ensureHeroListIsMutable();
+          super.addAll(values, heroList_);
+          onChanged();
+        } else {
+          heroListBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .netty.PBHero heroList = 1;</code>
+       */
+      public Builder clearHeroList() {
+        if (heroListBuilder_ == null) {
+          heroList_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          heroListBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .netty.PBHero heroList = 1;</code>
+       */
+      public Builder removeHeroList(int index) {
+        if (heroListBuilder_ == null) {
+          ensureHeroListIsMutable();
+          heroList_.remove(index);
+          onChanged();
+        } else {
+          heroListBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .netty.PBHero heroList = 1;</code>
+       */
+      public com.ease.nogame.protobuf.PBApp.PBHero.Builder getHeroListBuilder(
+          int index) {
+        return getHeroListFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .netty.PBHero heroList = 1;</code>
+       */
+      public com.ease.nogame.protobuf.PBApp.PBHeroOrBuilder getHeroListOrBuilder(
+          int index) {
+        if (heroListBuilder_ == null) {
+          return heroList_.get(index);  } else {
+          return heroListBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .netty.PBHero heroList = 1;</code>
+       */
+      public java.util.List<? extends com.ease.nogame.protobuf.PBApp.PBHeroOrBuilder> 
+           getHeroListOrBuilderList() {
+        if (heroListBuilder_ != null) {
+          return heroListBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(heroList_);
+        }
+      }
+      /**
+       * <code>repeated .netty.PBHero heroList = 1;</code>
+       */
+      public com.ease.nogame.protobuf.PBApp.PBHero.Builder addHeroListBuilder() {
+        return getHeroListFieldBuilder().addBuilder(
+            com.ease.nogame.protobuf.PBApp.PBHero.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .netty.PBHero heroList = 1;</code>
+       */
+      public com.ease.nogame.protobuf.PBApp.PBHero.Builder addHeroListBuilder(
+          int index) {
+        return getHeroListFieldBuilder().addBuilder(
+            index, com.ease.nogame.protobuf.PBApp.PBHero.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .netty.PBHero heroList = 1;</code>
+       */
+      public java.util.List<com.ease.nogame.protobuf.PBApp.PBHero.Builder> 
+           getHeroListBuilderList() {
+        return getHeroListFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          com.ease.nogame.protobuf.PBApp.PBHero, com.ease.nogame.protobuf.PBApp.PBHero.Builder, com.ease.nogame.protobuf.PBApp.PBHeroOrBuilder> 
+          getHeroListFieldBuilder() {
+        if (heroListBuilder_ == null) {
+          heroListBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              com.ease.nogame.protobuf.PBApp.PBHero, com.ease.nogame.protobuf.PBApp.PBHero.Builder, com.ease.nogame.protobuf.PBApp.PBHeroOrBuilder>(
+                  heroList_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          heroList_ = null;
+        }
+        return heroListBuilder_;
+      }
+
+      // @@protoc_insertion_point(builder_scope:netty.S2CHeroInfo)
+    }
+
+    static {
+      defaultInstance = new S2CHeroInfo(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:netty.S2CHeroInfo)
+  }
+
   private static com.google.protobuf.Descriptors.Descriptor
     internal_static_netty_MsgDesc_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_netty_MsgDesc_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_netty_PBHero_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_netty_PBHero_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
     internal_static_netty_C2SLogin_descriptor;
   private static
@@ -3417,6 +5088,16 @@ public final class PBApp {
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_netty_S2CUserInfo_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_netty_C2SHeroInfo_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_netty_C2SHeroInfo_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_netty_S2CHeroInfo_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_netty_S2CHeroInfo_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -3429,12 +5110,16 @@ public final class PBApp {
       "\n\013PBApp.proto\022\005netty\"q\n\007MsgDesc\022\017\n\007msgNa" +
       "me\030\001 \002(\t\022\020\n\010msgBytes\030\002 \001(\014\022\016\n\006userId\030\003 \001" +
       "(\003\022\r\n\005token\030\004 \001(\t\022\021\n\terrorCode\030\005 \001(\005\022\021\n\t" +
-      "errorDesc\030\006 \001(\t\"@\n\010C2SLogin\022\020\n\010userName\030" +
-      "\001 \002(\t\022\020\n\010password\030\002 \002(\t\022\020\n\010deviceID\030\003 \002(" +
-      "\t\")\n\010S2CLogin\022\016\n\006userId\030\001 \002(\003\022\r\n\005token\030\002" +
-      " \002(\t\"\035\n\013C2SUserInfo\022\016\n\006userId\030\001 \002(\003\"/\n\013S" +
-      "2CUserInfo\022\016\n\006userId\030\001 \002(\003\022\020\n\010userName\030\002" +
-      " \002(\tB!\n\030com.ease.nogame.protobufB\005PBApp"
+      "errorDesc\030\006 \001(\t\"D\n\006PBHero\022\016\n\006heroId\030\001 \002(" +
+      "\003\022\016\n\006dictId\030\002 \002(\003\022\r\n\005level\030\003 \002(\005\022\013\n\003exp\030" +
+      "\004 \002(\005\"@\n\010C2SLogin\022\020\n\010userName\030\001 \002(\t\022\020\n\010p" +
+      "assword\030\002 \002(\t\022\020\n\010deviceID\030\003 \002(\t\")\n\010S2CLo" +
+      "gin\022\016\n\006userId\030\001 \002(\003\022\r\n\005token\030\002 \002(\t\"\035\n\013C2" +
+      "SUserInfo\022\016\n\006userId\030\001 \002(\003\"/\n\013S2CUserInfo" +
+      "\022\016\n\006userId\030\001 \002(\003\022\020\n\010userName\030\002 \002(\t\"\r\n\013C2",
+      "SHeroInfo\".\n\013S2CHeroInfo\022\037\n\010heroList\030\001 \003" +
+      "(\0132\r.netty.PBHeroB!\n\030com.ease.nogame.pro" +
+      "tobufB\005PBApp"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -3447,30 +5132,48 @@ public final class PBApp {
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_netty_MsgDesc_descriptor,
               new java.lang.String[] { "MsgName", "MsgBytes", "UserId", "Token", "ErrorCode", "ErrorDesc", });
-          internal_static_netty_C2SLogin_descriptor =
+          internal_static_netty_PBHero_descriptor =
             getDescriptor().getMessageTypes().get(1);
+          internal_static_netty_PBHero_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_netty_PBHero_descriptor,
+              new java.lang.String[] { "HeroId", "DictId", "Level", "Exp", });
+          internal_static_netty_C2SLogin_descriptor =
+            getDescriptor().getMessageTypes().get(2);
           internal_static_netty_C2SLogin_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_netty_C2SLogin_descriptor,
               new java.lang.String[] { "UserName", "Password", "DeviceID", });
           internal_static_netty_S2CLogin_descriptor =
-            getDescriptor().getMessageTypes().get(2);
+            getDescriptor().getMessageTypes().get(3);
           internal_static_netty_S2CLogin_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_netty_S2CLogin_descriptor,
               new java.lang.String[] { "UserId", "Token", });
           internal_static_netty_C2SUserInfo_descriptor =
-            getDescriptor().getMessageTypes().get(3);
+            getDescriptor().getMessageTypes().get(4);
           internal_static_netty_C2SUserInfo_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_netty_C2SUserInfo_descriptor,
               new java.lang.String[] { "UserId", });
           internal_static_netty_S2CUserInfo_descriptor =
-            getDescriptor().getMessageTypes().get(4);
+            getDescriptor().getMessageTypes().get(5);
           internal_static_netty_S2CUserInfo_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_netty_S2CUserInfo_descriptor,
               new java.lang.String[] { "UserId", "UserName", });
+          internal_static_netty_C2SHeroInfo_descriptor =
+            getDescriptor().getMessageTypes().get(6);
+          internal_static_netty_C2SHeroInfo_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_netty_C2SHeroInfo_descriptor,
+              new java.lang.String[] { });
+          internal_static_netty_S2CHeroInfo_descriptor =
+            getDescriptor().getMessageTypes().get(7);
+          internal_static_netty_S2CHeroInfo_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_netty_S2CHeroInfo_descriptor,
+              new java.lang.String[] { "HeroList", });
           return null;
         }
       };

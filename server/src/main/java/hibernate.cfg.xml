@@ -11,5 +11,6 @@
   <property name="hibernate.connection.pool_size">60</property>
   <property name="hibernate.show_sql">true</property>
   <mapping class="com.ease.nogame.domain.Account" resource="com/ease/nogame/domain/Account.hbm.xml"/>
+  <mapping class="com.ease.nogame.domain.Hero" resource="com/ease/nogame/domain/Hero.hbm.xml"/>
  </session-factory>
 </hibernate-configuration>

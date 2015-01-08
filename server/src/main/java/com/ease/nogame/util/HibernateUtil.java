@@ -1,5 +1,7 @@
 package com.ease.nogame.util;
 
+import java.util.List;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -46,6 +48,16 @@ public class HibernateUtil {
 	}
 	
 
+	public static void saveObjectsAndCommit(List<Object> objList){
+		Session s = currentSession();
+		s.beginTransaction();
+		for (Object obj : objList){
+			s.save(obj);
+		}
+		
+		s.getTransaction().commit();
+	}
+	
 	public static void saveAndCommit(Object obj){
 		Session s = currentSession();
 		s.beginTransaction();

@@ -7,6 +7,7 @@ import io.netty.channel.ChannelHandlerContext;
 
 public abstract class MessageHandler {
 	private ChannelHandlerContext context = null;
+	private long userId = 0;
 	
 	public MessageHandler() {
 
@@ -14,13 +15,18 @@ public abstract class MessageHandler {
 	
 	public abstract void handle(Message msg);
 	
-	public void transit(ChannelHandlerContext ctx, Message msg){
-		context = ctx;
+	public void transit(ChannelHandlerContext ctx, long userId, Message msg){
+		this.context = ctx;
+		this.userId = userId;
 		handle(msg);
 	}
 	
 	public void push(Message msg){
 		//TODO
+	}
+	
+	public long getUserId(){
+		return this.userId;
 	}
 
 	public void send(Message msg){

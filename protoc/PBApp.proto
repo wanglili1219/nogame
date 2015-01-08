@@ -12,6 +12,13 @@ message MsgDesc {
     optional string errorDesc = 6;
 }
 
+message PBHero {
+        required int64 heroId = 1;
+        required int64 dictId = 2;
+        required int32 level = 3;
+        required int32 exp = 4;
+}
+
 message C2SLogin {
         required string userName = 1;
         required string password = 2;
@@ -31,3 +38,12 @@ message S2CUserInfo {
         required int64 userId = 1;
         required string userName = 2;
 }
+
+message C2SHeroInfo{
+        
+}
+
+message S2CHeroInfo {
+        repeated PBHero heroList = 1;
+}
+

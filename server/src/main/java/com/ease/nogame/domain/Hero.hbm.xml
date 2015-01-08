@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-1-8 14:27:56 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping package="com.ease.nogame.domain">
+    <class name="com.ease.nogame.domain.Hero" table="HERO">
+     
+     <id name="id" type="long">
+		<column name="id" />
+		<generator class="hilo">
+		<param name="table">hibernate_id_high</param>
+		<param name="column">hero_id_value</param>
+		<param name="max_lo">9999</param>
+		</generator>
+	</id>
+        
+        <property name="dictId" type="long">
+            <column name="DICTID" />
+        </property>
+        <property name="accountId" type="long">
+            <column name="ACCOUNTID" />
+        </property>
+        <property name="level" type="int">
+            <column name="LEVEL" />
+        </property>
+        <property name="exp" type="int">
+            <column name="EXP" />
+        </property>
+        
+    </class>
+    
+<resultset name="hero_resultset">
+	<return class="Hero" />
+</resultset>
+
+	<sql-query name="queryHeroByUserId" resultset-ref="hero_resultset">
+		select * from hero where accountId=:userId
+	</sql-query>
+ 
+</hibernate-mapping>

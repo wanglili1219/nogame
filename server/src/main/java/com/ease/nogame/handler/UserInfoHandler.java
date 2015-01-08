@@ -17,8 +17,6 @@ public class UserInfoHandler extends MessageHandler {
 		Account acc = (Account)s.get(Account.class, req.getUserId());
 
 		PBApp.S2CUserInfo.Builder resp = PBApp.S2CUserInfo.newBuilder();
-		System.out.println(acc.getId());
-		System.out.println(acc.getUserName());
 		
 		resp.setUserId(acc.getId());
 		resp.setUserName(acc.getUserName());

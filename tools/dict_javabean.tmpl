@@ -18,7 +18,7 @@ import java.util.Map;
         "float":"float"
     }
 
-#def getMethodName($name)
+#def getCapName($name)
     #set $name = string.capwords($name, sep="_").replace("_", "")
     #return $name
 #end def
@@ -29,7 +29,8 @@ import java.util.Map;
               #return $name
 #end def
 
-public class DT$className.capitalize() implements IDict {
+#set $clname = $getCapName($className)
+public class DT$clname implements IDict {
     #for $desc, $name, $type in $fieldList:
        #set $field_name = $getFieldName($name)
        //$desc
@@ -44,7 +45,7 @@ public class DT$className.capitalize() implements IDict {
        }
 
     #for $desc, $name, $type in $fieldList
-       #set $method_name = $getMethodName($name)
+       #set $method_name = $getCapName($name)
        #set $field_name = $getFieldName($name)
        public $type_table[str($type)] get${method_name}(){
             return this.$field_name;

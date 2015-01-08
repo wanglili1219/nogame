@@ -13,6 +13,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 
 import com.ease.nogame.domain.Account;
+import com.ease.nogame.handler.HeroInfoHandler;
 import com.ease.nogame.handler.LoginHandler;
 import com.ease.nogame.handler.MessageHandler;
 import com.ease.nogame.handler.UserInfoHandler;
@@ -34,16 +35,17 @@ public class MessageDispatcher {
 			this.cHandler = cHandler;
 		}
 		
-		public void handle(ChannelHandlerContext ctx, ByteString bs) 
+		public void handle(ChannelHandlerContext ctx, long userId, ByteString bs) 
 				throws NoSuchMethodException, SecurityException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException , NGException{
 			Method m = cMsg.getMethod("parseFrom", ByteString.class);
-			((MessageHandler)cHandler.newInstance()).transit(ctx, (Message)m.invoke(cMsg, bs));
+			((MessageHandler)cHandler.newInstance()).transit(ctx, userId, (Message)m.invoke(cMsg, bs));
 		}
 	}
 	
 	static void init(){
 		handlerMap.put("C2SLogin", new HandlerEntry(PBApp.C2SLogin.class, LoginHandler.class));
 		handlerMap.put("C2SUserInfo", new HandlerEntry(PBApp.C2SUserInfo.class, UserInfoHandler.class));
+		handlerMap.put("C2SHeroInfo", new HandlerEntry(PBApp.C2SHeroInfo.class, HeroInfoHandler.class));
 
 		//continue...
 	}
@@ -84,7 +86,7 @@ public class MessageDispatcher {
 				}
 
 				HandlerEntry en = handlerMap.get(md.getMsgName());
-				en.handle(ctx, md.getMsgBytes());
+				en.handle(ctx, md.getUserId(), md.getMsgBytes());
 			}catch(NGException e){
 				PBApp.MsgDesc.Builder mb = PBApp.MsgDesc.newBuilder();
 				mb.setMsgName(md.getMsgName());

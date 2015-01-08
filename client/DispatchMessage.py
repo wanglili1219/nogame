@@ -8,11 +8,13 @@ from S2CUserInfo import *
 from C2SLogin import *
 from S2CLogin import *
 from UserInfo import *
+from S2CHeroInfo import *
 
 
 handlerDict = {}
 handlerDict["S2CLogin"] = globals()["S2CLogin"]
 handlerDict["S2CUserInfo"] = globals()["S2CUserInfo"]
+handlerDict["S2CHeroInfo"] = globals()["S2CHeroInfo"]
 
 def dispatch(respByte):
     md = PBApp_pb2.MsgDesc()

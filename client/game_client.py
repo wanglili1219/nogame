@@ -23,6 +23,7 @@ from  CommandInput import *
 from C2SLogin import *
 from S2CLogin import *
 from UserInfo import *
+from C2SHeroInfo import *
 import DictConfig
 
 import DispatchMessage
@@ -70,24 +71,25 @@ while True:
         paraList = NGParamPaser.parse(re.split("\s*", what))
 
     sd = None
+    request = None
     try:
         if paraList["login"]:
-            l = C2SLogin()
-            sd = package_request(l.build())
+            request = C2SLogin()
         elif paraList["userinfo"]:
-            l = C2SUserInfo()
-            sd = package_request(l.build())
+            request = C2SUserInfo()
+        elif paraList["heroinfo"]:
+            request = C2SHeroInfo()
         elif paraList["quit"]:
             break
     except KeyError, e:
         pass
 
-    if sd != None:
+    if request != None:
+        sd = package_request(request.build())
         outputs_set.append(clientSocket)
 
     try: 
         readable, writable, exceptional = select.select([clientSocket], outputs_set, [clientSocket], 0)
-
         if exceptional:
             Logger.i("Connection exception.")
             clientSocket.close()

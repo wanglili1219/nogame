@@ -13,7 +13,7 @@ from google.protobuf import descriptor_pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='PBApp.proto',
   package='netty',
-  serialized_pb='\n\x0bPBApp.proto\x12\x05netty\"q\n\x07MsgDesc\x12\x0f\n\x07msgName\x18\x01 \x02(\t\x12\x10\n\x08msgBytes\x18\x02 \x01(\x0c\x12\x0e\n\x06userId\x18\x03 \x01(\x03\x12\r\n\x05token\x18\x04 \x01(\t\x12\x11\n\terrorCode\x18\x05 \x01(\x05\x12\x11\n\terrorDesc\x18\x06 \x01(\t\"@\n\x08\x43\x32SLogin\x12\x10\n\x08userName\x18\x01 \x02(\t\x12\x10\n\x08password\x18\x02 \x02(\t\x12\x10\n\x08\x64\x65viceID\x18\x03 \x02(\t\")\n\x08S2CLogin\x12\x0e\n\x06userId\x18\x01 \x02(\x03\x12\r\n\x05token\x18\x02 \x02(\t\"\x1d\n\x0b\x43\x32SUserInfo\x12\x0e\n\x06userId\x18\x01 \x02(\x03\"/\n\x0bS2CUserInfo\x12\x0e\n\x06userId\x18\x01 \x02(\x03\x12\x10\n\x08userName\x18\x02 \x02(\tB!\n\x18\x63om.ease.nogame.protobufB\x05PBApp')
+  serialized_pb='\n\x0bPBApp.proto\x12\x05netty\"q\n\x07MsgDesc\x12\x0f\n\x07msgName\x18\x01 \x02(\t\x12\x10\n\x08msgBytes\x18\x02 \x01(\x0c\x12\x0e\n\x06userId\x18\x03 \x01(\x03\x12\r\n\x05token\x18\x04 \x01(\t\x12\x11\n\terrorCode\x18\x05 \x01(\x05\x12\x11\n\terrorDesc\x18\x06 \x01(\t\"D\n\x06PBHero\x12\x0e\n\x06heroId\x18\x01 \x02(\x03\x12\x0e\n\x06\x64ictId\x18\x02 \x02(\x03\x12\r\n\x05level\x18\x03 \x02(\x05\x12\x0b\n\x03\x65xp\x18\x04 \x02(\x05\"@\n\x08\x43\x32SLogin\x12\x10\n\x08userName\x18\x01 \x02(\t\x12\x10\n\x08password\x18\x02 \x02(\t\x12\x10\n\x08\x64\x65viceID\x18\x03 \x02(\t\")\n\x08S2CLogin\x12\x0e\n\x06userId\x18\x01 \x02(\x03\x12\r\n\x05token\x18\x02 \x02(\t\"\x1d\n\x0b\x43\x32SUserInfo\x12\x0e\n\x06userId\x18\x01 \x02(\x03\"/\n\x0bS2CUserInfo\x12\x0e\n\x06userId\x18\x01 \x02(\x03\x12\x10\n\x08userName\x18\x02 \x02(\t\"\r\n\x0b\x43\x32SHeroInfo\".\n\x0bS2CHeroInfo\x12\x1f\n\x08heroList\x18\x01 \x03(\x0b\x32\r.netty.PBHeroB!\n\x18\x63om.ease.nogame.protobufB\x05PBApp')
 
 
 
@@ -81,6 +81,55 @@ _MSGDESC = _descriptor.Descriptor(
 )
 
 
+_PBHERO = _descriptor.Descriptor(
+  name='PBHero',
+  full_name='netty.PBHero',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='heroId', full_name='netty.PBHero.heroId', index=0,
+      number=1, type=3, cpp_type=2, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='dictId', full_name='netty.PBHero.dictId', index=1,
+      number=2, type=3, cpp_type=2, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='level', full_name='netty.PBHero.level', index=2,
+      number=3, type=5, cpp_type=1, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='exp', full_name='netty.PBHero.exp', index=3,
+      number=4, type=5, cpp_type=1, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  serialized_start=137,
+  serialized_end=205,
+)
+
+
 _C2SLOGIN = _descriptor.Descriptor(
   name='C2SLogin',
   full_name='netty.C2SLogin',
@@ -118,8 +167,8 @@ _C2SLOGIN = _descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=137,
-  serialized_end=201,
+  serialized_start=207,
+  serialized_end=271,
 )
 
 
@@ -153,8 +202,8 @@ _S2CLOGIN = _descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=203,
-  serialized_end=244,
+  serialized_start=273,
+  serialized_end=314,
 )
 
 
@@ -181,8 +230,8 @@ _C2SUSERINFO = _descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=246,
-  serialized_end=275,
+  serialized_start=316,
+  serialized_end=345,
 )
 
 
@@ -216,21 +265,80 @@ _S2CUSERINFO = _descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=277,
-  serialized_end=324,
+  serialized_start=347,
+  serialized_end=394,
 )
 
+
+_C2SHEROINFO = _descriptor.Descriptor(
+  name='C2SHeroInfo',
+  full_name='netty.C2SHeroInfo',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  serialized_start=396,
+  serialized_end=409,
+)
+
+
+_S2CHEROINFO = _descriptor.Descriptor(
+  name='S2CHeroInfo',
+  full_name='netty.S2CHeroInfo',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='heroList', full_name='netty.S2CHeroInfo.heroList', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  serialized_start=411,
+  serialized_end=457,
+)
+
+_S2CHEROINFO.fields_by_name['heroList'].message_type = _PBHERO
 DESCRIPTOR.message_types_by_name['MsgDesc'] = _MSGDESC
+DESCRIPTOR.message_types_by_name['PBHero'] = _PBHERO
 DESCRIPTOR.message_types_by_name['C2SLogin'] = _C2SLOGIN
 DESCRIPTOR.message_types_by_name['S2CLogin'] = _S2CLOGIN
 DESCRIPTOR.message_types_by_name['C2SUserInfo'] = _C2SUSERINFO
 DESCRIPTOR.message_types_by_name['S2CUserInfo'] = _S2CUSERINFO
+DESCRIPTOR.message_types_by_name['C2SHeroInfo'] = _C2SHEROINFO
+DESCRIPTOR.message_types_by_name['S2CHeroInfo'] = _S2CHEROINFO
 
 class MsgDesc(_message.Message):
   __metaclass__ = _reflection.GeneratedProtocolMessageType
   DESCRIPTOR = _MSGDESC
 
   # @@protoc_insertion_point(class_scope:netty.MsgDesc)
+
+class PBHero(_message.Message):
+  __metaclass__ = _reflection.GeneratedProtocolMessageType
+  DESCRIPTOR = _PBHERO
+
+  # @@protoc_insertion_point(class_scope:netty.PBHero)
 
 class C2SLogin(_message.Message):
   __metaclass__ = _reflection.GeneratedProtocolMessageType
@@ -255,6 +363,18 @@ class S2CUserInfo(_message.Message):
   DESCRIPTOR = _S2CUSERINFO
 
   # @@protoc_insertion_point(class_scope:netty.S2CUserInfo)
+
+class C2SHeroInfo(_message.Message):
+  __metaclass__ = _reflection.GeneratedProtocolMessageType
+  DESCRIPTOR = _C2SHEROINFO
+
+  # @@protoc_insertion_point(class_scope:netty.C2SHeroInfo)
+
+class S2CHeroInfo(_message.Message):
+  __metaclass__ = _reflection.GeneratedProtocolMessageType
+  DESCRIPTOR = _S2CHEROINFO
+
+  # @@protoc_insertion_point(class_scope:netty.S2CHeroInfo)
 
 
 DESCRIPTOR.has_options = True

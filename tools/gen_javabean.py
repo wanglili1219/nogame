@@ -54,7 +54,8 @@ def init():
                 t = load_table(path)
                 tmpl.fieldList = t
                 try:
-                     fp = open(outpath + "DT" + basename.capitalize() + ".java", "w+")
+                     javaname = string.capwords(basename, sep="_").replace("_", "")
+                     fp = open(outpath + "DT" + javaname + ".java", "w+")
                      fp.write(str(tmpl))
                      fp.close()
                 except Exception, e:
