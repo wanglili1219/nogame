@@ -9,14 +9,18 @@ import string
 import time
 import struct
 import select
-import PBMessage_pb2
-import PBCommand_pb2
 import threading
 import thread
 import re
 import traceback
 
 sys.path.append("../common/")
+sys.path.append("./protoc/")
+sys.path.append("./c2s/")
+sys.path.append("./s2c/")
+
+import PBMessage_pb2
+import PBCommand_pb2
 
 from C2SUserInfo import *
 from S2CUserInfo import *
