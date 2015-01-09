@@ -4,4 +4,5 @@
 <hibernate-reverse-engineering>
 	<table-filter match-catalog="nogame" match-name="account" />
 	<table-filter match-name="hero" match-catalog="nogame"></table-filter>
+	<table-filter match-name="equip" match-catalog="nogame"></table-filter>
 </hibernate-reverse-engineering>

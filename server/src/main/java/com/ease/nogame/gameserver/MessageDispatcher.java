@@ -13,6 +13,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 
 import com.ease.nogame.domain.Account;
+import com.ease.nogame.handler.EquipInfoHandler;
 import com.ease.nogame.handler.HeroInfoHandler;
 import com.ease.nogame.handler.LoginHandler;
 import com.ease.nogame.handler.MessageHandler;
@@ -47,6 +48,7 @@ public class MessageDispatcher {
 		handlerMap.put("C2SLogin", new HandlerEntry(PBCommand.C2SLogin.class, LoginHandler.class));
 		handlerMap.put("C2SUserInfo", new HandlerEntry(PBCommand.C2SUserInfo.class, UserInfoHandler.class));
 		handlerMap.put("C2SHeroInfo", new HandlerEntry(PBCommand.C2SHeroInfo.class, HeroInfoHandler.class));
+		handlerMap.put("C2SEquipInfo", new HandlerEntry(PBCommand.C2SEquipInfo.class, EquipInfoHandler.class));
 
 		//continue...
 	}

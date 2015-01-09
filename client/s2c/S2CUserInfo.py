@@ -11,6 +11,7 @@ class S2CUserInfo:
         msg = PBCommand_pb2.S2CUserInfo()
         msg.ParseFromString(respByte)
         ui = msg.userInfo
+        Logger.i(str(ui))
         UserInfo.info.id = ui.userId
         UserInfo.info.name = ui.userName
         UserInfo.info.level = ui.level

@@ -4,6 +4,7 @@
 
 
 import sys
+import os
 import socket
 import string
 import time
@@ -14,10 +15,11 @@ import thread
 import re
 import traceback
 
-sys.path.append("../common/")
-sys.path.append("./protoc/")
-sys.path.append("./c2s/")
-sys.path.append("./s2c/")
+apppath = os.getcwd()
+sys.path.append(apppath + "../common/")
+sys.path.append(apppath + "/protoc/")
+sys.path.append(apppath + "/c2s/")
+sys.path.append(apppath + "/s2c/")
 
 import PBMessage_pb2
 import PBCommand_pb2
@@ -31,6 +33,7 @@ from S2CLogin import *
 import UserInfo
 from C2SHeroInfo import *
 import DictConfig
+from C2SEquipInfo import *
 
 import DispatchMessage
 import NGParamPaser
@@ -85,6 +88,8 @@ while True:
             request = C2SUserInfo()
         elif paraList["heroinfo"]:
             request = C2SHeroInfo()
+        elif paraList["equipinfo"]:
+            request = C2SEquipInfo()
         elif paraList["quit"]:
             break
     except KeyError, e:

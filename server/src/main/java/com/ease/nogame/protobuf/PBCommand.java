@@ -3329,6 +3329,1001 @@ public final class PBCommand {
     // @@protoc_insertion_point(class_scope:netty.S2CHeroInfo)
   }
 
+  public interface C2SEquipInfoOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+  }
+  /**
+   * Protobuf type {@code netty.C2SEquipInfo}
+   */
+  public static final class C2SEquipInfo extends
+      com.google.protobuf.GeneratedMessage
+      implements C2SEquipInfoOrBuilder {
+    // Use C2SEquipInfo.newBuilder() to construct.
+    private C2SEquipInfo(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private C2SEquipInfo(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final C2SEquipInfo defaultInstance;
+    public static C2SEquipInfo getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public C2SEquipInfo getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private C2SEquipInfo(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.ease.nogame.protobuf.PBCommand.internal_static_netty_C2SEquipInfo_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.ease.nogame.protobuf.PBCommand.internal_static_netty_C2SEquipInfo_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.ease.nogame.protobuf.PBCommand.C2SEquipInfo.class, com.ease.nogame.protobuf.PBCommand.C2SEquipInfo.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<C2SEquipInfo> PARSER =
+        new com.google.protobuf.AbstractParser<C2SEquipInfo>() {
+      public C2SEquipInfo parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new C2SEquipInfo(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<C2SEquipInfo> getParserForType() {
+      return PARSER;
+    }
+
+    private void initFields() {
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.ease.nogame.protobuf.PBCommand.C2SEquipInfo parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.ease.nogame.protobuf.PBCommand.C2SEquipInfo parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.ease.nogame.protobuf.PBCommand.C2SEquipInfo parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.ease.nogame.protobuf.PBCommand.C2SEquipInfo parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.ease.nogame.protobuf.PBCommand.C2SEquipInfo parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.ease.nogame.protobuf.PBCommand.C2SEquipInfo parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.ease.nogame.protobuf.PBCommand.C2SEquipInfo parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.ease.nogame.protobuf.PBCommand.C2SEquipInfo parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.ease.nogame.protobuf.PBCommand.C2SEquipInfo parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.ease.nogame.protobuf.PBCommand.C2SEquipInfo parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.ease.nogame.protobuf.PBCommand.C2SEquipInfo prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code netty.C2SEquipInfo}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.ease.nogame.protobuf.PBCommand.C2SEquipInfoOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.ease.nogame.protobuf.PBCommand.internal_static_netty_C2SEquipInfo_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.ease.nogame.protobuf.PBCommand.internal_static_netty_C2SEquipInfo_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.ease.nogame.protobuf.PBCommand.C2SEquipInfo.class, com.ease.nogame.protobuf.PBCommand.C2SEquipInfo.Builder.class);
+      }
+
+      // Construct using com.ease.nogame.protobuf.PBCommand.C2SEquipInfo.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.ease.nogame.protobuf.PBCommand.internal_static_netty_C2SEquipInfo_descriptor;
+      }
+
+      public com.ease.nogame.protobuf.PBCommand.C2SEquipInfo getDefaultInstanceForType() {
+        return com.ease.nogame.protobuf.PBCommand.C2SEquipInfo.getDefaultInstance();
+      }
+
+      public com.ease.nogame.protobuf.PBCommand.C2SEquipInfo build() {
+        com.ease.nogame.protobuf.PBCommand.C2SEquipInfo result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.ease.nogame.protobuf.PBCommand.C2SEquipInfo buildPartial() {
+        com.ease.nogame.protobuf.PBCommand.C2SEquipInfo result = new com.ease.nogame.protobuf.PBCommand.C2SEquipInfo(this);
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.ease.nogame.protobuf.PBCommand.C2SEquipInfo) {
+          return mergeFrom((com.ease.nogame.protobuf.PBCommand.C2SEquipInfo)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.ease.nogame.protobuf.PBCommand.C2SEquipInfo other) {
+        if (other == com.ease.nogame.protobuf.PBCommand.C2SEquipInfo.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.ease.nogame.protobuf.PBCommand.C2SEquipInfo parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.ease.nogame.protobuf.PBCommand.C2SEquipInfo) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:netty.C2SEquipInfo)
+    }
+
+    static {
+      defaultInstance = new C2SEquipInfo(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:netty.C2SEquipInfo)
+  }
+
+  public interface S2CEquipInfoOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // repeated .netty.PBEquip equipList = 1;
+    /**
+     * <code>repeated .netty.PBEquip equipList = 1;</code>
+     */
+    java.util.List<com.ease.nogame.protobuf.PBMessage.PBEquip> 
+        getEquipListList();
+    /**
+     * <code>repeated .netty.PBEquip equipList = 1;</code>
+     */
+    com.ease.nogame.protobuf.PBMessage.PBEquip getEquipList(int index);
+    /**
+     * <code>repeated .netty.PBEquip equipList = 1;</code>
+     */
+    int getEquipListCount();
+    /**
+     * <code>repeated .netty.PBEquip equipList = 1;</code>
+     */
+    java.util.List<? extends com.ease.nogame.protobuf.PBMessage.PBEquipOrBuilder> 
+        getEquipListOrBuilderList();
+    /**
+     * <code>repeated .netty.PBEquip equipList = 1;</code>
+     */
+    com.ease.nogame.protobuf.PBMessage.PBEquipOrBuilder getEquipListOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code netty.S2CEquipInfo}
+   */
+  public static final class S2CEquipInfo extends
+      com.google.protobuf.GeneratedMessage
+      implements S2CEquipInfoOrBuilder {
+    // Use S2CEquipInfo.newBuilder() to construct.
+    private S2CEquipInfo(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private S2CEquipInfo(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final S2CEquipInfo defaultInstance;
+    public static S2CEquipInfo getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public S2CEquipInfo getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private S2CEquipInfo(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                equipList_ = new java.util.ArrayList<com.ease.nogame.protobuf.PBMessage.PBEquip>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              equipList_.add(input.readMessage(com.ease.nogame.protobuf.PBMessage.PBEquip.PARSER, extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          equipList_ = java.util.Collections.unmodifiableList(equipList_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.ease.nogame.protobuf.PBCommand.internal_static_netty_S2CEquipInfo_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.ease.nogame.protobuf.PBCommand.internal_static_netty_S2CEquipInfo_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.ease.nogame.protobuf.PBCommand.S2CEquipInfo.class, com.ease.nogame.protobuf.PBCommand.S2CEquipInfo.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<S2CEquipInfo> PARSER =
+        new com.google.protobuf.AbstractParser<S2CEquipInfo>() {
+      public S2CEquipInfo parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new S2CEquipInfo(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<S2CEquipInfo> getParserForType() {
+      return PARSER;
+    }
+
+    // repeated .netty.PBEquip equipList = 1;
+    public static final int EQUIPLIST_FIELD_NUMBER = 1;
+    private java.util.List<com.ease.nogame.protobuf.PBMessage.PBEquip> equipList_;
+    /**
+     * <code>repeated .netty.PBEquip equipList = 1;</code>
+     */
+    public java.util.List<com.ease.nogame.protobuf.PBMessage.PBEquip> getEquipListList() {
+      return equipList_;
+    }
+    /**
+     * <code>repeated .netty.PBEquip equipList = 1;</code>
+     */
+    public java.util.List<? extends com.ease.nogame.protobuf.PBMessage.PBEquipOrBuilder> 
+        getEquipListOrBuilderList() {
+      return equipList_;
+    }
+    /**
+     * <code>repeated .netty.PBEquip equipList = 1;</code>
+     */
+    public int getEquipListCount() {
+      return equipList_.size();
+    }
+    /**
+     * <code>repeated .netty.PBEquip equipList = 1;</code>
+     */
+    public com.ease.nogame.protobuf.PBMessage.PBEquip getEquipList(int index) {
+      return equipList_.get(index);
+    }
+    /**
+     * <code>repeated .netty.PBEquip equipList = 1;</code>
+     */
+    public com.ease.nogame.protobuf.PBMessage.PBEquipOrBuilder getEquipListOrBuilder(
+        int index) {
+      return equipList_.get(index);
+    }
+
+    private void initFields() {
+      equipList_ = java.util.Collections.emptyList();
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      for (int i = 0; i < getEquipListCount(); i++) {
+        if (!getEquipList(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      for (int i = 0; i < equipList_.size(); i++) {
+        output.writeMessage(1, equipList_.get(i));
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < equipList_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, equipList_.get(i));
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.ease.nogame.protobuf.PBCommand.S2CEquipInfo parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.ease.nogame.protobuf.PBCommand.S2CEquipInfo parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.ease.nogame.protobuf.PBCommand.S2CEquipInfo parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.ease.nogame.protobuf.PBCommand.S2CEquipInfo parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.ease.nogame.protobuf.PBCommand.S2CEquipInfo parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.ease.nogame.protobuf.PBCommand.S2CEquipInfo parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.ease.nogame.protobuf.PBCommand.S2CEquipInfo parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.ease.nogame.protobuf.PBCommand.S2CEquipInfo parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.ease.nogame.protobuf.PBCommand.S2CEquipInfo parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.ease.nogame.protobuf.PBCommand.S2CEquipInfo parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.ease.nogame.protobuf.PBCommand.S2CEquipInfo prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code netty.S2CEquipInfo}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.ease.nogame.protobuf.PBCommand.S2CEquipInfoOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.ease.nogame.protobuf.PBCommand.internal_static_netty_S2CEquipInfo_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.ease.nogame.protobuf.PBCommand.internal_static_netty_S2CEquipInfo_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.ease.nogame.protobuf.PBCommand.S2CEquipInfo.class, com.ease.nogame.protobuf.PBCommand.S2CEquipInfo.Builder.class);
+      }
+
+      // Construct using com.ease.nogame.protobuf.PBCommand.S2CEquipInfo.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getEquipListFieldBuilder();
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        if (equipListBuilder_ == null) {
+          equipList_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          equipListBuilder_.clear();
+        }
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.ease.nogame.protobuf.PBCommand.internal_static_netty_S2CEquipInfo_descriptor;
+      }
+
+      public com.ease.nogame.protobuf.PBCommand.S2CEquipInfo getDefaultInstanceForType() {
+        return com.ease.nogame.protobuf.PBCommand.S2CEquipInfo.getDefaultInstance();
+      }
+
+      public com.ease.nogame.protobuf.PBCommand.S2CEquipInfo build() {
+        com.ease.nogame.protobuf.PBCommand.S2CEquipInfo result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.ease.nogame.protobuf.PBCommand.S2CEquipInfo buildPartial() {
+        com.ease.nogame.protobuf.PBCommand.S2CEquipInfo result = new com.ease.nogame.protobuf.PBCommand.S2CEquipInfo(this);
+        int from_bitField0_ = bitField0_;
+        if (equipListBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            equipList_ = java.util.Collections.unmodifiableList(equipList_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.equipList_ = equipList_;
+        } else {
+          result.equipList_ = equipListBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.ease.nogame.protobuf.PBCommand.S2CEquipInfo) {
+          return mergeFrom((com.ease.nogame.protobuf.PBCommand.S2CEquipInfo)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.ease.nogame.protobuf.PBCommand.S2CEquipInfo other) {
+        if (other == com.ease.nogame.protobuf.PBCommand.S2CEquipInfo.getDefaultInstance()) return this;
+        if (equipListBuilder_ == null) {
+          if (!other.equipList_.isEmpty()) {
+            if (equipList_.isEmpty()) {
+              equipList_ = other.equipList_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureEquipListIsMutable();
+              equipList_.addAll(other.equipList_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.equipList_.isEmpty()) {
+            if (equipListBuilder_.isEmpty()) {
+              equipListBuilder_.dispose();
+              equipListBuilder_ = null;
+              equipList_ = other.equipList_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              equipListBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getEquipListFieldBuilder() : null;
+            } else {
+              equipListBuilder_.addAllMessages(other.equipList_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        for (int i = 0; i < getEquipListCount(); i++) {
+          if (!getEquipList(i).isInitialized()) {
+            
+            return false;
+          }
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.ease.nogame.protobuf.PBCommand.S2CEquipInfo parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.ease.nogame.protobuf.PBCommand.S2CEquipInfo) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // repeated .netty.PBEquip equipList = 1;
+      private java.util.List<com.ease.nogame.protobuf.PBMessage.PBEquip> equipList_ =
+        java.util.Collections.emptyList();
+      private void ensureEquipListIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          equipList_ = new java.util.ArrayList<com.ease.nogame.protobuf.PBMessage.PBEquip>(equipList_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          com.ease.nogame.protobuf.PBMessage.PBEquip, com.ease.nogame.protobuf.PBMessage.PBEquip.Builder, com.ease.nogame.protobuf.PBMessage.PBEquipOrBuilder> equipListBuilder_;
+
+      /**
+       * <code>repeated .netty.PBEquip equipList = 1;</code>
+       */
+      public java.util.List<com.ease.nogame.protobuf.PBMessage.PBEquip> getEquipListList() {
+        if (equipListBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(equipList_);
+        } else {
+          return equipListBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .netty.PBEquip equipList = 1;</code>
+       */
+      public int getEquipListCount() {
+        if (equipListBuilder_ == null) {
+          return equipList_.size();
+        } else {
+          return equipListBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .netty.PBEquip equipList = 1;</code>
+       */
+      public com.ease.nogame.protobuf.PBMessage.PBEquip getEquipList(int index) {
+        if (equipListBuilder_ == null) {
+          return equipList_.get(index);
+        } else {
+          return equipListBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .netty.PBEquip equipList = 1;</code>
+       */
+      public Builder setEquipList(
+          int index, com.ease.nogame.protobuf.PBMessage.PBEquip value) {
+        if (equipListBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureEquipListIsMutable();
+          equipList_.set(index, value);
+          onChanged();
+        } else {
+          equipListBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .netty.PBEquip equipList = 1;</code>
+       */
+      public Builder setEquipList(
+          int index, com.ease.nogame.protobuf.PBMessage.PBEquip.Builder builderForValue) {
+        if (equipListBuilder_ == null) {
+          ensureEquipListIsMutable();
+          equipList_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          equipListBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .netty.PBEquip equipList = 1;</code>
+       */
+      public Builder addEquipList(com.ease.nogame.protobuf.PBMessage.PBEquip value) {
+        if (equipListBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureEquipListIsMutable();
+          equipList_.add(value);
+          onChanged();
+        } else {
+          equipListBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .netty.PBEquip equipList = 1;</code>
+       */
+      public Builder addEquipList(
+          int index, com.ease.nogame.protobuf.PBMessage.PBEquip value) {
+        if (equipListBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureEquipListIsMutable();
+          equipList_.add(index, value);
+          onChanged();
+        } else {
+          equipListBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .netty.PBEquip equipList = 1;</code>
+       */
+      public Builder addEquipList(
+          com.ease.nogame.protobuf.PBMessage.PBEquip.Builder builderForValue) {
+        if (equipListBuilder_ == null) {
+          ensureEquipListIsMutable();
+          equipList_.add(builderForValue.build());
+          onChanged();
+        } else {
+          equipListBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .netty.PBEquip equipList = 1;</code>
+       */
+      public Builder addEquipList(
+          int index, com.ease.nogame.protobuf.PBMessage.PBEquip.Builder builderForValue) {
+        if (equipListBuilder_ == null) {
+          ensureEquipListIsMutable();
+          equipList_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          equipListBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .netty.PBEquip equipList = 1;</code>
+       */
+      public Builder addAllEquipList(
+          java.lang.Iterable<? extends com.ease.nogame.protobuf.PBMessage.PBEquip> values) {
+        if (equipListBuilder_ == null) {
+          ensureEquipListIsMutable();
+          super.addAll(values, equipList_);
+          onChanged();
+        } else {
+          equipListBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .netty.PBEquip equipList = 1;</code>
+       */
+      public Builder clearEquipList() {
+        if (equipListBuilder_ == null) {
+          equipList_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          equipListBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .netty.PBEquip equipList = 1;</code>
+       */
+      public Builder removeEquipList(int index) {
+        if (equipListBuilder_ == null) {
+          ensureEquipListIsMutable();
+          equipList_.remove(index);
+          onChanged();
+        } else {
+          equipListBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .netty.PBEquip equipList = 1;</code>
+       */
+      public com.ease.nogame.protobuf.PBMessage.PBEquip.Builder getEquipListBuilder(
+          int index) {
+        return getEquipListFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .netty.PBEquip equipList = 1;</code>
+       */
+      public com.ease.nogame.protobuf.PBMessage.PBEquipOrBuilder getEquipListOrBuilder(
+          int index) {
+        if (equipListBuilder_ == null) {
+          return equipList_.get(index);  } else {
+          return equipListBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .netty.PBEquip equipList = 1;</code>
+       */
+      public java.util.List<? extends com.ease.nogame.protobuf.PBMessage.PBEquipOrBuilder> 
+           getEquipListOrBuilderList() {
+        if (equipListBuilder_ != null) {
+          return equipListBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(equipList_);
+        }
+      }
+      /**
+       * <code>repeated .netty.PBEquip equipList = 1;</code>
+       */
+      public com.ease.nogame.protobuf.PBMessage.PBEquip.Builder addEquipListBuilder() {
+        return getEquipListFieldBuilder().addBuilder(
+            com.ease.nogame.protobuf.PBMessage.PBEquip.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .netty.PBEquip equipList = 1;</code>
+       */
+      public com.ease.nogame.protobuf.PBMessage.PBEquip.Builder addEquipListBuilder(
+          int index) {
+        return getEquipListFieldBuilder().addBuilder(
+            index, com.ease.nogame.protobuf.PBMessage.PBEquip.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .netty.PBEquip equipList = 1;</code>
+       */
+      public java.util.List<com.ease.nogame.protobuf.PBMessage.PBEquip.Builder> 
+           getEquipListBuilderList() {
+        return getEquipListFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          com.ease.nogame.protobuf.PBMessage.PBEquip, com.ease.nogame.protobuf.PBMessage.PBEquip.Builder, com.ease.nogame.protobuf.PBMessage.PBEquipOrBuilder> 
+          getEquipListFieldBuilder() {
+        if (equipListBuilder_ == null) {
+          equipListBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              com.ease.nogame.protobuf.PBMessage.PBEquip, com.ease.nogame.protobuf.PBMessage.PBEquip.Builder, com.ease.nogame.protobuf.PBMessage.PBEquipOrBuilder>(
+                  equipList_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          equipList_ = null;
+        }
+        return equipListBuilder_;
+      }
+
+      // @@protoc_insertion_point(builder_scope:netty.S2CEquipInfo)
+    }
+
+    static {
+      defaultInstance = new S2CEquipInfo(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:netty.S2CEquipInfo)
+  }
+
   private static com.google.protobuf.Descriptors.Descriptor
     internal_static_netty_C2SLogin_descriptor;
   private static
@@ -3359,6 +4354,16 @@ public final class PBCommand {
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_netty_S2CHeroInfo_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_netty_C2SEquipInfo_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_netty_C2SEquipInfo_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_netty_S2CEquipInfo_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_netty_S2CEquipInfo_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -3375,8 +4380,9 @@ public final class PBCommand {
       ".PBUser\"\r\n\013C2SUserInfo\".\n\013S2CUserInfo\022\037\n" +
       "\010userInfo\030\001 \002(\0132\r.netty.PBUser\"\r\n\013C2SHer" +
       "oInfo\".\n\013S2CHeroInfo\022\037\n\010heroList\030\001 \003(\0132\r" +
-      ".netty.PBHeroB%\n\030com.ease.nogame.protobu" +
-      "fB\tPBCommand"
+      ".netty.PBHero\"\016\n\014C2SEquipInfo\"1\n\014S2CEqui" +
+      "pInfo\022!\n\tequipList\030\001 \003(\0132\016.netty.PBEquip" +
+      "B%\n\030com.ease.nogame.protobufB\tPBCommand"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -3419,6 +4425,18 @@ public final class PBCommand {
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_netty_S2CHeroInfo_descriptor,
               new java.lang.String[] { "HeroList", });
+          internal_static_netty_C2SEquipInfo_descriptor =
+            getDescriptor().getMessageTypes().get(6);
+          internal_static_netty_C2SEquipInfo_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_netty_C2SEquipInfo_descriptor,
+              new java.lang.String[] { });
+          internal_static_netty_S2CEquipInfo_descriptor =
+            getDescriptor().getMessageTypes().get(7);
+          internal_static_netty_S2CEquipInfo_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_netty_S2CEquipInfo_descriptor,
+              new java.lang.String[] { "EquipList", });
           return null;
         }
       };

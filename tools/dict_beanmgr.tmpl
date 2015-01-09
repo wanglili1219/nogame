@@ -16,7 +16,7 @@ public enum DTManager {
         ${enum_name}(DT${class_name}.class),
     #end for
          ;
-
+	
 	DTManager(Class<? extends IDict> cls) {
         init(cls);
     }
@@ -25,8 +25,8 @@ public enum DTManager {
 		String path = DTManager.class.getClassLoader().getResource("dict").getPath();
 		File f = new File(path + "/" + this.name().toLowerCase() + ".xls");
         try {
-            List<T> list = ExcelUtils.parseExcel(cls, f.getPath());
-            for (T h : list){
+            list = ExcelUtils.parseExcel(cls, f.getPath());
+            for (Object h : list){
 				map.put(((IDict) h).getId(), h);
             }
         } catch (Exception e) {
@@ -34,9 +34,14 @@ public enum DTManager {
         }
 	}
 
+    public <T> List<T> getList(){
+		return (List<T>)list;
+	}
+    
 	public <T> T getByID(Object id) {
         return (T) map.get(id);
     }
 
+    private List<?> list;
 	private Map<Object, Object> map = new HashMap<Object, Object>();
 }

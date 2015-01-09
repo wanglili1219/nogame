@@ -20,7 +20,6 @@ class UserData:
         try:
             fp = open(path, "wb")
             if fp:
-                Logger.i("dump userinfo")
                 pickle.dump(UserData.data, fp)
                 fp.close()
         except Exception, e:

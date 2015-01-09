@@ -17,24 +17,24 @@
         <property name="dictId" type="long">
             <column name="DICTID" />
         </property>
-        <property name="accountId" type="long">
-            <column name="ACCOUNTID" />
-        </property>
         <property name="level" type="int">
             <column name="LEVEL" />
         </property>
         <property name="exp" type="int">
             <column name="EXP" />
         </property>
-	 	
+		 <property name="userId" type="long">
+            <column name="USERID" />
+        </property>
+			 	
     </class>
     
-<resultset name="hero_resultset">
-	<return class="Hero" />
-</resultset>
+	<resultset name="hero_resultset">
+		<return class="Hero" />
+	</resultset>
 
 	<sql-query name="queryHeroByUserId" resultset-ref="hero_resultset">
-		select * from hero where accountId=:userId
+		select * from hero where userId=:userId
 	</sql-query>
  
 </hibernate-mapping>

@@ -6,6 +6,7 @@ NGParamPaser.py quit
 NGParamPaser.py login
 NGParamPaser.py userinfo
 NGParamPaser.py heroinfo
+NGParamPaser.py equipinfo
 """
 import sys 
 from docopt import docopt, DocoptExit

@@ -8,9 +8,11 @@ import java.io.UnsupportedEncodingException;
 
 import org.hibernate.Session;
 
+import com.ease.nogame.dict.DTEquip;
 import com.ease.nogame.dict.DTManager;
 import com.ease.nogame.dict.DTPlayerInitial;
 import com.ease.nogame.domain.Account;
+import com.ease.nogame.domain.Equip;
 import com.ease.nogame.domain.Hero;
 import com.ease.nogame.protobuf.PBMessage;
 import com.ease.nogame.protobuf.PBCommand;
@@ -31,6 +33,7 @@ public class LoginHandler extends MessageHandler {
 		acc.setCreateTime(new Date());
 		acc.setToken(TokenGenerator.getToken());
 
+		///add hero
 		DTPlayerInitial dtpi = DTManager.PLAYER_INITIAL.getByID(1);
 		acc.setLevel(dtpi.getPlayerInitialLv());
 		acc.setExp(dtpi.getPlayerInitialExp());
@@ -43,16 +46,34 @@ public class LoginHandler extends MessageHandler {
 		for (Item itm : itmlst){
 			if (itm.getType() ==  25){
 				Hero h = new Hero();
-				h.setAccountId(acc.getId());
 				h.setDictId(itm.getId());
 				h.setLevel(1);
 				h.setExp(0);
+				h.setUserId(acc.getId());
 				savelst.add(h);
 			}
 		}
 		
 		HibernateUtil.saveObjectsAndCommit(savelst);
 
+		///add equip
+		List<DTEquip> eqlst = DTManager.EQUIP.getList();
+		List<Object> saveeqlst = new ArrayList<Object>();
+		int eqcount = 0;
+		for (DTEquip de : eqlst){
+			Equip eq = new Equip();
+			eq.setUserId(acc.getId());
+			eq.setHeroId(0);
+			eq.setDictId(de.getEquipId());
+			saveeqlst.add(eq);
+			eqcount++;
+			if (eqcount > 5){
+				break;
+			}
+		}
+		
+		HibernateUtil.saveObjectsAndCommit(saveeqlst);
+		
 		PBCommand.S2CLogin.Builder resp = PBCommand.S2CLogin.newBuilder();
 		resp.setToken(acc.getToken());
 		
@@ -63,10 +84,9 @@ public class LoginHandler extends MessageHandler {
 		pbu.setExp(acc.getExp());
 		pbu.setGold(acc.getGold());
 		pbu.setGem(acc.getGem());
-		
+
 		resp.setUserInfo(pbu.build());
-		
-		
+
 		send(resp.build());
 	}
 }
