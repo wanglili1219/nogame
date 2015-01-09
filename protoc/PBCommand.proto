@@ -1,0 +1,34 @@
+package netty;
+
+option java_package = "com.ease.nogame.protobuf";
+option java_outer_classname = "PBCommand";
+
+import "PBMessage.proto";
+
+message C2SLogin {
+        required string userName = 1;
+        required string password = 2;
+        required string deviceID = 3;
+}
+
+message S2CLogin {
+        required string token = 1;
+        required PBUser userInfo = 2;
+}
+
+message C2SUserInfo {
+
+}
+
+message S2CUserInfo {
+        required PBUser userInfo = 1;
+}
+
+message C2SHeroInfo{
+        
+}
+
+message S2CHeroInfo {
+        repeated PBHero heroList = 1;
+}
+

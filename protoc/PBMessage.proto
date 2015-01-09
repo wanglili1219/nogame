@@ -1,7 +1,7 @@
 package netty;
 
 option java_package = "com.ease.nogame.protobuf";
-option java_outer_classname = "PBApp";
+option java_outer_classname = "PBMessage";
 
 message MsgDesc {
     required string msgName = 1;
@@ -19,31 +19,12 @@ message PBHero {
         required int32 exp = 4;
 }
 
-message C2SLogin {
-        required string userName = 1;
-        required string password = 2;
-        required string deviceID = 3;
-}
-
-message S2CLogin {
-        required int64 userId = 1;
-        required string token = 2;
-}
-
-message C2SUserInfo {
-        required int64 userId = 1;
-}
-
-message S2CUserInfo {
+message PBUser {
         required int64 userId = 1;
         required string userName = 2;
-}
-
-message C2SHeroInfo{
-        
-}
-
-message S2CHeroInfo {
-        repeated PBHero heroList = 1;
+        required int32 level = 3;
+        required int32 exp = 4;
+        required int32 gem = 5;
+        required int32 gold = 6;
 }
 
