@@ -37,7 +37,7 @@ class CommandInput(threading.Thread):
          cls.is_quit = True
 
     def run(self):
-            sys.stdout.write("what:"+"\n")
+            sys.stdout.write(">>"+"\n")
             sys.stdout.flush()
             while CommandInput.is_quit == False:
                 sleep(.001)
@@ -49,7 +49,7 @@ class CommandInput(threading.Thread):
                         CommandInput.queue.append(what)
                         CommandInput.mutx.release()
 
-                    sys.stdout.write("what:"+"\n")
+                    sys.stdout.write(">>"+"\n")
                     sys.stdout.flush()
 
 

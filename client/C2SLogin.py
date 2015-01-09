@@ -3,15 +3,16 @@
 
 from C2SBase import *
 import Util
-import PBApp_pb2
+import PBCommand_pb2
 
 class C2SLogin(C2SBase):
     def build(self):
-        msg = PBApp_pb2.C2SLogin()
+        msg = PBCommand_pb2.C2SLogin()
         msg.userName = Util.gen_user_name()
         msg.password = "12345"
         msg.deviceID = Util.get_mac_address()
-        return self.wrapMsgDesc(msg)
+        ss = self.wrapMsgDesc(msg)
+        return ss
 
         
         

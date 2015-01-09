@@ -1,19 +1,24 @@
 #!/usr/bin/env python
 
 from Util import *
-from UserInfo import *
+import UserInfo
 from Logger import *
-import PBApp_pb2
+import PBCommand_pb2
 
 class S2CLogin:
     def handle(self, respByte):
-        msg = PBApp_pb2.S2CLogin()
+        msg = PBCommand_pb2.S2CLogin()
         msg.ParseFromString(respByte)
-        UserInfo.setId(msg.userId)
-        UserInfo.setToken(msg.token)
-        Logger.i(str(UserInfo.getId()))
-        Logger.i(UserInfo.getToken())
+        UserInfo.info.token = msg.token
+        UserInfo.info.id = msg.userInfo.userId
+        UserInfo.info.name = msg.userInfo.userName
+        UserInfo.info.level = msg.userInfo.level
+        UserInfo.info.exp = msg.userInfo.exp
+        UserInfo.info.gold = msg.userInfo.gold
+        UserInfo.info.gem = msg.userInfo.gem
 
-        UserInfo.dump()
+        UserInfo.info.dump()
+        #Logger.i(str(UserInfo.info))
+        
 
         

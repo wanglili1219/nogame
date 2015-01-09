@@ -2,16 +2,19 @@
 # -*- coding: utf-8 -*-  
 
 import Util
-from UserInfo import *
+import UserInfo 
 from Logger import *
-import PBApp_pb2
+import PBCommand_pb2
 
 class S2CUserInfo:
     def handle(self, respByte):
-        msg = PBApp_pb2.S2CUserInfo()
+        msg = PBCommand_pb2.S2CUserInfo()
         msg.ParseFromString(respByte)
-        UserInfo.setId(msg.userId)
-        UserInfo.setName(msg.userName)
-        UserInfo.dump()
-        Logger.i("user Id" + str(msg.userId))
-        Logger.i("user Name " +  msg.userName)
+        ui = msg.userInfo
+        UserInfo.info.id = ui.userId
+        UserInfo.info.name = ui.userName
+        UserInfo.info.level = ui.level
+        UserInfo.info.exp = ui.exp
+        UserInfo.info.gold = ui.gold
+        UserInfo.info.gem = ui.gem
+        UserInfo.info.dump()

@@ -9,10 +9,12 @@ import string
 import time
 import struct
 import select
-import PBApp_pb2
+import PBMessage_pb2
+import PBCommand_pb2
 import threading
 import thread
 import re
+import traceback
 
 sys.path.append("../common/")
 
@@ -22,7 +24,7 @@ from Logger import *
 from  CommandInput import *
 from C2SLogin import *
 from S2CLogin import *
-from UserInfo import *
+import UserInfo
 from C2SHeroInfo import *
 import DictConfig
 
@@ -53,15 +55,15 @@ except socket.error, msg:
 DictConfig.init()
 Logger.init()
 CommandInput.init()
-UserInfo.load()
+UserInfo.info.load()
 
-if UserInfo.getToken() == "":
+if UserInfo.info.token == None:
     Logger.i("Welcome for your first login.")
 else:
     Logger.i("Welcome come back.")
-    Logger.i("userId: " + str(UserInfo.getId()))
-    Logger.i("userName: " + UserInfo.getName())
-    Logger.i("userToken: " + UserInfo.getToken())
+    Logger.i("userId: " + str(UserInfo.info.id))
+    Logger.i("userName: " + UserInfo.info.name)
+    Logger.i("userToken: " + UserInfo.info.token)
 
 while True:
     paraList = {}
@@ -106,7 +108,10 @@ while True:
                     bodysize = struct.unpack_from(">i", headpacket, 0)
                     bodypacket = r.recv(bodysize[0])
                     body = struct.unpack_from("%ds"%(bodysize), bodypacket, 0)
-                    DispatchMessage.dispatch(body[0])
+                    try:
+                        DispatchMessage.dispatch(body[0])
+                    except Exception, e:
+                        traceback.print_exc()
                 
         for w in writable:
             w.send(sd)
@@ -114,7 +119,7 @@ while True:
             outputs_set.remove(w)
 
     except Exception, e:
-        print e
+        traceback.print_exc()
         clientSocket.close()
         clientSocket = None
         break

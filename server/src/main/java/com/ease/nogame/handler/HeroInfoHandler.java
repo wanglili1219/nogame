@@ -7,8 +7,8 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 
 import com.ease.nogame.domain.Hero;
-import com.ease.nogame.protobuf.PBApp;
-import com.ease.nogame.protobuf.PBApp.PBHero;
+import com.ease.nogame.protobuf.PBMessage;
+import com.ease.nogame.protobuf.PBCommand;
 import com.ease.nogame.util.HibernateUtil;
 import com.google.protobuf.Message;
 
@@ -20,9 +20,9 @@ public class HeroInfoHandler extends MessageHandler {
 		Query q = s.getNamedQuery("queryHeroByUserId");
 		q.setLong("userId", getUserId());
 		List<Hero> hlst = q.list();
-		List<PBHero> rlst = new ArrayList<PBHero>();
+		List<PBMessage.PBHero> rlst = new ArrayList<PBMessage.PBHero>();
 		for (Hero h : hlst){
-			PBApp.PBHero.Builder hb = PBApp.PBHero.newBuilder();
+			PBMessage.PBHero.Builder hb = PBMessage.PBHero.newBuilder();
 			hb.setHeroId(h.getId());
 			hb.setDictId(h.getDictId());
 			hb.setLevel(h.getLevel());
@@ -30,7 +30,7 @@ public class HeroInfoHandler extends MessageHandler {
 			rlst.add(hb.build());
 		}
 
-		PBApp.S2CHeroInfo.Builder resp = PBApp.S2CHeroInfo.newBuilder();
+		PBCommand.S2CHeroInfo.Builder resp = PBCommand.S2CHeroInfo.newBuilder();
 		resp.addAllHeroList(rlst);
 		
 		send(resp.build());

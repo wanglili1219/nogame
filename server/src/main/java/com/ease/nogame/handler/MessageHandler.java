@@ -1,6 +1,6 @@
 package com.ease.nogame.handler;
 
-import com.ease.nogame.protobuf.PBApp;
+import com.ease.nogame.protobuf.PBMessage;
 import com.google.protobuf.Message;
 
 import io.netty.channel.ChannelHandlerContext;
@@ -30,7 +30,7 @@ public abstract class MessageHandler {
 	}
 
 	public void send(Message msg){
-		PBApp.MsgDesc.Builder mb = PBApp.MsgDesc.newBuilder();
+		PBMessage.MsgDesc.Builder mb = PBMessage.MsgDesc.newBuilder();
 		mb.setMsgName(msg.getClass().getSimpleName());
 		mb.setMsgBytes(msg.toByteString());
 		mb.setErrorCode(0);

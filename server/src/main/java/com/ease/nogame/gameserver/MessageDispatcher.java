@@ -17,7 +17,8 @@ import com.ease.nogame.handler.HeroInfoHandler;
 import com.ease.nogame.handler.LoginHandler;
 import com.ease.nogame.handler.MessageHandler;
 import com.ease.nogame.handler.UserInfoHandler;
-import com.ease.nogame.protobuf.PBApp;
+import com.ease.nogame.protobuf.PBMessage;
+import com.ease.nogame.protobuf.PBCommand;
 import com.ease.nogame.util.HibernateUtil;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.InvalidProtocolBufferException;
@@ -43,20 +44,20 @@ public class MessageDispatcher {
 	}
 	
 	static void init(){
-		handlerMap.put("C2SLogin", new HandlerEntry(PBApp.C2SLogin.class, LoginHandler.class));
-		handlerMap.put("C2SUserInfo", new HandlerEntry(PBApp.C2SUserInfo.class, UserInfoHandler.class));
-		handlerMap.put("C2SHeroInfo", new HandlerEntry(PBApp.C2SHeroInfo.class, HeroInfoHandler.class));
+		handlerMap.put("C2SLogin", new HandlerEntry(PBCommand.C2SLogin.class, LoginHandler.class));
+		handlerMap.put("C2SUserInfo", new HandlerEntry(PBCommand.C2SUserInfo.class, UserInfoHandler.class));
+		handlerMap.put("C2SHeroInfo", new HandlerEntry(PBCommand.C2SHeroInfo.class, HeroInfoHandler.class));
 
 		//continue...
 	}
 	
 	static void dispatch(ChannelHandlerContext ctx, Object msg) {
-		PBApp.MsgDesc md = (PBApp.MsgDesc)msg;
-		String loginname = PBApp.C2SLogin.class.getSimpleName();
+		PBMessage.MsgDesc md = (PBMessage.MsgDesc)msg;
+		String loginname = PBCommand.C2SLogin.class.getSimpleName();
 		System.out.println(md.getMsgName());
 		System.out.println(md.getToken());
 		if (md.getToken().isEmpty() && !md.getMsgName().equals(loginname)) {
-			PBApp.MsgDesc.Builder mb = PBApp.MsgDesc.newBuilder();
+			PBMessage.MsgDesc.Builder mb = PBMessage.MsgDesc.newBuilder();
 			mb.setMsgName("S2CLogin");
 			mb.setErrorCode(1);
 			mb.setErrorDesc("token null");
@@ -88,7 +89,7 @@ public class MessageDispatcher {
 				HandlerEntry en = handlerMap.get(md.getMsgName());
 				en.handle(ctx, md.getUserId(), md.getMsgBytes());
 			}catch(NGException e){
-				PBApp.MsgDesc.Builder mb = PBApp.MsgDesc.newBuilder();
+				PBMessage.MsgDesc.Builder mb = PBMessage.MsgDesc.newBuilder();
 				mb.setMsgName(md.getMsgName());
 				mb.setErrorCode(e.getErrorCode());
 				mb.setErrorDesc(e.getDesc());
@@ -96,7 +97,7 @@ public class MessageDispatcher {
 				ctx.writeAndFlush(mb.build());
 			}catch(Exception e){
 				e.printStackTrace();
-				PBApp.MsgDesc.Builder mb = PBApp.MsgDesc.newBuilder();
+				PBMessage.MsgDesc.Builder mb = PBMessage.MsgDesc.newBuilder();
 				mb.setMsgName(md.getMsgName());
 				mb.setErrorCode(2);
 				mb.setErrorDesc("server inner error.");

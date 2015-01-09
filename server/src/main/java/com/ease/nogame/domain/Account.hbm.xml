@@ -27,7 +27,19 @@
   <property generated="never" lazy="false" name="token" type="string">
    <column length="128" name="token"/>
   </property>
-
+	<property name="gold" type="int">
+            <column name="GOLD" />
+        </property>
+        <property name="gem" type="int">
+            <column name="GEM" />
+        </property>
+        <property name="level" type="int">
+            <column name="LEVEL" />
+        </property>
+        <property name="exp" type="int">
+            <column name="EXP" />
+        </property>
+        
  </class>
  
  <resultset name="account_resultset">  

@@ -4,57 +4,36 @@
 import pickle
 from Logger import *
 
-class UserInfo:
-    data = {
-        "id":0,
-        "name":"",
-        "token":"",
-        "gold":"",
-    }
+class UserData:
+    data = {} # data owner must be class
 
-    @classmethod
-    def setId(cls, id):
-        UserInfo.data["id"] = id
-        
-    @classmethod
-    def getId(cls):
-        return UserInfo.data["id"]
-    
-    @classmethod
-    def setName(cls, n):
-        cls.data["name"] = n
-    
-    @classmethod
-    def getName(cls):
-        return cls.data["name"]
-    
-    @classmethod
-    def setToken(cls, t):
-        cls.data["token"] = t
-    
-    @classmethod
-    def getToken(cls):
-        return cls.data["token"]
+    def __setattr__(self, k, v):
+        UserData.data[k] = v
 
-    @classmethod
-    def dump(cls):
+    def __getattr__(self, k):
+        if not UserData.data.has_key(k):
+            return None
+        return UserData.data[k]
+
+    def dump(self):
         path = "data.pkl"
         try:
             fp = open(path, "wb")
             if fp:
                 Logger.i("dump userinfo")
-                pickle.dump(cls.data, fp)
+                pickle.dump(UserData.data, fp)
                 fp.close()
         except Exception, e:
             print e
 
-    @classmethod
-    def load(cls):
+    def load(self):
         path = "data.pkl"
         try:
             fp = open(path, "rb")
             if fp:
-                cls.data = pickle.load(fp)
+                UserData.data = pickle.load(fp)
                 fp.close()
         except Exception, e:
             print e
+
+info = UserData()

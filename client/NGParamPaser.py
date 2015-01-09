@@ -2,10 +2,10 @@
 # -*- coding: utf-8 -*-
 
 """ Usage:
+NGParamPaser.py quit
 NGParamPaser.py login
 NGParamPaser.py userinfo
-NGParamPaser.py quit
-
+NGParamPaser.py heroinfo
 """
 import sys 
 from docopt import docopt, DocoptExit

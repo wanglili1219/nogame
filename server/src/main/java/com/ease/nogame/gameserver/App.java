@@ -29,9 +29,7 @@ import io.netty.handler.codec.LengthFieldPrepender;
 import io.netty.handler.codec.protobuf.ProtobufDecoder;
 import io.netty.handler.codec.protobuf.ProtobufEncoder;
 
-import com.ease.nogame.dict.DTHero;
-import com.ease.nogame.dict.DTManager;
-import com.ease.nogame.protobuf.PBApp;
+import com.ease.nogame.protobuf.PBMessage;
 
 public class App 
 {
@@ -52,7 +50,7 @@ public class App
 		      b.childHandler(new ChannelInitializer<SocketChannel>() {
 		            protected void initChannel(SocketChannel ch) throws Exception {
 		            	ch.pipeline().addLast(new LengthFieldBasedFrameDecoder(ByteOrder.BIG_ENDIAN, NETWORK_FRAME_SIZE, 0, 4, 0, 4, true));
-		            	ch.pipeline().addLast(new ProtobufDecoder(PBApp.MsgDesc.getDefaultInstance()));
+		            	ch.pipeline().addLast(new ProtobufDecoder(PBMessage.MsgDesc.getDefaultInstance()));
 						ch.pipeline().addLast(new LengthFieldPrepender(4));
 		            	ch.pipeline().addLast(new ProtobufEncoder());
 						ch.pipeline().addLast(new BaseChannelHandler());
