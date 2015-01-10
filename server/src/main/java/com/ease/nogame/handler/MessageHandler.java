@@ -1,5 +1,6 @@
 package com.ease.nogame.handler;
 
+import com.ease.nogame.gameserver.NGException;
 import com.ease.nogame.protobuf.PBMessage;
 import com.google.protobuf.Message;
 
@@ -13,9 +14,9 @@ public abstract class MessageHandler {
 
 	}
 	
-	public abstract void handle(Message msg);
+	public abstract void handle(Message msg) throws NGException;
 	
-	public void transit(ChannelHandlerContext ctx, long userId, Message msg){
+	public void transit(ChannelHandlerContext ctx, long userId, Message msg) throws NGException{
 		this.context = ctx;
 		this.userId = userId;
 		handle(msg);

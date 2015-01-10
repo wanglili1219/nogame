@@ -4,7 +4,7 @@
 import UserInfo
 import PBMessage_pb2
 
-class C2SBase:
+class C2SBase(object):
     def __init__(self):
         pass
 

@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-  
 
-
-
 import sys
 import os
 import socket
@@ -16,6 +14,7 @@ import re
 import traceback
 
 apppath = os.getcwd()
+sys.path.append(apppath + "./")
 sys.path.append(apppath + "../common/")
 sys.path.append(apppath + "/protoc/")
 sys.path.append(apppath + "/c2s/")
@@ -34,6 +33,7 @@ import UserInfo
 from C2SHeroInfo import *
 import DictConfig
 from C2SEquipInfo import *
+from C2SPutOnEquip import *
 
 import DispatchMessage
 import NGParamPaser
@@ -42,7 +42,6 @@ serverHost = '127.0.0.1'    #default serverHost
 serverPort = 8084           #default serverPort
 clientSocket = None
 
-handlerDict = {}
 outputs_set = []
             
 
@@ -59,6 +58,7 @@ except socket.error, msg:
 #
 #init
 #
+DispatchMessage.init()
 DictConfig.init()
 Logger.init()
 CommandInput.init()
@@ -90,12 +90,14 @@ while True:
             request = C2SHeroInfo()
         elif paraList["equipinfo"]:
             request = C2SEquipInfo()
+        elif paraList["wear"]:
+            request = C2SPutOnEquip(paraList)
         elif paraList["quit"]:
             break
     except KeyError, e:
         pass
 
-    if request != None:
+    if request != None and request != "":
         sd = package_request(request.build())
         outputs_set.append(clientSocket)
 

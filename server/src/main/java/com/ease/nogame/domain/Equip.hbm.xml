@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-1-9 19:18:23 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping package="com.ease.nogame.domain">
+    <class name="com.ease.nogame.domain.Equip" table="EQUIP">
+     <id name="id" type="long">
+		<column name="id" />
+		<generator class="hilo">
+		<param name="table">hibernate_id_high</param>
+		<param name="column">equip_id_value</param>
+		<param name="max_lo">9999</param>
+		</generator>
+	</id>
+
+        <property name="dictId" type="int">
+            <column name="DICTID" />
+        </property>
+        <property name="heroId" type="long">
+            <column name="HEROID" />
+        </property>
+        <property name="userId" type="long">
+            <column name="USERID" />
+        </property>
+    </class>
+	
+	<resultset name="equip_resultset">
+		<return class="Equip" />
+	</resultset>
+	
+	 <sql-query name="queryEquipByHeroId" resultset-ref="equip_resultset">
+		select * from equip where heroId=:heroId
+	 </sql-query>
+	 
+	 <sql-query name="queryEquipByUserId" resultset-ref="equip_resultset">
+		select * from equip where userId=:userId
+	 </sql-query>
+
+
+</hibernate-mapping>

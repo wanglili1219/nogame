@@ -17,6 +17,7 @@ import com.ease.nogame.handler.EquipInfoHandler;
 import com.ease.nogame.handler.HeroInfoHandler;
 import com.ease.nogame.handler.LoginHandler;
 import com.ease.nogame.handler.MessageHandler;
+import com.ease.nogame.handler.PutOnEquipHandler;
 import com.ease.nogame.handler.UserInfoHandler;
 import com.ease.nogame.protobuf.PBMessage;
 import com.ease.nogame.protobuf.PBCommand;
@@ -49,6 +50,7 @@ public class MessageDispatcher {
 		handlerMap.put("C2SUserInfo", new HandlerEntry(PBCommand.C2SUserInfo.class, UserInfoHandler.class));
 		handlerMap.put("C2SHeroInfo", new HandlerEntry(PBCommand.C2SHeroInfo.class, HeroInfoHandler.class));
 		handlerMap.put("C2SEquipInfo", new HandlerEntry(PBCommand.C2SEquipInfo.class, EquipInfoHandler.class));
+		handlerMap.put("C2SPutOnEquip", new HandlerEntry(PBCommand.C2SPutOnEquip.class, PutOnEquipHandler.class));
 
 		//continue...
 	}

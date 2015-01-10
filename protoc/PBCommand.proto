@@ -32,3 +32,29 @@ message S2CHeroInfo {
         repeated PBHero heroList = 1;
 }
 
+message C2SEquipInfo {
+        
+}
+
+message S2CEquipInfo {
+        repeated PBEquip equipList = 1;
+}
+
+message C2SPutOnEquip {
+        required int64 heroId = 1;
+        required int64 equipId = 2;
+}
+
+message S2CPutOnEquip {
+        required PBHero hero = 1;        
+}
+
+message C2SPutOffEquip {
+        required int64 heroId = 1;
+        required int64 equipId = 2;
+}
+
+message S2CPutOffEquip {
+        required int64 heroId = 1;
+        required int64 equipId = 2; 
+}

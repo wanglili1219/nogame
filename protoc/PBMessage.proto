@@ -17,6 +17,7 @@ message PBHero {
         required int64 dictId = 2;
         required int32 level = 3;
         required int32 exp = 4;
+        repeated PBEquip equipList = 5;
 }
 
 message PBUser {
@@ -26,5 +27,11 @@ message PBUser {
         required int32 exp = 4;
         required int32 gem = 5;
         required int32 gold = 6;
+}
+
+message PBEquip {
+        required int64 equipId = 1;
+        required int64 dictId = 2;
+        required int64 heroId = 3;
 }
 

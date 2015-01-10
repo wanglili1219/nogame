@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-  
 
 import UserInfo
+import os
 
 from Logger import * 
 from C2SUserInfo import *
@@ -10,12 +11,10 @@ from C2SLogin import *
 from S2CLogin import *
 from S2CHeroInfo import *
 from S2CEquipInfo import *
+from S2CPutOnEquip import *
 
-handlerDict = {}
-handlerDict["S2CLogin"] = globals()["S2CLogin"]
-handlerDict["S2CUserInfo"] = globals()["S2CUserInfo"]
-handlerDict["S2CHeroInfo"] = globals()["S2CHeroInfo"]
-handlerDict["S2CEquipInfo"] = globals()["S2CEquipInfo"]
+    
+HandlerDict = {}
 
 def dispatch(respByte):
     md = PBMessage_pb2.MsgDesc()
@@ -24,8 +23,24 @@ def dispatch(respByte):
         Logger.e("respone error code " + str(md.errorCode) + "," + md.errorDesc)
         return
 
-    inst = handlerDict[md.msgName]()
+    if not HandlerDict.has_key(md.msgName):
+        raise KeyError("not found " + md.msgName)
+
+    inst = HandlerDict[md.msgName]()
     inst.handle(md.msgBytes)
+    
+
+def init():
+    s2cpath = os.path.abspath('.') + "/s2c/"
+    for parent, dirnames, filenames in os.walk(s2cpath): 
+        for filename in filenames:
+            ext = os.path.splitext(filename)[1][1:]
+            basename = os.path.splitext(filename)[0]
+            if ext == "py":
+                #setattr(HandlerDict, basename, globals()[basename])
+                print "insert ", basename
+                HandlerDict[basename] = globals()[basename]
+    
 
     
 
