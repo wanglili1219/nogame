@@ -13,7 +13,7 @@ import com.ease.nogame.protobuf.PBCommand;
 import com.ease.nogame.util.HibernateUtil;
 import com.google.protobuf.Message;
 
-public class HeroInfoHandler extends MessageHandler {
+public class C2SHeroInfoHandler extends MessageHandler {
 
 	@Override
 	public void handle(Message msg) {

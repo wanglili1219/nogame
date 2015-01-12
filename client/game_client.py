@@ -90,7 +90,7 @@ while True:
             request = C2SHeroInfo()
         elif paraList["equipinfo"]:
             request = C2SEquipInfo()
-        elif paraList["wear"]:
+        elif paraList["puton"]:
             request = C2SPutOnEquip(paraList)
         elif paraList["quit"]:
             break

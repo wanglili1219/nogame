@@ -13,17 +13,20 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 
 import com.ease.nogame.domain.Account;
-import com.ease.nogame.handler.EquipInfoHandler;
-import com.ease.nogame.handler.HeroInfoHandler;
-import com.ease.nogame.handler.LoginHandler;
+import com.ease.nogame.handler.C2SEquipInfoHandler;
+import com.ease.nogame.handler.C2SHeroInfoHandler;
+import com.ease.nogame.handler.C2SLoginHandler;
 import com.ease.nogame.handler.MessageHandler;
-import com.ease.nogame.handler.PutOnEquipHandler;
-import com.ease.nogame.handler.UserInfoHandler;
-import com.ease.nogame.protobuf.PBMessage;
+import com.ease.nogame.handler.C2SPutOnEquipHandler;
+import com.ease.nogame.handler.C2SUserInfoHandler;
+import com.ease.nogame.handler.C2SEquipInfoHandler;
+
+import static com.ease.nogame.protobuf.PBMessage.*;
+import static com.ease.nogame.protobuf.PBCommand.*;
+
 import com.ease.nogame.protobuf.PBCommand;
 import com.ease.nogame.util.HibernateUtil;
 import com.google.protobuf.ByteString;
-import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.Message;
 
 
@@ -46,22 +49,32 @@ public class MessageDispatcher {
 	}
 	
 	static void init(){
-		handlerMap.put("C2SLogin", new HandlerEntry(PBCommand.C2SLogin.class, LoginHandler.class));
-		handlerMap.put("C2SUserInfo", new HandlerEntry(PBCommand.C2SUserInfo.class, UserInfoHandler.class));
-		handlerMap.put("C2SHeroInfo", new HandlerEntry(PBCommand.C2SHeroInfo.class, HeroInfoHandler.class));
-		handlerMap.put("C2SEquipInfo", new HandlerEntry(PBCommand.C2SEquipInfo.class, EquipInfoHandler.class));
-		handlerMap.put("C2SPutOnEquip", new HandlerEntry(PBCommand.C2SPutOnEquip.class, PutOnEquipHandler.class));
+		try{
+			Class<?>[] allcls = PBCommand.class.getClasses();
+			for (Class<?> cls : allcls){
+				String clsname = cls.getName();
+				if (clsname.contains("OrBuilder") || clsname.contains("S2C")){
+					continue;
+				}
 
-		//continue...
+				handlerMap.put(cls.getSimpleName()
+						, new HandlerEntry(Class.forName(cls.getName()),
+							Class.forName("com.ease.nogame.handler." + cls.getSimpleName() + "Handler")));
+			}
+			
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			System.exit(1);
+		}
 	}
 	
 	static void dispatch(ChannelHandlerContext ctx, Object msg) {
-		PBMessage.MsgDesc md = (PBMessage.MsgDesc)msg;
-		String loginname = PBCommand.C2SLogin.class.getSimpleName();
+		MsgDesc md = (MsgDesc)msg;
+		String loginname = C2SLogin.class.getSimpleName();
 		System.out.println(md.getMsgName());
 		System.out.println(md.getToken());
 		if (md.getToken().isEmpty() && !md.getMsgName().equals(loginname)) {
-			PBMessage.MsgDesc.Builder mb = PBMessage.MsgDesc.newBuilder();
+			MsgDesc.Builder mb = MsgDesc.newBuilder();
 			mb.setMsgName("S2CLogin");
 			mb.setErrorCode(1);
 			mb.setErrorDesc("token null");
@@ -93,7 +106,7 @@ public class MessageDispatcher {
 				HandlerEntry en = handlerMap.get(md.getMsgName());
 				en.handle(ctx, md.getUserId(), md.getMsgBytes());
 			}catch(NGException e){
-				PBMessage.MsgDesc.Builder mb = PBMessage.MsgDesc.newBuilder();
+				MsgDesc.Builder mb = MsgDesc.newBuilder();
 				mb.setMsgName(md.getMsgName());
 				mb.setErrorCode(e.getErrorCode());
 				mb.setErrorDesc(e.getDesc());
@@ -101,7 +114,7 @@ public class MessageDispatcher {
 				ctx.writeAndFlush(mb.build());
 			}catch(Exception e){
 				e.printStackTrace();
-				PBMessage.MsgDesc.Builder mb = PBMessage.MsgDesc.newBuilder();
+				MsgDesc.Builder mb = MsgDesc.newBuilder();
 				mb.setMsgName(md.getMsgName());
 				mb.setErrorCode(2);
 				mb.setErrorDesc("server inner error.");

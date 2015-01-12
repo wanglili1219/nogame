@@ -8,7 +8,7 @@ import com.ease.nogame.protobuf.PBMessage;
 import com.ease.nogame.util.HibernateUtil;
 import com.google.protobuf.Message;
 
-public class UserInfoHandler extends MessageHandler {
+public class C2SUserInfoHandler extends MessageHandler {
 
 	@Override
 	public void handle(Message msg) {

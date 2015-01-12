@@ -22,7 +22,7 @@ import com.ease.nogame.util.Item;
 import com.ease.nogame.util.TokenGenerator;
 import com.google.protobuf.Message;
 
-public class LoginHandler extends MessageHandler {
+public class C2SLoginHandler extends MessageHandler {
 	@Override
 	public void handle(Message msg) {
 		PBCommand.C2SLogin req = (PBCommand.C2SLogin)msg;

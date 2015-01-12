@@ -7,7 +7,7 @@ NGParamPaser.py login
 NGParamPaser.py userinfo
 NGParamPaser.py heroinfo
 NGParamPaser.py equipinfo
-NGParamPaser.py wear <heroId> <equipId>
+NGParamPaser.py puton <heroId> <equipId>
 """
 import sys 
 from docopt import docopt, DocoptExit

@@ -10,7 +10,7 @@ import com.ease.nogame.protobuf.PBMessage;
 import com.ease.nogame.util.HibernateUtil;
 import com.google.protobuf.Message;
 
-public class PutOnEquipHandler extends MessageHandler {
+public class C2SPutOnEquipHandler extends MessageHandler {
 
 	@Override
 	public void handle(Message msg) throws NGException {
