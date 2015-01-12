@@ -3,7 +3,7 @@
 
 import Util
 import UserInfo 
-from Logger import *
+import Logger
 import PBCommand_pb2
 
 class S2CUserInfo:
@@ -12,10 +12,10 @@ class S2CUserInfo:
         msg.ParseFromString(respByte)
         ui = msg.userInfo
         Logger.i(str(ui))
-        UserInfo.info.id = ui.userId
-        UserInfo.info.name = ui.userName
-        UserInfo.info.level = ui.level
-        UserInfo.info.exp = ui.exp
-        UserInfo.info.gold = ui.gold
-        UserInfo.info.gem = ui.gem
-        UserInfo.info.dump()
+        UserInfo.id = ui.userId
+        UserInfo.name = ui.userName
+        UserInfo.level = ui.level
+        UserInfo.exp = ui.exp
+        UserInfo.gold = ui.gold
+        UserInfo.gem = ui.gem
+        UserInfo.dump()

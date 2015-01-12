@@ -5,13 +5,13 @@ import sys
 import os
 import socket
 import string
-import time
 import struct
 import select
 import threading
 import thread
 import re
 import traceback
+import time
 
 apppath = os.getcwd()
 sys.path.append(apppath + "./")
@@ -25,7 +25,7 @@ import PBCommand_pb2
 
 from C2SUserInfo import *
 from S2CUserInfo import *
-from Logger import *
+import Logger
 from  CommandInput import *
 from C2SLogin import *
 from S2CLogin import *
@@ -34,6 +34,7 @@ from C2SHeroInfo import *
 import DictConfig
 from C2SEquipInfo import *
 from C2SPutOnEquip import *
+from C2SPutOffEquip import *
 
 import DispatchMessage
 import NGParamPaser
@@ -60,17 +61,17 @@ except socket.error, msg:
 #
 DispatchMessage.init()
 DictConfig.init()
-Logger.init()
+Logger.start()
 CommandInput.init()
-UserInfo.info.load()
+UserInfo.load()
 
-if UserInfo.info.token == None:
+if UserInfo.token == None:
     Logger.i("Welcome for your first login.")
 else:
     Logger.i("Welcome come back.")
-    Logger.i("userId: " + str(UserInfo.info.id))
-    Logger.i("userName: " + UserInfo.info.name)
-    Logger.i("userToken: " + UserInfo.info.token)
+    Logger.i("userId: " + str(UserInfo.id))
+    Logger.i("userName: " + UserInfo.name)
+    Logger.i("userToken: " + UserInfo.token)
 
 while True:
     paraList = {}
@@ -92,6 +93,8 @@ while True:
             request = C2SEquipInfo()
         elif paraList["puton"]:
             request = C2SPutOnEquip(paraList)
+        elif paraList["putoff"]:
+            request = C2SPutOffEquip(paraList)
         elif paraList["quit"]:
             break
     except KeyError, e:

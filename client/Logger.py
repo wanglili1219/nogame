@@ -3,48 +3,42 @@
 
 import threading
 import thread
-import time
 import sys
 
+
 class Logger(threading.Thread):
-    mutx = threading.Lock()
-    queue = []
-    is_quit = False
-    inst = None
-    
-    @classmethod
-    def push(cls, m):
-        cls.mutx.acquire()
-        cls.queue.append(m)
-        cls.mutx.release()
+    def __init__(self):
+        super(Logger, self).__init__()
 
-    @classmethod
-    def i(cls, m):
-        mm = str(m)
-        cls.push(mm)
-    
-    @classmethod
-    def e(cls, m):
-        mm = str(m)
-        cls.push(mm)
-        
-    @classmethod
-    def quit(cls):
-        Logger.is_quit = True
-        
+        self.mutx = threading.Lock()
+        self.queue = []
+        self.is_quit = False
 
-    @classmethod
-    def init(cls):
-        i = Logger()
-        i.start()
-        Logger.inst = i
+    def push(self, m):
+        self.mutx.acquire()
+        self.queue.append(m)
+        self.mutx.release()
+
+    def i(self, m):
+        mm = str(m)
+        self.push(mm)
+    
+    def e(self, m):
+        mm = str(m)
+        self.push(mm)
+        
+    def quit(self):
+        self.is_quit = True
 
     def run(self):
-        while Logger.is_quit == False:
-            if Logger.mutx.acquire(1):
-                for l in Logger.queue:
+        import time
+        while self.is_quit == False:
+            if self.mutx.acquire(1):
+                for l in self.queue:
                     print(l)
                 
-                Logger.queue = []
-                Logger.mutx.release()
+                self.queue = []
+                self.mutx.release()
             time.sleep(0.1)
+
+sys.modules[__name__] = Logger()

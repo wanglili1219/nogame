@@ -2,7 +2,7 @@
 
 from Util import *
 import UserInfo
-from Logger import *
+import Logger
 import PBCommand_pb2
 
 class S2CLogin:

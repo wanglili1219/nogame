@@ -1,8 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-  
 
+import sys
 import pickle
-from Logger import *
+import Logger 
+import UserInfo
 
 class UserData:
     data = {} # data owner must be class
@@ -35,4 +37,4 @@ class UserData:
         except Exception, e:
             print e
 
-info = UserData()
+sys.modules[__name__] = UserData()

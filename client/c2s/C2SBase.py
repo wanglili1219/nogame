@@ -11,14 +11,14 @@ class C2SBase(object):
     def wrapMsgDesc(self, msg):
         md = PBMessage_pb2.MsgDesc()
         md.msgName = msg.__class__.__name__
-        if not UserInfo.info.id:
-            UserInfo.info.id = 0
+        if not UserInfo.id:
+            UserInfo.id = 0
 
-        if not UserInfo.info.token:
-            UserInfo.info.token = ""
+        if not UserInfo.token:
+            UserInfo.token = ""
 
-        md.userId = UserInfo.info.id
-        md.token = UserInfo.info.token
+        md.userId = UserInfo.id
+        omd.token = UserInfo.token
         md.msgBytes = msg.SerializeToString()
         return md.SerializeToString()
 

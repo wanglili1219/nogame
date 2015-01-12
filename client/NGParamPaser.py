@@ -8,10 +8,11 @@ NGParamPaser.py userinfo
 NGParamPaser.py heroinfo
 NGParamPaser.py equipinfo
 NGParamPaser.py puton <heroId> <equipId>
+NGParamPaser.py putoff <heroId> <equipId>
 """
 import sys 
+import Logger
 from docopt import docopt, DocoptExit
-from Logger import *
 
 def parse(para):
     try:

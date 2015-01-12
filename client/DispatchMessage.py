@@ -4,7 +4,7 @@
 import UserInfo
 import os
 
-from Logger import * 
+import Logger
 from C2SUserInfo import *
 from S2CUserInfo import *
 from C2SLogin import *
@@ -12,7 +12,7 @@ from S2CLogin import *
 from S2CHeroInfo import *
 from S2CEquipInfo import *
 from S2CPutOnEquip import *
-
+from S2CPutOffEquip import *
     
 HandlerDict = {}
 

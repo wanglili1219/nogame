@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from Util import *
-from Logger import *
+import Logger
 import PBCommand_pb2
 
 class S2CHeroInfo:

@@ -22,7 +22,6 @@ public class C2SEquipInfoHandler extends MessageHandler {
 		List<Equip> elst = q.list();
 		List<PBMessage.PBEquip> resplst = new ArrayList<PBMessage.PBEquip>(); 
 		for (Equip eq : elst){
-			System.out.println("found equip" + String.valueOf(eq.getId()));
 			PBMessage.PBEquip.Builder eqb = PBMessage.PBEquip.newBuilder();
 			eqb.setEquipId(eq.getId());
 			eqb.setDictId(eq.getDictId());
