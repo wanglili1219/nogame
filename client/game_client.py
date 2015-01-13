@@ -35,6 +35,7 @@ import DictConfig
 from C2SEquipInfo import *
 from C2SPutOnEquip import *
 from C2SPutOffEquip import *
+from C2SSaleHero import *
 
 import DispatchMessage
 import NGParamPaser
@@ -95,6 +96,8 @@ while True:
             request = C2SPutOnEquip(paraList)
         elif paraList["putoff"]:
             request = C2SPutOffEquip(paraList)
+        elif paraList["salehero"]:
+            request = C2SSaleHero(paraList)
         elif paraList["quit"]:
             break
     except KeyError, e:

@@ -10,11 +10,19 @@ public class NGException extends Exception {
 		this.desc = desc;
 	}
 	
+	public NGException(NGErrorCode ec, Object...args){
+		this.code = ec.code;
+		this.desc = ec.desc;
+		for (Object obj : args){
+			this.desc = this.desc + "," + String.valueOf(obj);
+		}
+	}
+	
 	public int getErrorCode(){
-		return code;
+		return this.code;
 	}
 	
 	public String getDesc(){
-		return desc;
+		return this.desc;
 	}
 }

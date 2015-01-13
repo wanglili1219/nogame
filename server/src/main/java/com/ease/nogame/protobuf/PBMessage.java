@@ -1058,15 +1058,15 @@ public final class PBMessage {
      */
     long getHeroId();
 
-    // required int64 dictId = 2;
+    // required int32 dictId = 2;
     /**
-     * <code>required int64 dictId = 2;</code>
+     * <code>required int32 dictId = 2;</code>
      */
     boolean hasDictId();
     /**
-     * <code>required int64 dictId = 2;</code>
+     * <code>required int32 dictId = 2;</code>
      */
-    long getDictId();
+    int getDictId();
 
     // required int32 level = 3;
     /**
@@ -1171,7 +1171,7 @@ public final class PBMessage {
             }
             case 16: {
               bitField0_ |= 0x00000002;
-              dictId_ = input.readInt64();
+              dictId_ = input.readInt32();
               break;
             }
             case 24: {
@@ -1251,19 +1251,19 @@ public final class PBMessage {
       return heroId_;
     }
 
-    // required int64 dictId = 2;
+    // required int32 dictId = 2;
     public static final int DICTID_FIELD_NUMBER = 2;
-    private long dictId_;
+    private int dictId_;
     /**
-     * <code>required int64 dictId = 2;</code>
+     * <code>required int32 dictId = 2;</code>
      */
     public boolean hasDictId() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>required int64 dictId = 2;</code>
+     * <code>required int32 dictId = 2;</code>
      */
-    public long getDictId() {
+    public int getDictId() {
       return dictId_;
     }
 
@@ -1337,7 +1337,7 @@ public final class PBMessage {
 
     private void initFields() {
       heroId_ = 0L;
-      dictId_ = 0L;
+      dictId_ = 0;
       level_ = 0;
       exp_ = 0;
       equipList_ = java.util.Collections.emptyList();
@@ -1380,7 +1380,7 @@ public final class PBMessage {
         output.writeInt64(1, heroId_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeInt64(2, dictId_);
+        output.writeInt32(2, dictId_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeInt32(3, level_);
@@ -1406,7 +1406,7 @@ public final class PBMessage {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(2, dictId_);
+          .computeInt32Size(2, dictId_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
@@ -1539,7 +1539,7 @@ public final class PBMessage {
         super.clear();
         heroId_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000001);
-        dictId_ = 0L;
+        dictId_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
         level_ = 0;
         bitField0_ = (bitField0_ & ~0x00000004);
@@ -1740,35 +1740,35 @@ public final class PBMessage {
         return this;
       }
 
-      // required int64 dictId = 2;
-      private long dictId_ ;
+      // required int32 dictId = 2;
+      private int dictId_ ;
       /**
-       * <code>required int64 dictId = 2;</code>
+       * <code>required int32 dictId = 2;</code>
        */
       public boolean hasDictId() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>required int64 dictId = 2;</code>
+       * <code>required int32 dictId = 2;</code>
        */
-      public long getDictId() {
+      public int getDictId() {
         return dictId_;
       }
       /**
-       * <code>required int64 dictId = 2;</code>
+       * <code>required int32 dictId = 2;</code>
        */
-      public Builder setDictId(long value) {
+      public Builder setDictId(int value) {
         bitField0_ |= 0x00000002;
         dictId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required int64 dictId = 2;</code>
+       * <code>required int32 dictId = 2;</code>
        */
       public Builder clearDictId() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        dictId_ = 0L;
+        dictId_ = 0;
         onChanged();
         return this;
       }
@@ -3027,15 +3027,15 @@ public final class PBMessage {
      */
     long getEquipId();
 
-    // required int64 dictId = 2;
+    // required int32 dictId = 2;
     /**
-     * <code>required int64 dictId = 2;</code>
+     * <code>required int32 dictId = 2;</code>
      */
     boolean hasDictId();
     /**
-     * <code>required int64 dictId = 2;</code>
+     * <code>required int32 dictId = 2;</code>
      */
-    long getDictId();
+    int getDictId();
 
     // required int64 heroId = 3;
     /**
@@ -3105,7 +3105,7 @@ public final class PBMessage {
             }
             case 16: {
               bitField0_ |= 0x00000002;
-              dictId_ = input.readInt64();
+              dictId_ = input.readInt32();
               break;
             }
             case 24: {
@@ -3169,19 +3169,19 @@ public final class PBMessage {
       return equipId_;
     }
 
-    // required int64 dictId = 2;
+    // required int32 dictId = 2;
     public static final int DICTID_FIELD_NUMBER = 2;
-    private long dictId_;
+    private int dictId_;
     /**
-     * <code>required int64 dictId = 2;</code>
+     * <code>required int32 dictId = 2;</code>
      */
     public boolean hasDictId() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>required int64 dictId = 2;</code>
+     * <code>required int32 dictId = 2;</code>
      */
-    public long getDictId() {
+    public int getDictId() {
       return dictId_;
     }
 
@@ -3203,7 +3203,7 @@ public final class PBMessage {
 
     private void initFields() {
       equipId_ = 0L;
-      dictId_ = 0L;
+      dictId_ = 0;
       heroId_ = 0L;
     }
     private byte memoizedIsInitialized = -1;
@@ -3234,7 +3234,7 @@ public final class PBMessage {
         output.writeInt64(1, equipId_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeInt64(2, dictId_);
+        output.writeInt32(2, dictId_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeInt64(3, heroId_);
@@ -3254,7 +3254,7 @@ public final class PBMessage {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(2, dictId_);
+          .computeInt32Size(2, dictId_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
@@ -3378,7 +3378,7 @@ public final class PBMessage {
         super.clear();
         equipId_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000001);
-        dictId_ = 0L;
+        dictId_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
         heroId_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000004);
@@ -3519,35 +3519,35 @@ public final class PBMessage {
         return this;
       }
 
-      // required int64 dictId = 2;
-      private long dictId_ ;
+      // required int32 dictId = 2;
+      private int dictId_ ;
       /**
-       * <code>required int64 dictId = 2;</code>
+       * <code>required int32 dictId = 2;</code>
        */
       public boolean hasDictId() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>required int64 dictId = 2;</code>
+       * <code>required int32 dictId = 2;</code>
        */
-      public long getDictId() {
+      public int getDictId() {
         return dictId_;
       }
       /**
-       * <code>required int64 dictId = 2;</code>
+       * <code>required int32 dictId = 2;</code>
        */
-      public Builder setDictId(long value) {
+      public Builder setDictId(int value) {
         bitField0_ |= 0x00000002;
         dictId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required int64 dictId = 2;</code>
+       * <code>required int32 dictId = 2;</code>
        */
       public Builder clearDictId() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        dictId_ = 0L;
+        dictId_ = 0;
         onChanged();
         return this;
       }
@@ -3629,12 +3629,12 @@ public final class PBMessage {
       "sgName\030\001 \002(\t\022\020\n\010msgBytes\030\002 \001(\014\022\016\n\006userId" +
       "\030\003 \001(\003\022\r\n\005token\030\004 \001(\t\022\021\n\terrorCode\030\005 \001(\005" +
       "\022\021\n\terrorDesc\030\006 \001(\t\"g\n\006PBHero\022\016\n\006heroId\030" +
-      "\001 \002(\003\022\016\n\006dictId\030\002 \002(\003\022\r\n\005level\030\003 \002(\005\022\013\n\003" +
+      "\001 \002(\003\022\016\n\006dictId\030\002 \002(\005\022\r\n\005level\030\003 \002(\005\022\013\n\003" +
       "exp\030\004 \002(\005\022!\n\tequipList\030\005 \003(\0132\016.netty.PBE" +
       "quip\"a\n\006PBUser\022\016\n\006userId\030\001 \002(\003\022\020\n\010userNa" +
       "me\030\002 \002(\t\022\r\n\005level\030\003 \002(\005\022\013\n\003exp\030\004 \002(\005\022\013\n\003" +
       "gem\030\005 \002(\005\022\014\n\004gold\030\006 \002(\005\":\n\007PBEquip\022\017\n\007eq" +
-      "uipId\030\001 \002(\003\022\016\n\006dictId\030\002 \002(\003\022\016\n\006heroId\030\003 ",
+      "uipId\030\001 \002(\003\022\016\n\006dictId\030\002 \002(\005\022\016\n\006heroId\030\003 ",
       "\002(\003B%\n\030com.ease.nogame.protobufB\tPBMessa" +
       "ge"
     };

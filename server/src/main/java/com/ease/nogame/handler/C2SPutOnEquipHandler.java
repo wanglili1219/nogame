@@ -4,6 +4,7 @@ import org.hibernate.Session;
 
 import com.ease.nogame.domain.Equip;
 import com.ease.nogame.domain.Hero;
+import com.ease.nogame.gameserver.NGErrorCode;
 import com.ease.nogame.gameserver.NGException;
 import com.ease.nogame.protobuf.PBCommand;
 import com.ease.nogame.protobuf.PBMessage;
@@ -21,20 +22,20 @@ public class C2SPutOnEquipHandler extends MessageHandler {
 		Session s = HibernateUtil.currentSession();
 		Equip equip = (Equip)s.get(Equip.class, equipid);
 		if (equip == null){
-			throw new NGException(100, "No found equip for equipId" + String.valueOf(equipid));
+			throw new NGException(NGErrorCode.NOT_FOUND_EQUIP, equipid);
 		}
 
 		Hero hero = (Hero)s.get(Hero.class, heroid);
 		if (hero == null){
-			throw new NGException(100, "No found hero for heroId " + String.valueOf(heroid));
+			throw new NGException(NGErrorCode.NOT_FOUND_HERO, heroid);
 		}
 		
 		if (equip.getHeroId() != 0){
-			throw new NGException(100, "Equip be weared by hero" + String.valueOf(equip.getHeroId()));
+			throw new NGException(NGErrorCode.HERO_NOT_HAS_EQUIP, equipid);
 		}
 
 		if (equip.getHeroId() == heroid){
-			throw new NGException(100, "Equip already be weared by hero" + String.valueOf(equip.getHeroId()));
+			throw new NGException(NGErrorCode.HERO_ALREADY_ATTACH_EQUIP, heroid);
 		}
 		
 		equip.setHeroId(hero.getId());
@@ -46,5 +47,4 @@ public class C2SPutOnEquipHandler extends MessageHandler {
 		
 		send(respb.build());
 	}
-
 }

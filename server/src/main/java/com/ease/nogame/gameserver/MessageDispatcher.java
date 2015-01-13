@@ -95,11 +95,11 @@ public class MessageDispatcher {
 					List<Account> list = q.list();
 					Account acc = (Account)list.get(0);
 					if (!acc.getToken().equals(token) || !acc.getUserName().equals(acc.getUserName())){
-						throw new NGException(1, "token error.");
+						throw new NGException(NGErrorCode.INVALID_TOKEN);
 					}
 					
 					if (md.getMsgName().equals(loginname)){
-						throw new NGException(1, "relogin");
+						throw new NGException(NGErrorCode.RELOGIN);
 					}
 				}
 

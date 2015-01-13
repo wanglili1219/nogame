@@ -58,3 +58,12 @@ message S2CPutOffEquip {
         required int64 heroId = 1;
         required int64 equipId = 2; 
 }
+
+message C2SSaleHero {
+        required int64 heroId = 1;
+}
+
+message S2CSaleHero {
+        required int64 heroId = 1;
+        required int32 saleGold = 2; 
+}

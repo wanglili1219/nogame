@@ -18,7 +18,7 @@ class C2SBase(object):
             UserInfo.token = ""
 
         md.userId = UserInfo.id
-        omd.token = UserInfo.token
+        md.token = UserInfo.token
         md.msgBytes = msg.SerializeToString()
         return md.SerializeToString()
 
