@@ -9,6 +9,7 @@ NGParamPaser.py heroinfo
 NGParamPaser.py equipinfo
 NGParamPaser.py puton <heroId> <equipId>
 NGParamPaser.py putoff <heroId> <equipId>
+NGParamPaser.py salehero <heroId>
 """
 import sys 
 import Logger

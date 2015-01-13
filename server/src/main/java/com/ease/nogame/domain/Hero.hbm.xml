@@ -14,7 +14,7 @@
 		</generator>
 	</id>
         
-        <property name="dictId" type="long">
+        <property name="dictId" type="int">
             <column name="DICTID" />
         </property>
         <property name="level" type="int">

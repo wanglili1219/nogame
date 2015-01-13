@@ -14,7 +14,7 @@ import PBMessage_pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='PBCommand.proto',
   package='netty',
-  serialized_pb='\n\x0fPBCommand.proto\x12\x05netty\x1a\x0fPBMessage.proto\"@\n\x08\x43\x32SLogin\x12\x10\n\x08userName\x18\x01 \x02(\t\x12\x10\n\x08password\x18\x02 \x02(\t\x12\x10\n\x08\x64\x65viceID\x18\x03 \x02(\t\":\n\x08S2CLogin\x12\r\n\x05token\x18\x01 \x02(\t\x12\x1f\n\x08userInfo\x18\x02 \x02(\x0b\x32\r.netty.PBUser\"\r\n\x0b\x43\x32SUserInfo\".\n\x0bS2CUserInfo\x12\x1f\n\x08userInfo\x18\x01 \x02(\x0b\x32\r.netty.PBUser\"\r\n\x0b\x43\x32SHeroInfo\".\n\x0bS2CHeroInfo\x12\x1f\n\x08heroList\x18\x01 \x03(\x0b\x32\r.netty.PBHero\"\x0e\n\x0c\x43\x32SEquipInfo\"1\n\x0cS2CEquipInfo\x12!\n\tequipList\x18\x01 \x03(\x0b\x32\x0e.netty.PBEquip\"0\n\rC2SPutOnEquip\x12\x0e\n\x06heroId\x18\x01 \x02(\x03\x12\x0f\n\x07\x65quipId\x18\x02 \x02(\x03\",\n\rS2CPutOnEquip\x12\x1b\n\x04hero\x18\x01 \x02(\x0b\x32\r.netty.PBHero\"1\n\x0e\x43\x32SPutOffEquip\x12\x0e\n\x06heroId\x18\x01 \x02(\x03\x12\x0f\n\x07\x65quipId\x18\x02 \x02(\x03\"1\n\x0eS2CPutOffEquip\x12\x0e\n\x06heroId\x18\x01 \x02(\x03\x12\x0f\n\x07\x65quipId\x18\x02 \x02(\x03\x42%\n\x18\x63om.ease.nogame.protobufB\tPBCommand')
+  serialized_pb='\n\x0fPBCommand.proto\x12\x05netty\x1a\x0fPBMessage.proto\"@\n\x08\x43\x32SLogin\x12\x10\n\x08userName\x18\x01 \x02(\t\x12\x10\n\x08password\x18\x02 \x02(\t\x12\x10\n\x08\x64\x65viceID\x18\x03 \x02(\t\":\n\x08S2CLogin\x12\r\n\x05token\x18\x01 \x02(\t\x12\x1f\n\x08userInfo\x18\x02 \x02(\x0b\x32\r.netty.PBUser\"\r\n\x0b\x43\x32SUserInfo\".\n\x0bS2CUserInfo\x12\x1f\n\x08userInfo\x18\x01 \x02(\x0b\x32\r.netty.PBUser\"\r\n\x0b\x43\x32SHeroInfo\".\n\x0bS2CHeroInfo\x12\x1f\n\x08heroList\x18\x01 \x03(\x0b\x32\r.netty.PBHero\"\x0e\n\x0c\x43\x32SEquipInfo\"1\n\x0cS2CEquipInfo\x12!\n\tequipList\x18\x01 \x03(\x0b\x32\x0e.netty.PBEquip\"0\n\rC2SPutOnEquip\x12\x0e\n\x06heroId\x18\x01 \x02(\x03\x12\x0f\n\x07\x65quipId\x18\x02 \x02(\x03\",\n\rS2CPutOnEquip\x12\x1b\n\x04hero\x18\x01 \x02(\x0b\x32\r.netty.PBHero\"1\n\x0e\x43\x32SPutOffEquip\x12\x0e\n\x06heroId\x18\x01 \x02(\x03\x12\x0f\n\x07\x65quipId\x18\x02 \x02(\x03\"1\n\x0eS2CPutOffEquip\x12\x0e\n\x06heroId\x18\x01 \x02(\x03\x12\x0f\n\x07\x65quipId\x18\x02 \x02(\x03\"\x1d\n\x0b\x43\x32SSaleHero\x12\x0e\n\x06heroId\x18\x01 \x02(\x03\"/\n\x0bS2CSaleHero\x12\x0e\n\x06heroId\x18\x01 \x02(\x03\x12\x10\n\x08saleGold\x18\x02 \x02(\x05\x42%\n\x18\x63om.ease.nogame.protobufB\tPBCommand')
 
 
 
@@ -375,6 +375,69 @@ _S2CPUTOFFEQUIP = _descriptor.Descriptor(
   serialized_end=558,
 )
 
+
+_C2SSALEHERO = _descriptor.Descriptor(
+  name='C2SSaleHero',
+  full_name='netty.C2SSaleHero',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='heroId', full_name='netty.C2SSaleHero.heroId', index=0,
+      number=1, type=3, cpp_type=2, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  serialized_start=560,
+  serialized_end=589,
+)
+
+
+_S2CSALEHERO = _descriptor.Descriptor(
+  name='S2CSaleHero',
+  full_name='netty.S2CSaleHero',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='heroId', full_name='netty.S2CSaleHero.heroId', index=0,
+      number=1, type=3, cpp_type=2, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='saleGold', full_name='netty.S2CSaleHero.saleGold', index=1,
+      number=2, type=5, cpp_type=1, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  serialized_start=591,
+  serialized_end=638,
+)
+
 _S2CLOGIN.fields_by_name['userInfo'].message_type = PBMessage_pb2._PBUSER
 _S2CUSERINFO.fields_by_name['userInfo'].message_type = PBMessage_pb2._PBUSER
 _S2CHEROINFO.fields_by_name['heroList'].message_type = PBMessage_pb2._PBHERO
@@ -392,6 +455,8 @@ DESCRIPTOR.message_types_by_name['C2SPutOnEquip'] = _C2SPUTONEQUIP
 DESCRIPTOR.message_types_by_name['S2CPutOnEquip'] = _S2CPUTONEQUIP
 DESCRIPTOR.message_types_by_name['C2SPutOffEquip'] = _C2SPUTOFFEQUIP
 DESCRIPTOR.message_types_by_name['S2CPutOffEquip'] = _S2CPUTOFFEQUIP
+DESCRIPTOR.message_types_by_name['C2SSaleHero'] = _C2SSALEHERO
+DESCRIPTOR.message_types_by_name['S2CSaleHero'] = _S2CSALEHERO
 
 class C2SLogin(_message.Message):
   __metaclass__ = _reflection.GeneratedProtocolMessageType
@@ -464,6 +529,18 @@ class S2CPutOffEquip(_message.Message):
   DESCRIPTOR = _S2CPUTOFFEQUIP
 
   # @@protoc_insertion_point(class_scope:netty.S2CPutOffEquip)
+
+class C2SSaleHero(_message.Message):
+  __metaclass__ = _reflection.GeneratedProtocolMessageType
+  DESCRIPTOR = _C2SSALEHERO
+
+  # @@protoc_insertion_point(class_scope:netty.C2SSaleHero)
+
+class S2CSaleHero(_message.Message):
+  __metaclass__ = _reflection.GeneratedProtocolMessageType
+  DESCRIPTOR = _S2CSALEHERO
+
+  # @@protoc_insertion_point(class_scope:netty.S2CSaleHero)
 
 
 DESCRIPTOR.has_options = True
