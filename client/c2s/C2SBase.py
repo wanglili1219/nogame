@@ -5,7 +5,7 @@ import UserInfo
 import PBMessage_pb2
 
 class C2SBase(object):
-    def __init__(self):
+    def __init__(self, commandParam):
         pass
 
     def wrapMsgDesc(self, msg):
