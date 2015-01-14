@@ -38,7 +38,6 @@ def init():
             ext = os.path.splitext(filename)[1][1:]
             basename = os.path.splitext(filename)[0]
             if ext == "py":
-                #setattr(HandlerDict, basename, globals()[basename])
                 print "insert ", basename
                 HandlerDict[basename] = globals()[basename]
     

@@ -22,11 +22,14 @@ class App(object):
         self.network.setDaemon(True)
         self.network.start()
 
+        self.commandInput = CommandInput()
+        self.commandInput.setDaemon(True)
+        self.commandInput.start()
+
         DictConfig.init()
         Logger.setDaemon(True)
         Logger.start()
 
-        CommandInput.init()
         UserInfo.load()
 
         if UserInfo.token == None:
@@ -39,14 +42,14 @@ class App(object):
 
     def close(self):
         Logger.quit()
-        CommandInput.quit()
+        self.commandInput.quit()
         self.network.quit()
 
     def run(self):
         while True:
-            paraList = {}
+            paraList = None
             what = ""
-            what = CommandInput.pop()
+            what = self.commandInput.pop()
             if what != "":
                 paraList = NGParamPaser.parse(re.split("\s*", what))
 

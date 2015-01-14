@@ -28,5 +28,4 @@ def handle(paraList):
 
     for k, v in enumerate(commandMap):
         if paraList[v]:
-            print "handle", v
             return False, commandMap[v](paraList).build()
