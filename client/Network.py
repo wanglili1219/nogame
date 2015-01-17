@@ -13,17 +13,14 @@ import thread
 import traceback
 import time
 
-import DispatchMessage
-
-
 serverHost = '127.0.0.1'    
 serverPort = 8084
 
 class Network(threading.Thread):
-    def __init__(self):
+    def __init__(self, handler):
         super(Network, self).__init__()
-        DispatchMessage.init()
         
+        self.handler = handler
         self.isQuit = False
         self.mutx = threading.Lock()
         self.clientSocket = None
@@ -72,7 +69,8 @@ class Network(threading.Thread):
                         bodypacket = r.recv(bodysize[0])
                         body = struct.unpack_from("%ds"%(bodysize), bodypacket, 0)
                         try:
-                            DispatchMessage.dispatch(body[0])
+                            if self.handler: 
+                                self.handler(body[0])
                         except Exception, e:
                             traceback.print_exc()
                         
@@ -85,3 +83,7 @@ class Network(threading.Thread):
                 self.outputs_set.remove(w)
 
             time.sleep(0.1)
+        
+        if self.clientSocket:
+            self.clientSocket.close()
+            self.clientSocket = None

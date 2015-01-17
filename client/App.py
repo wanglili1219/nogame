@@ -3,6 +3,7 @@
 
 
 import re
+import time
 import UserInfo
 import Logger
 import DictConfig
@@ -14,22 +15,25 @@ from Network import *
 import PBMessage_pb2
 import PBCommand_pb2
 
+import DispatchMessage
+
 class App(object):
     def __init__(self):
         self.isQuit = False
 
-        self.network = Network()
+        self.network = Network(App.network_handle)
         self.network.setDaemon(True)
         self.network.start()
 
         self.commandInput = CommandInput()
         self.commandInput.setDaemon(True)
         self.commandInput.start()
-
-        DictConfig.init()
+        
         Logger.setDaemon(True)
         Logger.start()
 
+        DispatchMessage.init()
+        DictConfig.init()
         UserInfo.load()
 
         if UserInfo.token == None:
@@ -39,6 +43,10 @@ class App(object):
             Logger.i("userId: " + str(UserInfo.id))
             Logger.i("userName: " + UserInfo.name)
             Logger.i("userToken: " + UserInfo.token)
+
+    @staticmethod
+    def network_handle(data):
+        DispatchMessage.dispatch(data)
 
     def close(self):
         Logger.quit()
@@ -61,4 +69,6 @@ class App(object):
 
             if request != None and request != "":
                 self.network.push(request)
+            
+            time.sleep(0.1)
 
