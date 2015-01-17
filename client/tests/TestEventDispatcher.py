@@ -6,14 +6,16 @@ import event
 
 class TestEventHandler(event.BaseEventHandler):
     def handle(self, eventEntry):
-        print "call handle inside TestEventHandler" + eventEntry.getName()
+        print "call handle " + eventEntry.getName()
         
 class TestBeRemoveHandler(event.BaseEventHandler):
     def handle(self, eventEntry):
         assert(False)
 
-class TestEvent(event.BaseEvent):
-    pass
+class HasContextHandler(event.BaseEventHandler):
+    def handle(self, eventEntry):
+        assert(eventEntry.getContext()["fruit"] is "apple")
+        
 
 class TestEventDispatcher(unittest.TestCase):
     def setUp(self):
@@ -25,19 +27,25 @@ class TestEventDispatcher(unittest.TestCase):
 
     def test_dispatch(self):
         self.disp.addEventHandler(TestEventHandler(event.EventDefine.TEST_FIRST_EVENT))
-        self.disp.fire(TestEvent(event.EventDefine.TEST_FIRST_EVENT))
+        self.disp.fire(event.EventDefine.TEST_FIRST_EVENT)
         self.disp.dispatch()
 
     def test_mutiple_dispatch(self):
         self.disp.addEventHandler(TestEventHandler(event.EventDefine.TEST_FIRST_EVENT))
         for i in range(5):
-            self.disp.fire(TestEvent(event.EventDefine.TEST_FIRST_EVENT))
+            self.disp.fire(event.EventDefine.TEST_FIRST_EVENT)
             self.disp.dispatch()
 
     def test_remove_handler(self):
         hdr = TestBeRemoveHandler(event.EventDefine.TEST_FIRST_EVENT)
         self.disp.addEventHandler(hdr)
-        self.disp.fire(TestEvent(event.EventDefine.TEST_FIRST_EVENT))
+        self.disp.fire(event.EventDefine.TEST_FIRST_EVENT)
         self.disp.removeEventHandler(hdr)
+        self.disp.dispatch()
+        
+    def test_context(self):
+        hdr = HasContextHandler(event.EventDefine.TEST_FIRST_EVENT)
+        self.disp.addEventHandler(hdr)
+        self.disp.fire(event.EventDefine.TEST_FIRST_EVENT, {"fruit":"apple"})
         self.disp.dispatch()
         

@@ -5,9 +5,17 @@ import sys
 import pickle
 import Logger 
 import UserInfo
+import event
 
-class UserData:
+class SaveUserInfo(event.BaseEventHandler):
+    def handle(self, entry):
+        print "SaveUserInfo from userData"
+
+class UserData(object):
     data = {} # data owner must be class
+
+    def __init__(self):
+        event.EventDispatcher().addEventHandler(SaveUserInfo(event.EventDefine.USER_INFO_CHANGE))
 
     def __setattr__(self, k, v):
         UserData.data[k] = v

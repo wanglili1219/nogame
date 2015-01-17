@@ -1,10 +1,10 @@
 #!/usr/bin/python env
 #-*-coding utf-8 -*-
 
-class BaseEvent(object):
+class EventEntry(object):
     def __init__(self, name, context = None):
         self.name = name
-        self.context = context == None if [] else context
+        self.context = context
 
     def getName(self):
         return self.name

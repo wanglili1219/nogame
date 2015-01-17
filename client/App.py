@@ -9,7 +9,8 @@ import Logger
 import DictConfig
 import CommandHandler
 from CommandInput import *
-from S2CLogin import *
+import s2c
+import event
 import NGParamPaser
 from Network import *
 import PBMessage_pb2
@@ -54,6 +55,7 @@ class App(object):
         self.network.quit()
 
     def run(self):
+        event.EventDispatcher().fire(event.EventDefine.GAME_START)
         while True:
             paraList = None
             what = ""
@@ -70,5 +72,9 @@ class App(object):
             if request != None and request != "":
                 self.network.push(request)
             
+            event.EventDispatcher().dispatch()
+
             time.sleep(0.1)
+
+        event.EventDispatcher().fire(event.EventDefine.GAME_OVER)
 

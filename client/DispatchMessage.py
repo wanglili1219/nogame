@@ -5,15 +5,10 @@ import UserInfo
 import os
 
 import Logger
-from C2SUserInfo import *
-from S2CUserInfo import *
-from C2SLogin import *
-from S2CLogin import *
-from S2CHeroInfo import *
-from S2CEquipInfo import *
-from S2CPutOnEquip import *
-from S2CPutOffEquip import *
-from S2CSaleHero import *
+import c2s
+from c2s import *
+import s2c
+from s2c import *
     
 HandlerDict = {}
 
@@ -37,7 +32,7 @@ def init():
         for filename in filenames:
             ext = os.path.splitext(filename)[1][1:]
             basename = os.path.splitext(filename)[0]
-            if ext == "py":
+            if ext == "py" and basename.startswith("S2C"):
                 print "insert ", basename
                 HandlerDict[basename] = globals()[basename]
     

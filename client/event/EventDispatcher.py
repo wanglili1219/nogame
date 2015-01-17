@@ -3,55 +3,56 @@
 
 from Singleton import *
 from BaseEventHandler import *
-from BaseEvent import *
+from EventEntry import *
 
 
 class EventDispatcher(Singleton):
-    def __init__(self):
-        self.event_handler = {}
-        self.fire_event = []
-        self.remove_handler = []
+    __event_handler  = {}
+    __fire_event     = []
+    __remove_handler = []
 
     def addEventHandler(self, eventHandler):
         assert(isinstance(eventHandler, BaseEventHandler))
         
         evtname = eventHandler.getHandleEventName()
-        if not self.event_handler.has_key(evtname):
-            self.event_handler[evtname] = []
+        if not self.__event_handler.has_key(evtname):
+            self.__event_handler[evtname] = []
 
-        self.event_handler[evtname].append(eventHandler)
+        self.__event_handler[evtname].append(eventHandler)
 
-    def fire(self, eventEntry):
-        assert(isinstance(eventEntry, BaseEvent))
-        self.fire_event.append(eventEntry)
+    def fire(self, eventName, context = None):
+        assert(isinstance(eventName, basestring))
+        context = {} if context == None else context
+        entry = EventEntry(eventName, context)
+        self.__fire_event.append(entry)
 
     def removeEventHandler(self, handler):
         assert(isinstance(handler, BaseEventHandler))
         evtname = handler.getHandleEventName()
 
-        if not self.event_handler.has_key(evtname):
+        if not self.__event_handler.has_key(evtname):
             return
 
-        self.remove_handler.append(handler)
+        self.__remove_handler.append(handler)
 
     def dispatch(self):
-        for hdr in self.remove_handler:
+        for hdr in self.__remove_handler:
             evtname = hdr.getHandleEventName()
-            if not self.event_handler.has_key(evtname):
+            if not self.__event_handler.has_key(evtname):
                 continue
             
-            self.event_handler[evtname].remove(hdr)
+            self.__event_handler[evtname].remove(hdr)
 
-        del self.remove_handler[:]
+        del self.__remove_handler[:]
 
-        for evtentry in self.fire_event:
+        for evtentry in self.__fire_event:
             evtname = evtentry.getName()
-            if not self.event_handler.has_key(evtname):
+            if not self.__event_handler.has_key(evtname):
                 continue
 
-            for handler in self.event_handler[evtname]:
+            for handler in self.__event_handler[evtname]:
                 handler.handle(evtentry)
         
-        del self.fire_event[:]
+        del self.__fire_event[:]
 
 
