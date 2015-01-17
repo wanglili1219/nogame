@@ -16,7 +16,8 @@ from Network import *
 import PBMessage_pb2
 import PBCommand_pb2
 
-import DispatchMessage
+import MessageDispatcher
+from MessageDispatcher import *
 
 class App(object):
     def __init__(self):
@@ -33,10 +34,8 @@ class App(object):
         Logger.setDaemon(True)
         Logger.start()
 
-        DispatchMessage.init()
-        DictConfig.init()
         UserInfo.load()
-
+        
         if UserInfo.token == None:
             Logger.i("Welcome for your first login.")
         else:
@@ -47,7 +46,7 @@ class App(object):
 
     @staticmethod
     def network_handle(data):
-        DispatchMessage.dispatch(data)
+        MessageDispatcher.dispatch(data)
 
     def close(self):
         Logger.quit()

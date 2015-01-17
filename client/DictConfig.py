@@ -34,7 +34,7 @@ def load_table(file):
 
     return table_map
 
-def init():
+def __init():
     dictpath = os.path.abspath('.') + "/../dict/"
     for parent, dirnames, filenames in os.walk(dictpath): 
         for filename in filenames:
@@ -45,3 +45,5 @@ def init():
                 print("load excel: " + excelpath)
                 t = load_table(excelpath)
                 DictConfig.__dict__[basename.upper()] = t
+
+__init()
