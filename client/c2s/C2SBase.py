@@ -3,6 +3,7 @@
 
 import PBMessage_pb2
 import base
+import App
 
 class C2SBase(object):
     def __init__(self, commandParam):
@@ -16,11 +17,12 @@ class C2SBase(object):
         if not base.UD.id:
             base.UD.id = 0
 
-        if not base.UD.token:
-           base.UD.token = ""
+        if App.App.token == None:
+            App.App.token = ""
 
         md.userId = base.UD.id
-        md.token = base.UD.token
+        print "send base" + App.App.token
+        md.token = App.App.token
         md.msgBytes = msg.SerializeToString()
         return md.SerializeToString()
 

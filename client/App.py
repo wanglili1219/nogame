@@ -14,12 +14,13 @@ import protoc
 class App(object):
     def __init__(self):
         self.isQuit = False
+        App.token = None
 
         base.FilePath.addSearchPath("./")
         base.FilePath.addSearchPath("resources/")
 
         base.CFG.read(base.FilePath.getFile("server.conf"))
-        base.UD.load()
+        base.UserInfo.load()
         
         self.network = Network(App.network_handle)
         self.network.setDaemon(True)
@@ -32,13 +33,10 @@ class App(object):
         Logger.setDaemon(True)
         Logger.start()
 
-        if base.UD.token == None:
-            Logger.i("Welcome for your first login.")
-        else:
-            Logger.i("Welcome come back.")
-            Logger.i("userId: " + str(base.UD.id))
-            Logger.i("userName: " + base.UD.name)
-            Logger.i("userToken: " + base.UD.token)
+        Logger.i("Welcome...")
+        Logger.i("userId: " + str(base.UD.id))
+        Logger.i("userName: " + base.UD.name)
+        Logger.i("userToken: " + base.UD.token)
 
     @staticmethod
     def network_handle(data):

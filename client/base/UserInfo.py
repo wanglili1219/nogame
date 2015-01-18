@@ -17,7 +17,8 @@ class UserInfo(object):
             return None
         return UserInfo.data[k]
 
-    def dump(self):
+    @staticmethod
+    def dump():
         try:
             fp = open("data.pkl", "wb")
             if fp:
@@ -26,7 +27,8 @@ class UserInfo(object):
         except Exception, e:
             print e
 
-    def load(self):
+    @staticmethod
+    def load():
         try:
             fp = open("data.pkl", "rb")
             if fp:
@@ -37,13 +39,12 @@ class UserInfo(object):
 
     @staticmethod
     def updateFromServerData(data):
-        print id(UserInfo)
+        UserInfo.data["id"]    = int(data.userId)
+        UserInfo.data["name"]  = data.userName
+        UserInfo.data["level"] = data.level
+        UserInfo.data["exp"]  = data.exp
+        UserInfo.data["gold"]  = data.gold
+        UserInfo.data["gem"]   = data.gem
         print UserInfo.data
-        UserInfo.data.id    = data.userId
-        UserInfo.data.name  = data.userName
-        UserInfo.data.level = data.level
-        UserInfo.data.exp   = data.exp
-        UserInfo.data.gold  = data.gold
-        UserInfo.data.gem   = data.gem
-        self.dump()
+        UserInfo.dump()
 
