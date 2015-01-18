@@ -15,36 +15,30 @@ class App(object):
     def __init__(self):
         self.isQuit = False
 
-        App.FilePath = FilePath()
-        App.FilePath.addSearchPath("./")
-        App.FilePath.addSearchPath("resources/")
+        base.FilePath.addSearchPath("./")
+        base.FilePath.addSearchPath("resources/")
 
-        App.CFG = ConfigParser.ConfigParser()
-        App.CFG.read(App.FilePath.getFile("server.conf"))
-
-        App.UserInfo = base.UserInfo()
-        App.UserInfo.load()
-        print App.UserInfo.id
-        print "appid", id(App)
-
+        base.CFG.read(base.FilePath.getFile("server.conf"))
+        base.UD.load()
+        
         self.network = Network(App.network_handle)
         self.network.setDaemon(True)
         self.network.start()
 
-        self.commandInput = base.CommandInput()
+        self.commandInput = CommandInput()
         self.commandInput.setDaemon(True)
         self.commandInput.start()
      
-        base.Logger.setDaemon(True)
-        base.Logger.start()
+        Logger.setDaemon(True)
+        Logger.start()
 
-        if App.UserInfo.token == None:
+        if base.UD.token == None:
             Logger.i("Welcome for your first login.")
         else:
             Logger.i("Welcome come back.")
-            Logger.i("userId: " + str(App.UserInfo.id))
-            Logger.i("userName: " + App.UserInfo.name)
-            Logger.i("userToken: " + App.UserInfo.token)
+            Logger.i("userId: " + str(base.UD.id))
+            Logger.i("userName: " + base.UD.name)
+            Logger.i("userToken: " + base.UD.token)
 
     @staticmethod
     def network_handle(data):

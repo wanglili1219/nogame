@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-  
 
 import Util
-import UserInfo 
+import base
 import Logger
 import PBCommand_pb2
 import event
@@ -13,4 +13,4 @@ class S2CUserInfo:
         msg.ParseFromString(respByte)
         ui = msg.userInfo
         Logger.i(str(ui))
-        UserInfo.updateFromServerData(msg.userInfo)
+        base.UserInfo.updateFromServerData(msg.userInfo)

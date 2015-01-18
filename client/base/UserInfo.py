@@ -8,9 +8,6 @@ import Logger
 class UserInfo(object):
     data = {} # data owner must be class
 
-    def __init__(self):
-        self.dataFile = "data.pkl"
-        
     def __setattr__(self, k, v):
         UserInfo.data[k] = v
 
@@ -22,7 +19,7 @@ class UserInfo(object):
 
     def dump(self):
         try:
-            fp = open(self.dataFile, "wb")
+            fp = open("data.pkl", "wb")
             if fp:
                 pickle.dump(UserInfo.data, fp)
                 fp.close()
@@ -31,14 +28,17 @@ class UserInfo(object):
 
     def load(self):
         try:
-            fp = open(self.dataFile, "rb")
+            fp = open("data.pkl", "rb")
             if fp:
                 UserInfo.data = pickle.load(fp)
                 fp.close()
         except Exception, e:
             print e
 
-    def updateFromServerData(self, data):
+    @staticmethod
+    def updateFromServerData(data):
+        print id(UserInfo)
+        print UserInfo.data
         UserInfo.data.id    = data.userId
         UserInfo.data.name  = data.userName
         UserInfo.data.level = data.level
