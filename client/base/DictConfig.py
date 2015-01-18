@@ -1,3 +1,6 @@
+#!/usr/bin/python env
+#-*- coding: utf-8 -*-
+
 import sys
 import os
 import os.path

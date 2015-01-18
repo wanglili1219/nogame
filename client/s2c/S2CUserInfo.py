@@ -13,11 +13,4 @@ class S2CUserInfo:
         msg.ParseFromString(respByte)
         ui = msg.userInfo
         Logger.i(str(ui))
-        UserInfo.id    = ui.userId
-        UserInfo.name  = ui.userName
-        UserInfo.level = ui.level
-        UserInfo.exp   = ui.exp
-        UserInfo.gold  = ui.gold
-        UserInfo.gem   = ui.gem
-        UserInfo.dump()
-        event.EventDispatcher().fire(event.EventDefine.USER_INFO_CHANGE)
+        UserInfo.updateFromServerData(msg.userInfo)

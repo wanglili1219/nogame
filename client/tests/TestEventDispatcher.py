@@ -26,15 +26,20 @@ class TestEventDispatcher(unittest.TestCase):
         pass
 
     def test_dispatch(self):
-        self.disp.addEventHandler(TestEventHandler(event.EventDefine.TEST_FIRST_EVENT))
+        hdr = TestEventHandler(event.EventDefine.TEST_FIRST_EVENT)
+        self.disp.addEventHandler(hdr)
         self.disp.fire(event.EventDefine.TEST_FIRST_EVENT)
         self.disp.dispatch()
+        self.disp.removeEventHandler(hdr)
 
     def test_mutiple_dispatch(self):
-        self.disp.addEventHandler(TestEventHandler(event.EventDefine.TEST_FIRST_EVENT))
+        hdr = TestEventHandler(event.EventDefine.TEST_FIRST_EVENT)
+        self.disp.addEventHandler(hdr)
         for i in range(5):
             self.disp.fire(event.EventDefine.TEST_FIRST_EVENT)
             self.disp.dispatch()
+
+        self.disp.removeEventHandler(hdr)
 
     def test_remove_handler(self):
         hdr = TestBeRemoveHandler(event.EventDefine.TEST_FIRST_EVENT)
@@ -48,4 +53,5 @@ class TestEventDispatcher(unittest.TestCase):
         self.disp.addEventHandler(hdr)
         self.disp.fire(event.EventDefine.TEST_FIRST_EVENT, {"fruit":"apple"})
         self.disp.dispatch()
+        self.disp.removeEventHandler(hdr)
         

@@ -15,7 +15,7 @@ class EventDispatcher(Singleton):
         assert(isinstance(eventHandler, BaseEventHandler))
         
         evtname = eventHandler.getHandleEventName()
-        if not self.__event_handler.has_key(evtname):
+        if not evtname in self.__event_handler:
             self.__event_handler[evtname] = []
 
         self.__event_handler[evtname].append(eventHandler)
@@ -30,7 +30,7 @@ class EventDispatcher(Singleton):
         assert(isinstance(handler, BaseEventHandler))
         evtname = handler.getHandleEventName()
 
-        if not self.__event_handler.has_key(evtname):
+        if not evtname in self.__event_handler:
             return
 
         self.__remove_handler.append(handler)
@@ -38,7 +38,7 @@ class EventDispatcher(Singleton):
     def dispatch(self):
         for hdr in self.__remove_handler:
             evtname = hdr.getHandleEventName()
-            if not self.__event_handler.has_key(evtname):
+            if not evtname in self.__event_handler:
                 continue
             
             self.__event_handler[evtname].remove(hdr)
@@ -47,7 +47,7 @@ class EventDispatcher(Singleton):
 
         for evtentry in self.__fire_event:
             evtname = evtentry.getName()
-            if not self.__event_handler.has_key(evtname):
+            if not evtname in self.__event_handler:
                 continue
 
             for handler in self.__event_handler[evtname]:

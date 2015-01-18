@@ -19,6 +19,9 @@ sys.path.append(apppath + "../common/")
 sys.path.append(apppath + "/protoc/")
 sys.path.append(apppath + "/c2s/")
 sys.path.append(apppath + "/s2c/")
+sys.path.append(apppath + "/resources/")
+sys.path.append(apppath + "/core/")
+sys.path.append(apppath + "/base/")
 
 import App
 

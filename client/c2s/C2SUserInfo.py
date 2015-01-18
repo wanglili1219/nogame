@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-  
 
 from C2SBase import *
-import UserInfo
 import PBCommand_pb2
 
 class C2SUserInfo(C2SBase):
