@@ -17,8 +17,7 @@ class App(object):
         self.isQuit = False
         App.token = None
         
-        logging.basicConfig(level=logging.INFO, format='%(filename)s:%(lineno)d %(levelname)s %(message)s')
-        logging.basicConfig(level=logging.DEBUG)
+        logging.basicConfig(level=logging.DEBUG, format='%(filename)s:%(lineno)d %(levelname)s %(message)s')
         base.FilePath.addSearchPath("./")
         base.FilePath.addSearchPath("resources/")
 
@@ -32,7 +31,6 @@ class App(object):
         self.commandInput.setDaemon(True)
         self.commandInput.start()
      
-        logging.debug("welcome")
         base.UserInfo.load()
         logging.info("Welcome for you come.")
         logging.info("userId: " + str(base.UserInfo.property.id))
