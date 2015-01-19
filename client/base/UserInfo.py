@@ -3,48 +3,53 @@
 
 import sys
 import pickle
-import Logger 
 
-class UserInfo(object):
-    data = {} # data owner must be class
-
+class _Property(object):
     def __setattr__(self, k, v):
-        UserInfo.data[k] = v
+        self.__dict__[k] = v
 
     def __getattr__(self, k):
-        print("__getattr__", k)
-        if not k in UserInfo.data:
+        if not k in self.__dict__:
             return None
-        return UserInfo.data[k]
 
-    @staticmethod
-    def dump():
-        try:
-            fp = open("data.pkl", "wb")
-            if fp:
-                pickle.dump(UserInfo.data, fp)
-                fp.close()
-        except Exception, e:
+        return self.__dict__[k]
+
+
+property = _Property()
+
+def load():
+    global property
+    try:
+        fp = open("data.pkl", "rb")
+        if fp:
+            sd = pickle.load(fp)
+            for k in sd:
+                property.__dict__[k] = sd[k]
+
+            fp.close()
+    except Exception, e:
             print e
 
-    @staticmethod
-    def load():
-        try:
-            fp = open("data.pkl", "rb")
-            if fp:
-                UserInfo.data = pickle.load(fp)
-                fp.close()
-        except Exception, e:
+def dump():
+    global property
+    try:
+        fp = open("data.pkl", "wb")
+        if fp:
+            sd = {}
+            for k in property.__dict__:
+                print k, property.__dict__[k]
+                sd[k] = property.__dict__[k]
+            
+            pickle.dump(sd, fp)
+            fp.close()
+    except Exception, e:
             print e
 
-    @staticmethod
-    def updateFromServerData(data):
-        UserInfo.data["id"]    = int(data.userId)
-        UserInfo.data["name"]  = data.userName
-        UserInfo.data["level"] = data.level
-        UserInfo.data["exp"]  = data.exp
-        UserInfo.data["gold"]  = data.gold
-        UserInfo.data["gem"]   = data.gem
-        print UserInfo.data
-        UserInfo.dump()
-
+def updateFromServerData(data):
+    property.id    = data.userId
+    property.name  = data.userName
+    property.level = data.level
+    property.exp   = data.exp
+    property.gold  = data.gold
+    property.gem   = data.gem
+    dump()

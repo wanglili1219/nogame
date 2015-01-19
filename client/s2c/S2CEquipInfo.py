@@ -8,6 +8,7 @@ class S2CEquipInfo:
     def handle(self, respByte):
         msg = PBCommand_pb2.S2CEquipInfo()
         msg.ParseFromString(respByte)
-        Logger.i("equip info back")
+        print("equip info back")
         for e in msg.equipList:
-            Logger.i(e)
+            #Logger.i(e)
+            print(e)

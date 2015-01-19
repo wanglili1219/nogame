@@ -34,9 +34,9 @@ class App(object):
         Logger.start()
 
         Logger.i("Welcome...")
-        Logger.i("userId: " + str(base.UD.id))
-        Logger.i("userName: " + base.UD.name)
-        Logger.i("userToken: " + base.UD.token)
+        Logger.i("userId: " + str(base.UserInfo.property.id))
+        Logger.i("userName: " + base.UserInfo.property.name)
+        Logger.i("userToken: " + base.UserInfo.property.token)
 
     @staticmethod
     def network_handle(data):

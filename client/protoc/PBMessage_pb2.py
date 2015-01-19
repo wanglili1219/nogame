@@ -13,7 +13,7 @@ from google.protobuf import descriptor_pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='PBMessage.proto',
   package='netty',
-  serialized_pb='\n\x0fPBMessage.proto\x12\x05netty\"q\n\x07MsgDesc\x12\x0f\n\x07msgName\x18\x01 \x02(\t\x12\x10\n\x08msgBytes\x18\x02 \x01(\x0c\x12\x0e\n\x06userId\x18\x03 \x01(\x03\x12\r\n\x05token\x18\x04 \x01(\t\x12\x11\n\terrorCode\x18\x05 \x01(\x05\x12\x11\n\terrorDesc\x18\x06 \x01(\t\"D\n\x06PBHero\x12\x0e\n\x06heroId\x18\x01 \x02(\x03\x12\x0e\n\x06\x64ictId\x18\x02 \x02(\x03\x12\r\n\x05level\x18\x03 \x02(\x05\x12\x0b\n\x03\x65xp\x18\x04 \x02(\x05\"a\n\x06PBUser\x12\x0e\n\x06userId\x18\x01 \x02(\x03\x12\x10\n\x08userName\x18\x02 \x02(\t\x12\r\n\x05level\x18\x03 \x02(\x05\x12\x0b\n\x03\x65xp\x18\x04 \x02(\x05\x12\x0b\n\x03gem\x18\x05 \x02(\x05\x12\x0c\n\x04gold\x18\x06 \x02(\x05\x42%\n\x18\x63om.ease.nogame.protobufB\tPBMessage')
+  serialized_pb='\n\x0fPBMessage.proto\x12\x05netty\"q\n\x07MsgDesc\x12\x0f\n\x07msgName\x18\x01 \x02(\t\x12\x10\n\x08msgBytes\x18\x02 \x01(\x0c\x12\x0e\n\x06userId\x18\x03 \x01(\x03\x12\r\n\x05token\x18\x04 \x01(\t\x12\x11\n\terrorCode\x18\x05 \x01(\x05\x12\x11\n\terrorDesc\x18\x06 \x01(\t\"g\n\x06PBHero\x12\x0e\n\x06heroId\x18\x01 \x02(\x03\x12\x0e\n\x06\x64ictId\x18\x02 \x02(\x05\x12\r\n\x05level\x18\x03 \x02(\x05\x12\x0b\n\x03\x65xp\x18\x04 \x02(\x05\x12!\n\tequipList\x18\x05 \x03(\x0b\x32\x0e.netty.PBEquip\"a\n\x06PBUser\x12\x0e\n\x06userId\x18\x01 \x02(\x03\x12\x10\n\x08userName\x18\x02 \x02(\t\x12\r\n\x05level\x18\x03 \x02(\x05\x12\x0b\n\x03\x65xp\x18\x04 \x02(\x05\x12\x0b\n\x03gem\x18\x05 \x02(\x05\x12\x0c\n\x04gold\x18\x06 \x02(\x05\":\n\x07PBEquip\x12\x0f\n\x07\x65quipId\x18\x01 \x02(\x03\x12\x0e\n\x06\x64ictId\x18\x02 \x02(\x05\x12\x0e\n\x06heroId\x18\x03 \x02(\x03\x42%\n\x18\x63om.ease.nogame.protobufB\tPBMessage')
 
 
 
@@ -97,7 +97,7 @@ _PBHERO = _descriptor.Descriptor(
       options=None),
     _descriptor.FieldDescriptor(
       name='dictId', full_name='netty.PBHero.dictId', index=1,
-      number=2, type=3, cpp_type=2, label=2,
+      number=2, type=5, cpp_type=1, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -116,6 +116,13 @@ _PBHERO = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
+    _descriptor.FieldDescriptor(
+      name='equipList', full_name='netty.PBHero.equipList', index=4,
+      number=5, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
   ],
   extensions=[
   ],
@@ -126,7 +133,7 @@ _PBHERO = _descriptor.Descriptor(
   is_extendable=False,
   extension_ranges=[],
   serialized_start=141,
-  serialized_end=209,
+  serialized_end=244,
 )
 
 
@@ -188,13 +195,57 @@ _PBUSER = _descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=211,
-  serialized_end=308,
+  serialized_start=246,
+  serialized_end=343,
 )
 
+
+_PBEQUIP = _descriptor.Descriptor(
+  name='PBEquip',
+  full_name='netty.PBEquip',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='equipId', full_name='netty.PBEquip.equipId', index=0,
+      number=1, type=3, cpp_type=2, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='dictId', full_name='netty.PBEquip.dictId', index=1,
+      number=2, type=5, cpp_type=1, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='heroId', full_name='netty.PBEquip.heroId', index=2,
+      number=3, type=3, cpp_type=2, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  serialized_start=345,
+  serialized_end=403,
+)
+
+_PBHERO.fields_by_name['equipList'].message_type = _PBEQUIP
 DESCRIPTOR.message_types_by_name['MsgDesc'] = _MSGDESC
 DESCRIPTOR.message_types_by_name['PBHero'] = _PBHERO
 DESCRIPTOR.message_types_by_name['PBUser'] = _PBUSER
+DESCRIPTOR.message_types_by_name['PBEquip'] = _PBEQUIP
 
 class MsgDesc(_message.Message):
   __metaclass__ = _reflection.GeneratedProtocolMessageType
@@ -213,6 +264,12 @@ class PBUser(_message.Message):
   DESCRIPTOR = _PBUSER
 
   # @@protoc_insertion_point(class_scope:netty.PBUser)
+
+class PBEquip(_message.Message):
+  __metaclass__ = _reflection.GeneratedProtocolMessageType
+  DESCRIPTOR = _PBEQUIP
+
+  # @@protoc_insertion_point(class_scope:netty.PBEquip)
 
 
 DESCRIPTOR.has_options = True

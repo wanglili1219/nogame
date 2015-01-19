@@ -13,15 +13,13 @@ class C2SBase(object):
         md = PBMessage_pb2.MsgDesc()
         md.msgName = msg.__class__.__name__
 
-        print "UserInfo", id(base.UserInfo)
-        if not base.UD.id:
-            base.UD.id = 0
+        if not base.UserInfo.property.id:
+            base.UserInfo.property.id = 0
 
         if App.App.token == None:
             App.App.token = ""
 
-        md.userId = base.UD.id
-        print "send base" + App.App.token
+        md.userId = base.UserInfo.property.id
         md.token = App.App.token
         md.msgBytes = msg.SerializeToString()
         return md.SerializeToString()
