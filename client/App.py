@@ -10,17 +10,19 @@ from base import *
 import s2c
 import event
 import protoc
+import logging
 
 class App(object):
     def __init__(self):
         self.isQuit = False
         App.token = None
-
+        
+        logging.basicConfig(level=logging.INFO, format='%(filename)s:%(lineno)d %(levelname)s %(message)s')
+        logging.basicConfig(level=logging.DEBUG)
         base.FilePath.addSearchPath("./")
         base.FilePath.addSearchPath("resources/")
 
         base.CFG.read(base.FilePath.getFile("server.conf"))
-        base.UserInfo.load()
         
         self.network = Network(App.network_handle)
         self.network.setDaemon(True)
@@ -30,20 +32,18 @@ class App(object):
         self.commandInput.setDaemon(True)
         self.commandInput.start()
      
-        Logger.setDaemon(True)
-        Logger.start()
-
-        Logger.i("Welcome...")
-        Logger.i("userId: " + str(base.UserInfo.property.id))
-        Logger.i("userName: " + base.UserInfo.property.name)
-        Logger.i("userToken: " + base.UserInfo.property.token)
+        logging.debug("welcome")
+        base.UserInfo.load()
+        logging.info("Welcome for you come.")
+        logging.info("userId: " + str(base.UserInfo.property.id))
+        logging.info("userName: " + base.UserInfo.property.name)
+        logging.info("userToken: " + base.UserInfo.property.token)
 
     @staticmethod
     def network_handle(data):
         MessageDispatcher.dispatch(data)
 
     def close(self):
-        Logger.quit()
         self.commandInput.quit()
         self.network.quit()
 
@@ -71,4 +71,3 @@ class App(object):
 
         event.EventDispatcher().fire(event.EventDefine.GAME_OVER)
 
-print("local app")

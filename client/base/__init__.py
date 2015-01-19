@@ -4,7 +4,6 @@ from  CommandHandler import *
 from  CommandInput import *
 from  DictConfig import *
 from  FilePath import *
-from  Logger import *
 from  MessageDispatcher import *
 from  NGParamPaser import *
 from  Network import *

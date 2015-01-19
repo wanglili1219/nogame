@@ -2,7 +2,7 @@
 
 from Util import *
 import base
-import Logger
+import logging
 import PBCommand_pb2
 import event
 import App
@@ -12,7 +12,6 @@ class S2CLogin:
         msg = PBCommand_pb2.S2CLogin()
         msg.ParseFromString(respByte)
         App.App.token = msg.token
-        print "app token", App.App.token
         base.UserInfo.updateFromServerData(msg.userInfo)
         
 

@@ -12,15 +12,14 @@ NGParamPaser.py putoff <heroId> <equipId>
 NGParamPaser.py salehero <heroId>
 """
 import sys 
-import Logger
 from docopt import docopt, DocoptExit
 
 def parse(para):
     try:
         a = docopt(__doc__, argv=para)
     except DocoptExit as e:
-        Logger.e("Invalid command!")
-        Logger.e(str(e))
+        logging.error("Invalid command!")
+        logging.error(str(e))
         return {}
 
     except SystemExit:

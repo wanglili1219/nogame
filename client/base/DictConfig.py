@@ -19,7 +19,7 @@ def open_excel(file):
           data = xlrd.open_workbook(file)
           return data
     except Exception,e:
-          print str(e)
+        print(e)
 
 def load_table(file):
     data = open_excel(file)

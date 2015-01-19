@@ -2,7 +2,7 @@
 
 cur_dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/
 PROTOC_DIR=${cur_dir}../protoc/
-PYTON_DIR=${cur_dir}../client/
+PYTON_DIR=${cur_dir}../client/protoc/
 JAVA_DIR=${cur_dir}../server/src/main/java/
 
 echo ""

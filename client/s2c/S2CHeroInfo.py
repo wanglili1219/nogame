@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from Util import *
-import Logger
+import logging
 import PBCommand_pb2
 
 class S2CHeroInfo:
@@ -9,4 +9,4 @@ class S2CHeroInfo:
         msg = PBCommand_pb2.S2CHeroInfo()
         msg.ParseFromString(respByte)
         for h in msg.heroList:
-            Logger.i(h)
+            logging.info(h)

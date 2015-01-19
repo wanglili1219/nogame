@@ -10,7 +10,6 @@ class FilePath(object):
         self.searchPath = []
 
     def addSearchPath(self, path):
-        print "addSearchPath " + path
         if path[0] == '/':
             if not os.path.exists(path):
                 raise Exception(path + " not exist")
@@ -19,8 +18,6 @@ class FilePath(object):
             p = self.pwd + "/" + path
             if not os.path.exists(p):
                 raise Exception(p + " not exist")
-                
-            print "append path " + p
             self.searchPath.append(p)
     
     def getFile(self, fileName):
@@ -29,7 +26,6 @@ class FilePath(object):
 
         for p in self.searchPath:
             path = p + fileName
-            print "iter :" + path
             if os.path.exists(path):
                 return path
                 

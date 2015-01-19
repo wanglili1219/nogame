@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from Util import *
-import Logger
+import logging
 import PBCommand_pb2
 from S2CBase import *
 
@@ -10,5 +10,5 @@ class S2CSaleHero(S2CBase):
     def handle(self, respByte):
         msg = PBCommand_pb2.S2CSaleHero()
         msg.ParseFromString(respByte)
-        Logger.i(str(msg.heroId))
-        Logger.i(str(msg.saleGold))
+        logging.info(str(msg.heroId))
+        logging.info(str(msg.saleGold))

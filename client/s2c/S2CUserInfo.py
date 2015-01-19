@@ -3,7 +3,7 @@
 
 import Util
 import base
-import Logger
+import logging
 import PBCommand_pb2
 import event
 
@@ -12,5 +12,5 @@ class S2CUserInfo:
         msg = PBCommand_pb2.S2CUserInfo()
         msg.ParseFromString(respByte)
         ui = msg.userInfo
-        Logger.i(str(ui))
+        logging.info(str(ui))
         base.UserInfo.updateFromServerData(msg.userInfo)

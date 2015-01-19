@@ -4,7 +4,6 @@
 import os
 import sys
 
-import Logger
 import c2s
 from c2s import *
 import s2c
@@ -19,14 +18,13 @@ def __init():
             ext = os.path.splitext(filename)[1][1:]
             basename = os.path.splitext(filename)[0]
             if ext == "py" and basename.startswith("S2C"):
-                print "insert ", basename
                 HandlerDict[basename] = globals()[basename]
 
 def dispatch(respByte):
     md = PBMessage_pb2.MsgDesc()
     md.ParseFromString(respByte)
     if md.errorCode != 0:
-        Logger.e("respone error code " + str(md.errorCode) + "," + md.errorDesc)
+        logging.error("respone error code " + str(md.errorCode) + "," + md.errorDesc)
         return
 
     if not HandlerDict.has_key(md.msgName):

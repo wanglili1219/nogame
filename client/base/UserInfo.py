@@ -28,7 +28,7 @@ def load():
 
             fp.close()
     except Exception, e:
-            print e
+            logging.error(e)
 
 def dump():
     global property
@@ -37,13 +37,12 @@ def dump():
         if fp:
             sd = {}
             for k in property.__dict__:
-                print k, property.__dict__[k]
                 sd[k] = property.__dict__[k]
             
             pickle.dump(sd, fp)
             fp.close()
     except Exception, e:
-            print e
+            logging.error(e)
 
 def updateFromServerData(data):
     property.id    = data.userId

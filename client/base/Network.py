@@ -31,7 +31,7 @@ class Network(threading.Thread):
             self.clientSocket = socket .socket(socket.AF_INET, socket.SOCK_STREAM)
             self.clientSocket.connect((serverHost, serverPort))
         except socket.error, msg:
-            print 'Failed to create socket. Error code: ' + str(msg[0]) + ' , Error message : ' + msg[1]
+            logging.error('Failed to create socket. Error code: ' + str(msg[0]) + ' , Error message : ' + msg[1])
             sys.exit();
 
     def quit(self):
@@ -63,7 +63,7 @@ class Network(threading.Thread):
                 headpacket = r.recv(headsize)
                 if headpacket:
                     if len(headpacket) == 0:
-                        Logger.i("server break connect.")
+                        logging.info("server break connect.")
                     else:
                         bodysize = struct.unpack_from(">i", headpacket, 0)
                         bodypacket = r.recv(bodysize[0])

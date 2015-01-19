@@ -3,7 +3,7 @@
 
 from C2SBase import *
 import PBCommand_pb2
-import Logger
+import logging
 
 class C2SPutOffEquip(C2SBase):
     def __init__(self, commandParam):
