@@ -12,6 +12,7 @@ class S2CLogin:
         msg = PBCommand_pb2.S2CLogin()
         msg.ParseFromString(respByte)
         App.App.token = msg.token
+        logging.info("login success, token " + App.App.token)
         base.UserInfo.updateFromServerData(msg.userInfo)
         
 

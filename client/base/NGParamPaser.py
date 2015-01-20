@@ -12,6 +12,7 @@ NGParamPaser.py putoff <heroId> <equipId>
 NGParamPaser.py salehero <heroId>
 """
 import sys 
+import logging
 from docopt import docopt, DocoptExit
 
 def parse(para):

@@ -6,7 +6,6 @@ import os
 import os.path
 from xdrlib import *
 import xlrd
-import DictConfig
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -37,7 +36,7 @@ def load_table(file):
 
     return table_map
 
-def __init():
+def init(module):
     dictpath = os.path.abspath('.') + "/../dict/"
     for parent, dirnames, filenames in os.walk(dictpath): 
         for filename in filenames:
@@ -47,6 +46,6 @@ def __init():
                 excelpath = os.path.join(parent,filename)
                 print("load excel: " + excelpath)
                 t = load_table(excelpath)
-                DictConfig.__dict__[basename.upper()] = t
+                module.__dict__[basename.upper()] = t
 
-__init()
+

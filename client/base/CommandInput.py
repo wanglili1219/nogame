@@ -6,21 +6,19 @@ import thread
 import sys
 import time
 import select
+import Queue
 
 class CommandInput(threading.Thread):
     def __init__(self):
         self.isQuit = False
         super(CommandInput, self).__init__()
-        self.mutx = threading.Lock()
-        self.msgQueue = []
+        self.msgQueue = Queue.Queue()
 
     def pop(self):
-        if self.mutx.acquire(1):
             msg = ""
-            if self.msgQueue:
-                msg = self.msgQueue.pop(0)
+            if not self.msgQueue.empty():
+                msg = self.msgQueue.get()
 
-            self.mutx.release()
             return msg
 
     def quit(self):
@@ -31,9 +29,7 @@ class CommandInput(threading.Thread):
             if select.select([sys.stdin], [], [], 0) == ([sys.stdin], [], []):
                 c = sys.stdin.readline()
                 c = c.replace("\n", "")
-                if self.mutx.acquire(1):
-                    self.msgQueue.append(c)
-                    self.mutx.release()
+                self.msgQueue.put(c)
                     
             time.sleep(0.1)
             

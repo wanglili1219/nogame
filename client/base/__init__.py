@@ -12,3 +12,4 @@ from  Util import *
 
 CFG = ConfigParser.ConfigParser()
 FilePath = FilePath()
+DictConfig.init(DictConfig)

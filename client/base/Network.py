@@ -12,6 +12,8 @@ import threading
 import thread
 import traceback
 import time
+import logging
+import Queue
 
 serverHost = '127.0.0.1'    
 serverPort = 8084
@@ -22,9 +24,8 @@ class Network(threading.Thread):
         
         self.handler = handler
         self.isQuit = False
-        self.mutx = threading.Lock()
         self.clientSocket = None
-        self.msgQueue = []
+        self.msgQueue = Queue.Queue()
         self.outputs_set = []
 
         try:
@@ -45,11 +46,9 @@ class Network(threading.Thread):
             self.start()
 
     def push(self, msg):
-        self.mutx.acquire()
-        self.msgQueue.append(msg)
+        self.msgQueue.put(msg)
         if not self.clientSocket in self.outputs_set:
             self.outputs_set.append(self.clientSocket)
-        self.mutx.release()
 
     def run(self):
         while not self.isQuit:
@@ -75,11 +74,10 @@ class Network(threading.Thread):
                             traceback.print_exc()
                         
             for w in writable:
-                if self.mutx.acquire(1):
-                    for m in self.msgQueue:
-                        buf = self.__package_message(m)
-                        w.send(buf)
-                    self.mutx.release()
+                while not self.msgQueue.empty():
+                    buf = self.__package_message(self.msgQueue.get())
+                    w.send(buf)
+                    
                 self.outputs_set.remove(w)
 
             time.sleep(0.1)

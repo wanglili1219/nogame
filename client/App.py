@@ -17,7 +17,7 @@ class App(object):
         self.isQuit = False
         App.token = None
         
-        logging.basicConfig(level=logging.DEBUG, format='%(filename)s:%(lineno)d %(levelname)s %(message)s')
+        logging.basicConfig(level=logging.DEBUG, format='[%(filename)s:%(lineno)d] *%(levelname)s* %(message)s')
         base.FilePath.addSearchPath("./")
         base.FilePath.addSearchPath("resources/")
 
