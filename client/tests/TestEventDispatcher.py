@@ -54,4 +54,4 @@ class TestEventDispatcher(unittest.TestCase):
         self.disp.fire(event.EventDefine.TEST_FIRST_EVENT, {"fruit":"apple"})
         self.disp.dispatch()
         self.disp.removeEventHandler(hdr)
-        
+

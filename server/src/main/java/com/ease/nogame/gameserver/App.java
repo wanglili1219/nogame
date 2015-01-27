@@ -16,6 +16,7 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.transform.Transformers;
 
+import redis.clients.jedis.Jedis;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -30,6 +31,7 @@ import io.netty.handler.codec.protobuf.ProtobufDecoder;
 import io.netty.handler.codec.protobuf.ProtobufEncoder;
 
 import com.ease.nogame.protobuf.PBMessage;
+import com.ease.nogame.util.JedisUtil;
 
 public class App 
 {
@@ -61,7 +63,7 @@ public class App
 		      System.out.println("started and listen on " + f.channel().localAddress());
 		      f.channel().closeFuture().sync();
 		    } catch (Exception e) {
-		      e.printStackTrace();
+		    		e.printStackTrace();
 		    } finally {
 		      group.shutdownGracefully().sync();
 		    }
@@ -71,7 +73,9 @@ public class App
     public static void main( String[] args )
     {
     	try{
+    			Configure.init();
 			MessageDispatcher.init();
+			JedisUtil.init();
 			GameServer es = new GameServer();
 			es.start();
 		} catch (InterruptedException e) {

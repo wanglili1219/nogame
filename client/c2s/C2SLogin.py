@@ -6,6 +6,7 @@ import Util
 import PBCommand_pb2
 
 class C2SLogin(C2SBase):
+
     def build(self):
         msg = PBCommand_pb2.C2SLogin()
         msg.userName = Util.gen_user_name()

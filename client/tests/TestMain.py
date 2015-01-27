@@ -8,7 +8,7 @@ import unittest
 apppath = os.getcwd()
 sys.path.append(apppath + "/../")
 
-from TestEventDispatcher import *
+from testEventDispatcher import *
 
 
 if __name__ == "__main__":

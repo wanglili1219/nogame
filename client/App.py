@@ -39,7 +39,7 @@ class App(object):
 
     @staticmethod
     def network_handle(data):
-        MessageDispatcher.dispatch(data)
+        MessageDispatcher.push(data)
 
     def close(self):
         self.commandInput.quit()
@@ -48,24 +48,27 @@ class App(object):
     def run(self):
         event.EventDispatcher().fire(event.EventDefine.GAME_START)
         while True:
-            paraList = None
-            what = ""
-            what = self.commandInput.pop()
-            if what != "":
-                paraList = NGParamPaser.parse(re.split("\s*", what))
+            try:
+                paraList = None
+                what = ""
+                what = self.commandInput.pop()
+                if what != "":
+                    paraList = NGParamPaser.parse(re.split("\s*", what))
 
-            request = None
-            self.isQuit, request = CommandHandler.handle(paraList)
-            if self.isQuit:
-                self.close()
-                break
-
-            if request != None and request != "":
-                self.network.push(request)
-            
-            event.EventDispatcher().dispatch()
-
-            time.sleep(0.1)
+                request = None
+                self.isQuit, request = CommandHandler.handle(paraList)
+                if self.isQuit:
+                    self.close()
+                    break
+                
+                if request != None and request != "":
+                    self.network.push(request)
+        
+                MessageDispatcher.dispatch()
+                event.EventDispatcher().dispatch()
+                time.sleep(0.1)
+            except Exception, e:
+                logging.error(str(e))
 
         event.EventDispatcher().fire(event.EventDefine.GAME_OVER)
 

@@ -4,11 +4,22 @@
 import PBMessage_pb2
 import base
 import App
+import logging
 
 class C2SBase(object):
     def __init__(self, commandParam):
-        pass
+        self.commandParam = commandParam
 
+    @staticmethod
+    def check_login(func):
+        def wrap(self):
+            if App.App.token == None and self.commandParam["login"] == False:
+                raise Exception("No login.")
+
+            r = func(self)
+            return r
+        return wrap
+    
     def wrapMsgDesc(self, msg):
         md = PBMessage_pb2.MsgDesc()
         md.msgName = msg.__class__.__name__
